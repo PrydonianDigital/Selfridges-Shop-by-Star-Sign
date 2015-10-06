@@ -1,0 +1,824 @@
+<script src="jquery.min.js"></script>
+<style type="text/css">
+/* Drupal article page overwrites */
+a, a:hover, a:active, a:visited, a:link {text-decoration:none !important;}
+.whats-on .article-detail-page .panel-2col-article .enter-wrapper {width:100%; max-width:100% !important;}
+div.pane-node-created, .whats-on .breadcrumb, h1 {display: none;}
+.container {padding:0 !important; width:100%;}
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {padding:0 !important;}
+.view-latest-articles-widget {max-width:1080px; display:block; margin:0 auto; background:#fff;}
+.pane-addthis-addthis-block {max-width:1080px; width:100%; display:block; clear:both; margin:0 auto; background:#fff;}
+.AvalonExtraLight {font-family:'avalonregular' !important; font-size:1.8rem !important; line-height:1.9rem !important;}
+.whats-on .footer {padding-top:0;}
+.whats-on .article-detail-page .panel-2col-article .center-wrapper .pane-node-body {margin-bottom:0; padding-bottom:0;}
+.inside {background:#fff;}
+/* Drupal article page overwrites */
+@font-face {
+  font-family: 'Archer';
+  src: url(''); /* IE9 Compat Modes */
+  src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	   url('images/Archer-Medium-Pro.woff2') format('woff2'), /* Super Modern Browsers */
+	   url('images/Archer-Medium-Pro.woff') format('woff'), /* Pretty Modern Browsers */
+	   url('images/Archer-Medium-Pro.ttf')  format('truetype'), /* Safari, Android, iOS */
+	   url('') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'Futura';
+  src: url(''); /* IE9 Compat Modes */
+  src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	   url('images/FuturaBQ-Medium.woff2') format('woff2'), /* Super Modern Browsers */
+	   url('images/FuturaBQ-Medium.woff') format('woff'), /* Pretty Modern Browsers */
+	   url('images/FuturaBQ-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
+	   url('') format('svg'); /* Legacy iOS */
+}
+#starfield {
+	width: 100%;
+	height: 100%;
+	min-height: 800px;
+	margin: 0 auto;
+	position: relative;
+	background: #000;
+}
+#starfield canvas {
+	position: absolute;
+	z-index: 10;
+	top: 0;
+}
+#loading {
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -60px 0 0 -60px;
+	z-index: 50;
+	display: none;
+}
+.contain {
+	width: 100%;
+	max-width: 620px;
+	margin: 0 auto !important;
+}
+.contain img {
+	width: 100%;
+	height: auto;
+}
+#mainTitle, #mainLogo {
+	width: 100%;
+	max-width: 620px;
+	height: auto;
+	display: none;
+}
+#title img, #splash img {
+	width: 100%;
+	height: auto;
+}
+.slides {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	z-index: 20;
+	overflow: hidden;
+}
+#content {
+	width: 100%;
+	max-width : 960px;
+	height: 100%;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	margin-left: -480px;
+	z-index: 30;
+	-webkit-transition: top 1s linear;
+	transition: top 1s linear;
+	font-family: 'Archer';
+	font-size: 18px;
+	font-weight: normal;
+	letter-spacing: 0.04em;
+	color: #E2E1B7;
+	text-align: center;
+	line-height: 1.4em;
+}
+#signsContainer {
+	width: 100%;
+	position: absolute;
+}
+#content .introSlide {
+	width: 100%;
+	max-width : 960px;
+	height: 100%;
+	position: absolute;
+	left: 50%;
+	top: 100%;
+	margin-left: -480px;
+	z-index: 30;
+	-webkit-transition: top 1s linear;
+	transition: top 1s linear;
+	font-family: 'Archer';
+	font-size: 18px;
+	font-weight: normal;
+	letter-spacing: 0.04em;
+	color: #E2E1B7;
+	text-align: center;
+	line-height: 1.4em;
+}
+.signSlide {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background-size: cover !important;
+}
+.signSlide p {
+	font-family: 'Archer';
+	font-size: 22px;
+	font-weight: normal;
+	letter-spacing: 0.04em;
+	color: #E2E1B7;
+	text-align: center;
+	line-height: 1.4em;
+	max-width: 960px;
+	margin: 16px auto;
+	text-shadow: 2px 2px 1px rgba(0,0,0,0.8);
+}
+.slides .background {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	z-index: 5;
+	opacity: 0.3;
+	-webkit-transition: opacity 1s linear;
+	transition: opacity 1s linear;
+}
+.bg2 {
+	opacity: 0.8;
+}
+.next {
+	width: 130px;
+	height: 130px;
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	margin-left: -65px;
+	opacity: 0.3;
+	z-index: 30;
+	-webkit-transition: opacity 1s linear;
+	transition: opacity 1s linear;
+}
+.next:hover {
+	opacity: 1;
+}
+.selectors {
+	text-align: center;
+}
+a#female, a#male {
+	display: inline-block;
+	width: 211px;
+	height: 66px;
+	margin: 10px 40px;
+	background-position: center bottom !important;
+}
+a#female:hover, a#male:hover, a#female.active, a#male.active {
+	background-position: center top !important;
+}
+#signContainer img {
+	width: 160px;
+	height: auto;
+	opacity: 0;
+}
+.signTitle {
+	width: 100%;
+	max-width: 250px;
+	margin: 0 auto;
+	padding: 50px 0;
+}
+.signTitle img, .signImage img, .signImageColour img {
+	width: 100%;
+	height: auto;
+}
+.signImage {
+	width: 100%;
+	max-width: 460px;
+	margin: 0 auto;
+}
+.glow {
+	border-radius: 50%;
+	box-shadow: 0 0 100px rgba(247,245,188, 1);
+}
+.signImageColour {
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+}
+.signImageBody {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	position: absolute;
+	z-index: 10;
+	top: 0;
+	background-repeat: no-repeat !important;
+	background-position: center 150px !important;
+	background-size: 10% !important;
+}
+#planet {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+}
+#planet canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.horoscope {
+	position: relative;
+	width: 100%;
+	top: 170px;
+	z-index: 20;
+}
+#slideNav {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	z-index: 60;
+	margin-top: -77px;
+}
+#slideNav .slideNav {
+	width: 10px;
+	height: 10px;
+	margin: 0 0 10px 0;
+	border: 2px solid #fff;
+	border-radius: 20px;
+	display: block;
+}
+#slideNav .slideNav.active {
+	background: #fff;
+}
+#info {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	cursor: pointer;
+	z-index: 70;
+}
+.largerTxt {
+	font-size: 32px;
+	font-style: italic;
+}
+</style>
+
+<div id="starfield">
+	<div id="loading"><img src="images/gears.svg"></div>
+	<div class="slides">
+		<section id="content"></section>
+	</div>
+</div>
+
+<script src="three.js"></script>
+<script src="threex.atmospheredatgui.js"></script>
+<script src="threex.atmospherematerial.js"></script>
+<script src="threex.planets.js"></script>
+<script>
+
+jQuery(function($) {
+	starField();
+	slides();
+	if(localStorage.getItem('starsigngender') && localStorage.getItem('starsign')) {
+
+	}
+});
+
+var sbssJson = 'sbss.js',
+	female = 'female.js',
+	male = 'male.js';
+
+function slides() {
+	$('#loading').show();
+	$.getJSON(sbssJson, function(data) {
+		var slide = '';
+		$.each(data.slides, function (i, a) {
+			slide += '<section class="introSlide" data-state="'+a.name+'" data-background="images/sbss_bg.jpg" id="slide'+a.ids+'">';
+			slide += '<div class="contain">';
+			slide += '<img src="'+a.header+'" class="'+a.headerId+'">';
+			if(exists(a.image)) {
+				slide += '<img src="'+a.image+'" class="'+a.imageId+'">';
+			}
+			if(exists(a.text)) {
+				slide += '<p>'+a.text+'</p>';
+			}
+			slide += '</div>';
+			slide += '</section>';
+			$('#content').html(slide);
+			$('#content section:first').css('top' ,'0');
+			$('#content section:first').delay(6000).animate({
+				top: '-'+sHeight+'px',
+				'opacity': 0
+			},500, 'linear', function(){
+				$('#content section:nth-child(2)').animate({
+					top: '0'
+				},500);
+				var gender = '<div class="selectors">';
+				$.each(data.gender, function(i,a) {
+					gender += '<a href="#" id="'+a.name+'" style="background: url(images/sbss_tab_'+a.name+'.png);"></a>';
+				});
+				gender += '</div><div id="signContainer"></div>';
+				$('#content section:nth-child(2)').append(gender);
+				$('.selectors').on('click', 'a', function(e){
+					e.preventDefault();
+					$('.selectors a').removeClass('active');
+					$(this).addClass('active');
+					var genderId = $(this).attr('id');
+					starsigns(genderId)
+				});
+				setTimeout(function () {
+					$('a#female').trigger('click');
+				},1500);
+			});
+			var sWidth = $('.slides').width(),
+				sHeight = $('.slides').height();
+		});
+		$('#content').after('<div class="background bg1" style="background: url('+data.slides[1].bg+');background-size: 150%;"></div>');
+		$('#loading').hide();
+	});
+}
+
+function starsigns(genderId) {
+	$.getJSON(genderId+'.js', function(data) {
+		var sign = '';
+		$.each(data.starsigns, function(i,a) {
+			sign += '<a href="#" id="'+a.name+'"data-gender="'+genderId+'" data-sign="'+a.id+'"><img src="images/signs/sbss_icon_'+a.name+'.png" /></a>';
+		});
+		$('#signContainer').html(sign);
+		$('#signContainer img').each(function(i) {
+			$(this).delay((i++) * 500).fadeTo(1000, 1);
+		})
+	});
+	$('#signContainer').on('click', 'a', function(e){
+		e.preventDefault();
+		var genderType = $(this).data('gender'),
+			sign = $(this).data('sign');
+		signType(genderType, sign)
+	});
+}
+
+function signType(genderType, sign) {
+	$('#loading').show();
+	var signId = sign,
+		genderId = genderType;
+	console.log(signId)
+	localStorage.setItem('starsigngender', genderId);
+	localStorage.setItem('starsign', signId);
+	$.getJSON(genderId+'.js', function(data) {
+
+		//slide1 main
+		var slide = '<section class="signSlide" id="'+data.starsigns[signId].name+'1" data-background="">'+
+		'<div class="signTitle"><img src="images/signs/sbss_title_'+data.starsigns[signId].name+'.png"></div>'+
+		'<div class="signImage"><img src="images/constellations/'+data.starsigns[signId].name+'.png"></div>'+
+		'<p>'+data.starsigns[signId].slides[0].signText+'</p>'+
+		'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[1].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="130" height="130" /></a></div>'+
+		'</section>';
+
+		//slide2 horoscope
+			slide += '<section class="signSlide" id="'+data.starsigns[signId].name+'2" data-background="">'+
+			'<div class="signTitle"><img src="images/signs/sbss_title_'+data.starsigns[signId].name+'.png"></div>'+
+			'<p><iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/'+data.starsigns[signId].slides[1].embed+'&amp;color=ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false"></iframe></p>'+
+			'<p>'+data.starsigns[signId].slides[1].horoscope+'</p>'+
+			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[2].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="130" height="130" /></a></div>'+
+			'</section>';
+
+		//slide3 icon
+			slide += '<section class="signSlide" id="'+data.starsigns[signId].name+'3" data-background="">'+
+			'<div class="signTitle"><img src="images/signs/sbss_style_title_'+data.starsigns[signId].slides[2].iconTitle+'.png"></div>'+
+			'<div class="signImage glow"><img src="images/signs/sbss_style_icon_'+data.starsigns[signId].slides[2].icon+'.png"></div>'+
+			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[3].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="130" height="130" /></a></div>'+
+			'</section>';
+
+		//slide4 planet
+			slide += '<section class="signSlide" id="'+data.starsigns[signId].name+'4" data-background="">'+
+			'<div class="signTitle"><img src="images/signs/sbss_planet_title_'+data.starsigns[signId].slides[3].planetTitle+'.png"></div>'+
+			'<div id="planet"></div>'+
+			'<p class="horoscope">'+data.starsigns[signId].slides[3].planetText+'</p>'+
+			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[4].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="130" height="130" /></a></div>'+
+			'</section>';
+
+		//slide5 colour
+			slide += '<section class="signSlide bg" id="'+data.starsigns[signId].name+'5" style="background: url(images/signs/sbss_colour_'+data.starsigns[signId].slides[4].colour+'.png)">'+
+			'<div class="signTitle"><img src="images/signs/sbss_colour_title_'+data.starsigns[signId].slides[4].colourTitle+'.png"></div>'+
+			'<div class="signImageColour"><img src="images/signs/sbss_colour_text_'+data.starsigns[signId].slides[4].colourText+'.png"></div>'+
+			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[5].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="130" height="130" /></a></div>'+
+			'</section>';
+
+		//slide6 body
+			slide += '<section class="signSlide bg" id="'+data.starsigns[signId].name+'6" style="background: url(images/signs/sbss_colour_'+data.starsigns[signId].slides[4].colour+'.png)">'+
+			'<div class="signTitle"><img src="images/signs/sbss_body_title_'+data.starsigns[signId].slides[5].bodyTitle+'.png"></div>'+
+			'<div class="signImageBody" style="background: url(images/signs/sbss_body_image_'+data.starsigns[signId].slides[5].bodyImage+'.png);"></div>'+
+			'<p class="horoscope">'+data.starsigns[signId].slides[5].bodyText+'</p>'+
+			'</section>';
+
+		var slideNav = '<div id="slideNav"></div>',
+			slideNavItem = '';
+		$.each(data.starsigns[signId].slides, function(i,a) {
+			slideNavItem += '<span id="'+a.name+''+a.id+'" class="slideNav"></span>';
+		});
+		$('.slides').append('<img src="images/info.png" id="info" />')
+		$('.background').css('opacity', '0.3');
+		$('#slide1, #slide2').fadeOut();
+		$('.slides').append('<div id="signsContainer"></div>');
+		$('#signsContainer').append(slide);
+		var cHeight = $('#content').height();
+		$('.signSlide').each(function(){
+			$(this).attr('data-top', $(this).position().top ).css('height', cHeight+'px');
+		});
+		$('#loading').hide();
+		var planetType = data.starsigns[signId].slides[3].planet;
+		planet(planetType);
+		$('.slides').append(slideNav);
+		$('#slideNav').html(slideNavItem);
+		$('.slideNav:first').addClass('active');
+		var slidePos = $('#signsContainer').position();
+		$('.slideNav, .next a').on('click', function(e){
+			e.preventDefault();
+			var slideNo = $(this).attr('id'),
+				slidePos = $('section#'+slideNo).attr('data-top');
+			$('#signsContainer').animate({
+				'top': '-'+slidePos
+			},500);
+			$('.slideNav').removeClass('active');
+			$('.slideNav#'+slideNo).addClass('active');
+		});
+		$('#info').on('click', function(){
+			$('#signsContainer, #slideNav, #info').remove();
+			$('.background').css('opacity', '0.3');
+			$('#slide2').fadeIn();
+			$('.bg2').fadeOut().remove();
+			$('.bg1').fadeIn();
+		});
+		$(".signSlide").swipe( {
+			swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+			if(direction == 'up'){
+				var currentSlide = $(this).attr('id'),
+					slidePos = $('section#'+currentSlide).next().attr('data-top');
+				$('#signsContainer').animate({
+					'top': '-'+slidePos
+				},500);
+				$('.slideNav').removeClass('active');
+				$('.slideNav#'+currentSlide).next().addClass('active');
+				if($('.signSlide#'+currentSlide).attr('data-background') != '') {
+					var newBg = $('.signSlide#'+currentSlide).attr('data-background');
+					$('#content').after('<div class="background bg2" style="background: url('+newBg+'); background-size: 100%; opacity: 0.7;">').fadeIn();
+					$('.bg1').fadeOut();
+				} else {
+					$('.bg2').fadeOut().remove();
+					$('.bg1').fadeIn();
+				}
+			}
+			if(direction == 'down'){
+				var currentSlide = $(this).attr('id'),
+					slidePos = $('section#'+currentSlide).prev().attr('data-top');
+				$('#signsContainer').animate({
+					'top': '-'+slidePos
+				},500);
+				$('.slideNav').removeClass('active');
+				$('.slideNav#'+currentSlide).prev().addClass('active');
+				if($('.signSlide#'+currentSlide).attr('data-background') != '') {
+					var newBg = $('.signSlide#'+currentSlide).attr('data-background');
+					$('#content').after('<div class="background bg2" style="background: url('+newBg+'); background-size: 100%; opacity: 0.7;">').fadeIn();
+					$('.bg1').fadeOut();
+				} else {
+					$('.bg2').fadeOut().remove();
+					$('.bg1').fadeIn();
+				}
+			}
+
+		},
+		threshold: 75
+	  });
+	});
+}
+
+function starField() {
+	if ( !window.requestAnimationFrame ) {
+		window.requestAnimationFrame = ( function() {
+			return window.webkitRequestAnimationFrame ||
+			window.mozRequestAnimationFrame ||
+			window.oRequestAnimationFrame ||
+			window.msRequestAnimationFrame ||
+			function( callback, element ) {
+				window.setTimeout( callback, 1000 / 60 );
+			};
+		} )();
+	}
+	var starsCamera, starsScene, renderer, stars=[];
+	function init(){
+		starsCamera = new THREE.PerspectiveCamera(100, $('#starfield').width() / $('#starfield').height(), 1, 5000);
+		starsCamera.position.z = 1000;
+		starsScene = new THREE.Scene();
+		renderer = new THREE.WebGLRenderer({alpha: true});
+		renderer.setSize( $('#starfield').width(), $('#starfield').height() );
+		$('#starfield').append( renderer.domElement );
+	}
+	function addSphere(){
+		for ( var z= -1000; z < 1000; z+=20 ) {
+			var geometry   = new THREE.SphereGeometry(1, 50, 50)
+			var material = new THREE.MeshBasicMaterial( {color: 0xc8eafc} );
+			var sphere = new THREE.Mesh(geometry, material)
+			sphere.position.x = Math.random() * 1000 - 500;
+			sphere.position.y = Math.random() * 1000 - 500;
+			sphere.position.z = z;
+			sphere.scale.x = sphere.scale.y = 0.5;
+			starsScene.add( sphere );
+			stars.push(sphere);
+		}
+	}
+	function animateStars() {
+		for(var i=0; i<stars.length; i++) {
+			star = stars[i];
+			star.position.z +=  i/10;
+			if(star.position.z>1000) star.position.z-=2000;
+		}
+	}
+	function render() {
+		requestAnimationFrame( render );
+		renderer.render( starsScene, starsCamera );
+		animateStars();
+	}
+	init();
+	addSphere();
+	render();
+}
+function exists(data) {
+	if(!data || data==null || data=='undefined' || typeof(data)=='undefined') return false;
+	else return true;
+}
+
+function planet(planetType) {
+	var planetRender = new THREE.WebGLRenderer({
+		antialias: true,
+		alpha: true
+	});
+	planetRender.setSize( $('#planet').width(), $('#planet').height() );
+	$('#planet').append( planetRender.domElement )
+	planetRender.shadowMap.enabled = true
+
+	var onRenderFcts= [];
+	var planetScene = new THREE.Scene();
+	var camera = new THREE.PerspectiveCamera(100, $('#planet').width() / $('#planet').height() );
+	camera.position.z = 1;
+
+	var light = new THREE.AmbientLight( 0x222222 )
+	planetScene.add( light )
+
+	var light = new THREE.DirectionalLight( 0xffffff, 1 )
+	light.position.set(5,3,5)
+	planetScene.add( light )
+	light.castShadow = true
+	light.shadowCameraNear = 0.01
+	light.shadowCameraFar = 15
+	light.shadowCameraFov = 45
+
+	light.shadowCameraLeft = -1
+	light.shadowCameraRight =  1
+	light.shadowCameraTop =  1
+	light.shadowCameraBottom= -1
+	light.shadowBias = 0.001
+	light.shadowDarkness = 0.2
+	light.shadowMapWidth = 1024
+	light.shadowMapHeight = 1024
+	var containerPlanet = new THREE.Object3D()
+	planetScene.add(containerPlanet)
+
+	if( planetType === 'Sun' ){
+		var planetMesh = THREEx.Planets.createSun()
+		containerPlanet.add(planetMesh)
+		onRenderFcts.push(function(delta, now){
+			planetMesh.rotation.y += 0.05 * delta;
+		})
+	} else if( planetType === 'Mercury' ){
+		var planetMesh = THREEx.Planets.createMercury()
+		containerPlanet.add(planetMesh)
+		onRenderFcts.push(function(delta, now){
+			planetMesh.rotation.y += 0.05 * delta;
+		})
+	} else if( planetType === 'Venus' ){
+		var planetMesh = THREEx.Planets.createVenus()
+		containerPlanet.add(planetMesh)
+		onRenderFcts.push(function(delta, now){
+			planetMesh.rotation.y += 0.05 * delta;
+		})
+	} else if( planetType === 'Earth' ){
+		var planetMesh = THREEx.Planets.createEarth()
+		containerPlanet.add(planetMesh)
+		onRenderFcts.push(function(delta, now){
+			planetMesh.rotation.y += 0.05 * delta;
+		})
+	} else if( planetType === 'Moon' ){
+		var planetMesh = THREEx.Planets.createMoon()
+		containerPlanet.add(planetMesh)
+		onRenderFcts.push(function(delta, now){
+			planetMesh.rotation.y += 0.05 * delta;
+		})
+	} else if( planetType === 'Mars' ){
+		var planetMesh = THREEx.Planets.createMars()
+		containerPlanet.add(planetMesh)
+		onRenderFcts.push(function(delta, now){
+			planetMesh.rotation.y += 0.05 * delta;
+		})
+	} else if( planetType === 'Jupiter' ){
+		var planetMesh = THREEx.Planets.createJupiter()
+		containerPlanet.add(planetMesh)
+		onRenderFcts.push(function(delta, now){
+			planetMesh.rotation.y += 0.05 * delta;
+		})
+	} else if( planetType === 'Saturn' ){
+		var planetMesh = THREEx.Planets.createSaturn()
+		containerPlanet.add(planetMesh)
+		planetMesh.receiveShadow = true
+		planetMesh.castShadow = true
+		var ring = THREEx.Planets.createSaturnRing()
+		ring.receiveShadow = true
+		ring.castShadow = true
+		planetMesh.add(ring)
+		onRenderFcts.push(function(delta, now){
+			planetMesh.rotation.y += 0.05 * delta;
+		})
+	} else if( planetType === 'Neptune' ){
+		var planetMesh = THREEx.Planets.createNeptune()
+		containerPlanet.add(planetMesh)
+		onRenderFcts.push(function(delta, now){
+			planetMesh.rotation.y += 0.05 * delta;
+		})
+	} else if( planetType === 'Uranus' ){
+		var planetMesh = THREEx.Planets.createUranus()
+		containerPlanet.add(planetMesh)
+		planetMesh.receiveShadow = true
+		planetMesh.castShadow = true
+		var ring = THREEx.Planets.createUranusRing()
+		ring.receiveShadow = true
+		ring.castShadow = true
+		planetMesh.add(ring)
+		onRenderFcts.push(function(delta, now){
+			planetMesh.rotation.y += 0.05 * delta;
+		})
+	} else if( planetType === 'Pluto' ){
+		var planetMesh = THREEx.Planets.createPluto()
+		containerPlanet.add(planetMesh)
+		onRenderFcts.push(function(delta, now){
+			planetMesh.rotation.y += 0.05 * delta;
+		})
+	}
+
+	var geometry = new THREE.SphereGeometry(0.5, 64, 64)
+	var material = THREEx.createAtmosphereMaterial()
+	material.uniforms.glowColor.value.set(0xf7f5bc)
+	material.uniforms.coeficient.value = 0.3
+	material.uniforms.power.value	 = 5.0
+	var mesh = new THREE.Mesh(geometry, material );
+	mesh.scale.multiplyScalar(1.01);
+	containerPlanet.add( mesh );
+	var geometry = new THREE.SphereGeometry(0.5, 32, 32)
+	var material = THREEx.createAtmosphereMaterial()
+	material.side = THREE.BackSide
+	material.uniforms.glowColor.value.set(0xf7f5bc)
+	material.uniforms.coeficient.value = 0.3
+	material.uniforms.power.value	 = 5.0
+	var mesh = new THREE.Mesh(geometry, material );
+	mesh.scale.multiplyScalar(1.15);
+	containerPlanet.add( mesh );
+	onRenderFcts.push(function(){
+		planetRender.render( planetScene, camera );
+	})
+	var lastTimeMsec= null
+	requestAnimationFrame(function animate(nowMsec){
+		requestAnimationFrame( animate );
+		lastTimeMsec = lastTimeMsec || nowMsec-1000/60
+		var deltaMsec = Math.min(200, nowMsec - lastTimeMsec)
+		lastTimeMsec = nowMsec
+		onRenderFcts.forEach(function(onRenderFct){
+			onRenderFct(deltaMsec/1000, nowMsec/1000)
+		})
+	})
+}
+(function(a){if(typeof define==="function"&&define.amd&&define.amd.jQuery){define(["jquery"],a)}else{a(jQuery)}}(function(f){var y="1.6.12",p="left",o="right",e="up",x="down",c="in",A="out",m="none",s="auto",l="swipe",t="pinch",B="tap",j="doubletap",b="longtap",z="hold",E="horizontal",u="vertical",i="all",r=10,g="start",k="move",h="end",q="cancel",a="ontouchstart"in window,v=window.navigator.msPointerEnabled&&!window.navigator.pointerEnabled,d=window.navigator.pointerEnabled||window.navigator.msPointerEnabled,C="TouchSwipe";var n={fingers:1,threshold:75,cancelThreshold:null,pinchThreshold:20,maxTimeThreshold:null,fingerReleaseThreshold:250,longTapThreshold:500,doubleTapThreshold:200,swipe:null,swipeLeft:null,swipeRight:null,swipeUp:null,swipeDown:null,swipeStatus:null,pinchIn:null,pinchOut:null,pinchStatus:null,click:null,tap:null,doubleTap:null,longTap:null,hold:null,triggerOnTouchEnd:true,triggerOnTouchLeave:false,allowPageScroll:"auto",fallbackToMouseEvents:true,excludedElements:"label, button, input, select, textarea, a, .noSwipe",preventDefaultEvents:true};f.fn.swipe=function(H){var G=f(this),F=G.data(C);if(F&&typeof H==="string"){if(F[H]){return F[H].apply(this,Array.prototype.slice.call(arguments,1))}else{f.error("Method "+H+" does not exist on jQuery.swipe")}}else{if(F&&typeof H==="object"){F.option.apply(this,arguments)}else{if(!F&&(typeof H==="object"||!H)){return w.apply(this,arguments)}}}
+return G};f.fn.swipe.version=y;f.fn.swipe.defaults=n;f.fn.swipe.phases={PHASE_START:g,PHASE_MOVE:k,PHASE_END:h,PHASE_CANCEL:q};f.fn.swipe.directions={LEFT:p,RIGHT:o,UP:e,DOWN:x,IN:c,OUT:A};f.fn.swipe.pageScroll={NONE:m,HORIZONTAL:E,VERTICAL:u,AUTO:s};f.fn.swipe.fingers={ONE:1,TWO:2,THREE:3,FOUR:4,FIVE:5,ALL:i};function w(F){if(F&&(F.allowPageScroll===undefined&&(F.swipe!==undefined||F.swipeStatus!==undefined))){F.allowPageScroll=m}
+if(F.click!==undefined&&F.tap===undefined){F.tap=F.click}
+if(!F){F={}}
+F=f.extend({},f.fn.swipe.defaults,F);return this.each(function(){var H=f(this);var G=H.data(C);if(!G){G=new D(this,F);H.data(C,G)}})}
+function D(a4,au){var au=f.extend({},au);var az=(a||d||!au.fallbackToMouseEvents),K=az?(d?(v?"MSPointerDown":"pointerdown"):"touchstart"):"mousedown",ax=az?(d?(v?"MSPointerMove":"pointermove"):"touchmove"):"mousemove",V=az?(d?(v?"MSPointerUp":"pointerup"):"touchend"):"mouseup",T=az?null:"mouseleave",aD=(d?(v?"MSPointerCancel":"pointercancel"):"touchcancel");var ag=0,aP=null,ac=0,a1=0,aZ=0,H=1,ap=0,aJ=0,N=null;var aR=f(a4);var aa="start";var X=0;var aQ={};var U=0,a2=0,a5=0,ay=0,O=0;var aW=null,af=null;try{aR.bind(K,aN);aR.bind(aD,a9)}catch(aj){f.error("events not supported "+K+","+aD+" on jQuery.swipe")}
+this.enable=function(){aR.bind(K,aN);aR.bind(aD,a9);return aR};this.disable=function(){aK();return aR};this.destroy=function(){aK();aR.data(C,null);aR=null};this.option=function(bc,bb){if(typeof bc==="object"){au=f.extend(au,bc)}else{if(au[bc]!==undefined){if(bb===undefined){return au[bc]}else{au[bc]=bb}}else{if(!bc){return au}else{f.error("Option "+bc+" does not exist on jQuery.swipe.options")}}}
+return null};function aN(bd){if(aB()){return}
+if(f(bd.target).closest(au.excludedElements,aR).length>0){return}
+var be=bd.originalEvent?bd.originalEvent:bd;var bc,bf=be.touches,bb=bf?bf[0]:be;aa=g;if(bf){X=bf.length}else{if(au.preventDefaultEvents!==false){bd.preventDefault()}}
+ag=0;aP=null;aJ=null;ac=0;a1=0;aZ=0;H=1;ap=0;N=ab();S();ai(0,bb);if(!bf||(X===au.fingers||au.fingers===i)||aX()){U=ar();if(X==2){ai(1,bf[1]);a1=aZ=at(aQ[0].start,aQ[1].start)}
+if(au.swipeStatus||au.pinchStatus){bc=P(be,aa)}}else{bc=false}
+if(bc===false){aa=q;P(be,aa);return bc}else{if(au.hold){af=setTimeout(f.proxy(function(){aR.trigger("hold",[be.target]);if(au.hold){bc=au.hold.call(aR,be,be.target)}},this),au.longTapThreshold)}
+an(true)}
+return null}
+function a3(be){var bh=be.originalEvent?be.originalEvent:be;if(aa===h||aa===q||al()){return}
+var bd,bi=bh.touches,bc=bi?bi[0]:bh;var bf=aH(bc);a2=ar();if(bi){X=bi.length}
+if(au.hold){clearTimeout(af)}
+aa=k;if(X==2){if(a1==0){ai(1,bi[1]);a1=aZ=at(aQ[0].start,aQ[1].start)}else{aH(bi[1]);aZ=at(aQ[0].end,aQ[1].end);aJ=aq(aQ[0].end,aQ[1].end)}
+H=a7(a1,aZ);ap=Math.abs(a1-aZ)}
+if((X===au.fingers||au.fingers===i)||!bi||aX()){aP=aL(bf.start,bf.end);ak(be,aP);ag=aS(bf.start,bf.end);ac=aM();aI(aP,ag);if(au.swipeStatus||au.pinchStatus){bd=P(bh,aa)}
+if(!au.triggerOnTouchEnd||au.triggerOnTouchLeave){var bb=true;if(au.triggerOnTouchLeave){var bg=aY(this);bb=F(bf.end,bg)}
+if(!au.triggerOnTouchEnd&&bb){aa=aC(k)}else{if(au.triggerOnTouchLeave&&!bb){aa=aC(h)}}
+if(aa==q||aa==h){P(bh,aa)}}}else{aa=q;P(bh,aa)}
+if(bd===false){aa=q;P(bh,aa)}}
+function M(bb){var bc=bb.originalEvent?bb.originalEvent:bb,bd=bc.touches;if(bd){if(bd.length&&!al()){G();return true}else{if(bd.length&&al()){return true}}}
+if(al()){X=ay}
+a2=ar();ac=aM();if(ba()||!am()){aa=q;P(bc,aa)}else{if(au.triggerOnTouchEnd||(au.triggerOnTouchEnd==false&&aa===k)){if(au.preventDefaultEvents!==false){bb.preventDefault()}
+aa=h;P(bc,aa)}else{if(!au.triggerOnTouchEnd&&a6()){aa=h;aF(bc,aa,B)}else{if(aa===k){aa=q;P(bc,aa)}}}}
+an(false);return null}
+function a9(){X=0;a2=0;U=0;a1=0;aZ=0;H=1;S();an(false)}
+function L(bb){var bc=bb.originalEvent?bb.originalEvent:bb;if(au.triggerOnTouchLeave){aa=aC(h);P(bc,aa)}}
+function aK(){aR.unbind(K,aN);aR.unbind(aD,a9);aR.unbind(ax,a3);aR.unbind(V,M);if(T){aR.unbind(T,L)}
+an(false)}
+function aC(bf){var be=bf;var bd=aA();var bc=am();var bb=ba();if(!bd||bb){be=q}else{if(bc&&bf==k&&(!au.triggerOnTouchEnd||au.triggerOnTouchLeave)){be=h}else{if(!bc&&bf==h&&au.triggerOnTouchLeave){be=q}}}
+return be}
+function P(bd,bb){var bc,be=bd.touches;if((J()&&W())||(Q()&&aX())){if(J()&&W()){bc=aF(bd,bb,l)}
+if((Q()&&aX())&&bc!==false){bc=aF(bd,bb,t)}}else{if(aG()&&bc!==false){bc=aF(bd,bb,j)}else{if(ao()&&bc!==false){bc=aF(bd,bb,b)}else{if(ah()&&bc!==false){bc=aF(bd,bb,B)}}}}
+if(bb===q){if(W()){bc=aF(bd,bb,l)}
+if(aX()){bc=aF(bd,bb,t)}
+a9(bd)}
+if(bb===h){if(be){if(!be.length){a9(bd)}}else{a9(bd)}}
+return bc}
+function aF(be,bb,bd){var bc;if(bd==l){aR.trigger("swipeStatus",[bb,aP||null,ag||0,ac||0,X,aQ]);if(au.swipeStatus){bc=au.swipeStatus.call(aR,be,bb,aP||null,ag||0,ac||0,X,aQ);if(bc===false){return false}}
+if(bb==h&&aV()){aR.trigger("swipe",[aP,ag,ac,X,aQ]);if(au.swipe){bc=au.swipe.call(aR,be,aP,ag,ac,X,aQ);if(bc===false){return false}}
+switch(aP){case p:aR.trigger("swipeLeft",[aP,ag,ac,X,aQ]);if(au.swipeLeft){bc=au.swipeLeft.call(aR,be,aP,ag,ac,X,aQ)}
+break;case o:aR.trigger("swipeRight",[aP,ag,ac,X,aQ]);if(au.swipeRight){bc=au.swipeRight.call(aR,be,aP,ag,ac,X,aQ)}
+break;case e:aR.trigger("swipeUp",[aP,ag,ac,X,aQ]);if(au.swipeUp){bc=au.swipeUp.call(aR,be,aP,ag,ac,X,aQ)}
+break;case x:aR.trigger("swipeDown",[aP,ag,ac,X,aQ]);if(au.swipeDown){bc=au.swipeDown.call(aR,be,aP,ag,ac,X,aQ)}
+break}}}
+if(bd==t){aR.trigger("pinchStatus",[bb,aJ||null,ap||0,ac||0,X,H,aQ]);if(au.pinchStatus){bc=au.pinchStatus.call(aR,be,bb,aJ||null,ap||0,ac||0,X,H,aQ);if(bc===false){return false}}
+if(bb==h&&a8()){switch(aJ){case c:aR.trigger("pinchIn",[aJ||null,ap||0,ac||0,X,H,aQ]);if(au.pinchIn){bc=au.pinchIn.call(aR,be,aJ||null,ap||0,ac||0,X,H,aQ)}
+break;case A:aR.trigger("pinchOut",[aJ||null,ap||0,ac||0,X,H,aQ]);if(au.pinchOut){bc=au.pinchOut.call(aR,be,aJ||null,ap||0,ac||0,X,H,aQ)}
+break}}}
+if(bd==B){if(bb===q||bb===h){clearTimeout(aW);clearTimeout(af);if(Z()&&!I()){O=ar();aW=setTimeout(f.proxy(function(){O=null;aR.trigger("tap",[be.target]);if(au.tap){bc=au.tap.call(aR,be,be.target)}},this),au.doubleTapThreshold)}else{O=null;aR.trigger("tap",[be.target]);if(au.tap){bc=au.tap.call(aR,be,be.target)}}}}else{if(bd==j){if(bb===q||bb===h){clearTimeout(aW);O=null;aR.trigger("doubletap",[be.target]);if(au.doubleTap){bc=au.doubleTap.call(aR,be,be.target)}}}else{if(bd==b){if(bb===q||bb===h){clearTimeout(aW);O=null;aR.trigger("longtap",[be.target]);if(au.longTap){bc=au.longTap.call(aR,be,be.target)}}}}}
+return bc}
+function am(){var bb=true;if(au.threshold!==null){bb=ag>=au.threshold}
+return bb}
+function ba(){var bb=false;if(au.cancelThreshold!==null&&aP!==null){bb=(aT(aP)-ag)>=au.cancelThreshold}
+return bb}
+function ae(){if(au.pinchThreshold!==null){return ap>=au.pinchThreshold}
+return true}
+function aA(){var bb;if(au.maxTimeThreshold){if(ac>=au.maxTimeThreshold){bb=false}else{bb=true}}else{bb=true}
+return bb}
+function ak(bb,bc){if(au.preventDefaultEvents===false){return}
+if(au.allowPageScroll===m){bb.preventDefault()}else{var bd=au.allowPageScroll===s;switch(bc){case p:if((au.swipeLeft&&bd)||(!bd&&au.allowPageScroll!=E)){bb.preventDefault()}
+break;case o:if((au.swipeRight&&bd)||(!bd&&au.allowPageScroll!=E)){bb.preventDefault()}
+break;case e:if((au.swipeUp&&bd)||(!bd&&au.allowPageScroll!=u)){bb.preventDefault()}
+break;case x:if((au.swipeDown&&bd)||(!bd&&au.allowPageScroll!=u)){bb.preventDefault()}
+break}}}
+function a8(){var bc=aO();var bb=Y();var bd=ae();return bc&&bb&&bd}
+function aX(){return!!(au.pinchStatus||au.pinchIn||au.pinchOut)}
+function Q(){return!!(a8()&&aX())}
+function aV(){var be=aA();var bg=am();var bd=aO();var bb=Y();var bc=ba();var bf=!bc&&bb&&bd&&bg&&be;return bf}
+function W(){return!!(au.swipe||au.swipeStatus||au.swipeLeft||au.swipeRight||au.swipeUp||au.swipeDown)}
+function J(){return!!(aV()&&W())}
+function aO(){return((X===au.fingers||au.fingers===i)||!a)}
+function Y(){return aQ[0].end.x!==0}
+function a6(){return!!(au.tap)}
+function Z(){return!!(au.doubleTap)}
+function aU(){return!!(au.longTap)}
+function R(){if(O==null){return false}
+var bb=ar();return(Z()&&((bb-O)<=au.doubleTapThreshold))}
+function I(){return R()}
+function aw(){return((X===1||!a)&&(isNaN(ag)||ag<au.threshold))}
+function a0(){return((ac>au.longTapThreshold)&&(ag<r))}
+function ah(){return!!(aw()&&a6())}
+function aG(){return!!(R()&&Z())}
+function ao(){return!!(a0()&&aU())}
+function G(){a5=ar();ay=event.touches.length+1}
+function S(){a5=0;ay=0}
+function al(){var bb=false;if(a5){var bc=ar()-a5;if(bc<=au.fingerReleaseThreshold){bb=true}}
+return bb}
+function aB(){return!!(aR.data(C+"_intouch")===true)}
+function an(bb){if(bb===true){aR.bind(ax,a3);aR.bind(V,M);if(T){aR.bind(T,L)}}else{aR.unbind(ax,a3,false);aR.unbind(V,M,false);if(T){aR.unbind(T,L,false)}}
+aR.data(C+"_intouch",bb===true)}
+function ai(bd,bb){var bc={start:{x:0,y:0},end:{x:0,y:0}};bc.start.x=bc.end.x=bb.pageX||bb.clientX;bc.start.y=bc.end.y=bb.pageY||bb.clientY;aQ[bd]=bc;return bc}
+function aH(bb){var bd=bb.identifier!==undefined?bb.identifier:0;var bc=ad(bd);if(bc===null){bc=ai(bd,bb)}
+bc.end.x=bb.pageX||bb.clientX;bc.end.y=bb.pageY||bb.clientY;return bc}
+function ad(bb){return aQ[bb]||null}
+function aI(bb,bc){bc=Math.max(bc,aT(bb));N[bb].distance=bc}
+function aT(bb){if(N[bb]){return N[bb].distance}
+return undefined}
+function ab(){var bb={};bb[p]=av(p);bb[o]=av(o);bb[e]=av(e);bb[x]=av(x);return bb}
+function av(bb){return{direction:bb,distance:0}}
+function aM(){return a2-U}
+function at(be,bd){var bc=Math.abs(be.x-bd.x);var bb=Math.abs(be.y-bd.y);return Math.round(Math.sqrt(bc*bc+bb*bb))}
+function a7(bb,bc){var bd=(bc/bb)*1;return bd.toFixed(2)}
+function aq(){if(H<1){return A}else{return c}}
+function aS(bc,bb){return Math.round(Math.sqrt(Math.pow(bb.x-bc.x,2)+Math.pow(bb.y-bc.y,2)))}
+function aE(be,bc){var bb=be.x-bc.x;var bg=bc.y-be.y;var bd=Math.atan2(bg,bb);var bf=Math.round(bd*180/Math.PI);if(bf<0){bf=360-Math.abs(bf)}
+return bf}
+function aL(bc,bb){var bd=aE(bc,bb);if((bd<=45)&&(bd>=0)){return p}else{if((bd<=360)&&(bd>=315)){return p}else{if((bd>=135)&&(bd<=225)){return o}else{if((bd>45)&&(bd<135)){return x}else{return e}}}}}
+function ar(){var bb=new Date();return bb.getTime()}
+function aY(bb){bb=f(bb);var bd=bb.offset();var bc={left:bd.left,right:bd.left+bb.outerWidth(),top:bd.top,bottom:bd.top+bb.outerHeight()};return bc}
+function F(bb,bc){return(bb.x>bc.left&&bb.x<bc.right&&bb.y>bc.top&&bb.y<bc.bottom)}}}));
+</script>
+
