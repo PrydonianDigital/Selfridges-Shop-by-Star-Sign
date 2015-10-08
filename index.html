@@ -918,13 +918,13 @@ function planet(planetType) {
 		var planetMesh = THREEx.Planets.createMercury()
 		containerPlanet.add(planetMesh)
 		onRenderFcts.push(function(delta, now){
-			planetMesh.rotation.y += 0.001407 * delta;
+			planetMesh.rotation.y += 0.003407 * delta;
 		})
 	} else if( planetType === 'Venus' ){
 		var planetMesh = THREEx.Planets.createVenus()
 		containerPlanet.add(planetMesh)
 		onRenderFcts.push(function(delta, now){
-			planetMesh.rotation.y += -0.005832 * delta;
+			planetMesh.rotation.y += -0.035832 * delta;
 		})
 	} else if( planetType === 'Earth' ){
 		var planetMesh = THREEx.Planets.createEarth()
@@ -984,7 +984,7 @@ function planet(planetType) {
 		var planetMesh = THREEx.Planets.createPluto()
 		containerPlanet.add(planetMesh)
 		onRenderFcts.push(function(delta, now){
-			planetMesh.rotation.y += 0.00153 * delta;
+			planetMesh.rotation.y += 0.03153 * delta;
 		})
 	}
 
