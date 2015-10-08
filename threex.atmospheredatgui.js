@@ -1,19 +1,7 @@
-/**
- * vendor.js framework definition
- * @type {Object}
- */
 var THREEx	= THREEx || {};
-
-/**
- * add a THREEx.AtmosphereMaterial to Dat.DUI
- * 
- * @param  {THREE.ShaderMaterial}	material	the material to handle
- * @param  {dat.GUI+}			datGui		the dat.GUI to which we need to add
- */
 THREEx.addAtmosphereMaterial2DatGui	= function(material, datGui){
 	datGui		= datGui || new dat.GUI()
 	var uniforms	= material.uniforms
-	// options
 	var options  = {
 		coeficient	: uniforms['coeficient'].value,
 		power		: uniforms['power'].value,
@@ -32,11 +20,9 @@ THREEx.addAtmosphereMaterial2DatGui	= function(material, datGui){
 	var onChange = function(){
 		uniforms['coeficient'].value	= options.coeficient
 		uniforms['power'].value		= options.power
-		uniforms.glowColor.value.set( options.glowColor ); 
+		uniforms.glowColor.value.set( options.glowColor );
 	}
 	onChange()
-	
-	// config datGui
 	datGui.add( options, 'coeficient'	, 0.0 , 2)
 		.listen().onChange( onChange )
 	datGui.add( options, 'power'		, 0.0 , 30)

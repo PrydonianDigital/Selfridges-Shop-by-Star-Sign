@@ -33,7 +33,7 @@
 			"image": "",
 			"imageId": "",
 			"bg": "images/sbss_bg.jpg",
-			"text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+			"text": "Your search for the perfect gift is written in the stars this Christmas. take a cosmic journey with The Numinous - the blogosphere's leading voice on style and mysticism - and discover our handpicked edit of gifts by star sign, plus plenty of celestial guidance, festive forecasts and more along the way.",
 			"data": [
 				{}
 			]
