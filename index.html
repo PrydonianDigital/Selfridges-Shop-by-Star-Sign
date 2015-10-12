@@ -716,19 +716,11 @@ function signType(genderType, sign) {
 			'</section>';
 
 		//slide6 body
-		if(genderId == 'female') {
 			slide += '<section class="signSlide bg" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[5].id+'" id="'+data.starsigns[signId].name+'6" data-colour="'+data.starsigns[signId].slides[4].colour+'"><div class="topper"></div>'+
 			'<div class="signTitle" style="background: url(images/signs/body_title_'+data.starsigns[signId].slides[5].bodyTitle+'.png);"></div>'+
-			'<div class="signImageBody" style="background: url(images/signs/body_image_f.png);"><img src="images/signs/body_image_'+data.starsigns[signId].slides[5].bodyImage+'_f.png"></div>'+
+			'<div class="signImageBody" style="background: url(images/signs/body_image_'+genderId+'.png);"><img src="images/signs/body_image_'+data.starsigns[signId].slides[5].bodyImage+'_'+genderId+'.png"></div>'+
 			'<p class="horoscope">'+data.starsigns[signId].slides[5].bodyText+'</p>'+
 			'</section>';
-		} else {
-			slide += '<section class="signSlide bg" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[5].id+'" id="'+data.starsigns[signId].name+'6" data-colour="'+data.starsigns[signId].slides[4].colour+'"><div class="topper"></div>'+
-			'<div class="signTitle" style="background: url(images/signs/body_title_'+data.starsigns[signId].slides[5].bodyTitle+'.png);"></div>'+
-			'<div class="signImageBody" style="background: url(images/signs/body_image_m.png);"><img src="images/signs/body_image_'+data.starsigns[signId].slides[5].bodyImage+'_m.png"></div>'+
-			'<p class="horoscope">'+data.starsigns[signId].slides[5].bodyText+'</p>'+
-			'</section>';
-		}
 
 		var slideNav = '',
 			slideNavItem = '';
