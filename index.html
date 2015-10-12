@@ -131,6 +131,7 @@ body {
 	height: 100%;
 	position: absolute;
 	z-index: 60;
+	display: none;
 }
 #content .introSlide {
 	width: 100%;
@@ -173,6 +174,7 @@ body {
 .signSlide.active {
 	top: 0 !important;
 	opacity: 1;
+	z-index: 70;
 }
 .signSlide.future {
 	top: 100% !important;
@@ -369,6 +371,7 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 	z-index: 60;
 	margin-top: -77px;
 	cursor: pointer;
+	display: none;
 }
 #slideNav .slideNav {
 	width: 10px;
@@ -387,6 +390,7 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 	left: 20px;
 	cursor: pointer;
 	z-index: 70;
+	display: none;
 }
 .largerTxt {
 	font-size: 32px;
@@ -553,6 +557,9 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 	</div>
 	<div class="slides">
 		<section id="content"></section>
+		<div id="signsContainer"></div>
+		<div id="slideNav"></div>
+		<img src="images/info.png" id="info" />
 	</div>
 </div>
 
@@ -689,7 +696,7 @@ function signType(genderType, sign) {
 		//slide3 icon
 			slide += '<section class="signSlide" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[2].id+'" id="'+data.starsigns[signId].name+'3" data-background=""><div class="topper"></div>'+
 			'<div class="iconTitle" style="background: url(images/signs/style_title_'+data.starsigns[signId].slides[2].iconTitle+'_'+genderId+'.png);"></div>'+
-			'<div class="iconImage glow"><img src="images/signs/style_icon_'+data.starsigns[signId].slides[2].icon+'_'+genderId+'.png" class="front"><img src="images/signs/style_icon_'+data.starsigns[signId].slides[2].icon+'_2_'+genderId+'.png" class="back"></div>'+
+			'<div class="iconImage glow"><img src="images/signs/style_icon_'+data.starsigns[signId].slides[2].icon+'_quote_'+genderId+'.png" class="front"><img src="images/signs/style_icon_'+data.starsigns[signId].slides[2].icon+'_face_'+genderId+'.png" class="back"></div>'+
 			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[3].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="130" height="130" /></a></div>'+
 			'</section>';
 
@@ -723,16 +730,14 @@ function signType(genderType, sign) {
 			'</section>';
 		}
 
-		var slideNav = '<div id="slideNav"></div>',
+		var slideNav = '',
 			slideNavItem = '';
 		$.each(data.starsigns[signId].slides, function(i,a) {
 			slideNavItem += '<span id="'+a.name+''+a.id+'" class="slideNav"></span>';
 		});
-		$('.slides').append('<img src="images/info.png" id="info" />')
 		$('.background').css('opacity', '0.5');
 		$('#slide1, #slide2').fadeOut();
-		$('.slides').append('<div id="signsContainer"></div>');
-		$('#signsContainer').append(slide);
+		$('#signsContainer').html(slide).show().show();
 		var cHeight = $(window).height(),
 			numSlides = $('.signSlide').length;
 		$('.signSlide').height(cHeight + 30);
@@ -757,8 +762,8 @@ function signType(genderType, sign) {
 				}
 			}
 		}
-		$('.slides').append(slideNav);
-		$('#slideNav').html(slideNavItem);
+		$('#info').show();
+		$('#slideNav').html(slideNavItem).show();
 		$('.slideNav:first').addClass('active');
 		var slidePos = $('#signsContainer').position();
 		$('.slideNav, .next a').on('click', function(e){
@@ -815,7 +820,8 @@ function signType(genderType, sign) {
 			}
 		});
 		$('#info').on('click', function(){
-			$('#signsContainer, #slideNav, #info').remove();
+			$('#signsContainer, #slideNav, #info').hide();
+			$('#signsContainer, #slideNav').empty();
 			$('#content').css('top', '0').css('opacity', '1').show();
 			$('#slide2').css('top', '0').css('opacity', '1').show();
 			$('.bg1').fadeIn();
