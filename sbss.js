@@ -15,8 +15,8 @@
 		{
 			"ids": "1",
 			"name": "homeSlide",
-			"header": "images/sbss_header.png",
-			"headerId": "mainTitle",
+			"header": "",
+			"headerId": "",
 			"image": "images/sbss_logo.png",
 			"imageId": "mainLogo",
 			"bg": "images/sbss_bg.jpg",
