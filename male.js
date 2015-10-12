@@ -16,7 +16,7 @@
 					"id": "2",
 					"name": "Aries",
 					"horoscope": "With Mercury in their house of authority, Aries will want to take charge this Christmas - as usual. But with generous Jupiter lighting up their sixth house of selfless service, they'll offer to do every little job - from doing the washing up to dishing out the gifts.",
-					"embed": "193936182"
+					"embed": "228058683"
 				},
 				{
 					"id": "3",
@@ -60,7 +60,7 @@
 					"id": "2",
 					"name": "Taurus",
 					"horoscope": "Taurus will take centre stage this Christmas, with expansive, outgoing Jupiter cruising through their attention-seeking fifth house. And with Mercury in the area of their chart ruling storytelling, let them entertain the gang with funny tales of Christmas past.",
-					"embed": "193936111"
+					"embed": "228058843"
 				},
 				{
 					"id": "3",
@@ -105,7 +105,7 @@
 					"id": "2",
 					"name": "Gemini",
 					"horoscope": "Gemini could come over all sentimental this Christmas, with Jupiter in their fourth house of home. And sending a positive beam to talkative Mercury, their ruling planet, conversations about the family financials could go better than usual.",
-					"embed": "193936111"
+					"embed": "228058717"
 				},
 				{
 					"id": "3",
@@ -150,7 +150,7 @@
 					"id": "2",
 					"name": "Cancer",
 					"horoscope": "Cancer could be unusually chatty this Christmas, with Jupiter in their third house of communication. And making a harmonious link to Mercury in their opposite sign of Capricorn, meaningful conversations will feel like an uplifting way to bond with the clan.",
-					"embed": "193936111"
+					"embed": "228058703"
 				},
 				{
 					"id": "3",
@@ -195,7 +195,7 @@
 					"id": "2",
 					"name": "Leo",
 					"horoscope": "Leo will likely be even more generous than usual this Christmas, with expansive Jupiter lighting up their second house of luxury and material things. And making a positive aspect to Mercury in their sixth house of service, the infamous Leo ego will be happy to take a back seat - for once.",
-					"embed": "193936111"
+					"embed": "228058757"
 				},
 				{
 					"id": "3",
@@ -240,7 +240,7 @@
 					"id": "2",
 					"name": "Virgo",
 					"horoscope": "Lucky Virgo could bag the best gifts this Christmas, with generous Jupiter in their own sign. And making a positive aspect to conversational Mercury in their flirtatious fifth house, they could surprise everybody and come out as the life and soul of the party.",
-					"embed": "193936111"
+					"embed": "228058859"
 				},
 				{
 					"id": "3",
@@ -285,7 +285,7 @@
 					"id": "2",
 					"name": "Libra",
 					"horoscope": "Feeling connected to family will be extra important to Libra this Christmas, with sociable Mercury in their domesticated fourth house. And with Jupiter in their compassionate twelfth house, a long-standing rift could be healed.",
-					"embed": "193936111"
+					"embed": "228058779"
 				},
 				{
 					"id": "3",
@@ -330,7 +330,7 @@
 					"id": "2",
 					"name": "Scorpio",
 					"horoscope": "The bigger the crew, the better, as Jupiter in their house of friendship means Scorpio will be feeling super social this Christmas. And with chatty Mercury in the mix, they'll be leading the conversation too.",
-					"embed": "193936111"
+					"embed": "228058834"
 				},
 				{
 					"id": "3",
@@ -375,7 +375,7 @@
 					"id": "2",
 					"name": "Sagittarius",
 					"horoscope": "Sagittarius will love to play host this Christmas and make lunch a meal to remember. With their ruling planet, expansive Jupiter, in their responsible tenth house, you might as well move over and just let them take charge.",
-					"embed": "193936111"
+					"embed": "228058817"
 				},
 				{
 					"id": "3",
@@ -420,7 +420,7 @@
 					"id": "2",
 					"name": "Capricorn",
 					"horoscope": "With Jupiter in their globetrotting ninth house, expect an unusual addition to the Christmas menu if Capricorn's in charge of the cooking. It's also a great day for a little self-promotion, with PR planet Mercury in their own sign.",
-					"embed": "193936111"
+					"embed": "228058704"
 				},
 				{
 					"id": "3",
@@ -465,7 +465,7 @@
 					"id": "2",
 					"name": "Aquarius",
 					"horoscope": "Aquarius could come over all sentimental this Christmas, with talkative Mercury in their twelfth house of compassion and healing. And with Jupiter in the mix, small talk is off the table in favour of some serious soul-to-soul bonding.",
-					"embed": "193936111"
+					"embed": "228058646"
 				},
 				{
 					"id": "3",
@@ -510,7 +510,7 @@
 					"id": "2",
 					"name": "Pisces",
 					"horoscope": "Is everybody OK? Pisces' caring instincts will be on overdrive today, with Mercury and Jupiter lighting up the parts of their chart that govern diplomacy and happy group activities.",
-					"embed": "193936111"
+					"embed": "228058802"
 				},
 				{
 					"id": "3",
