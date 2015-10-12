@@ -10,7 +10,7 @@
 					"id": "1",
 					"name": "Aries",
 					"constellation": "Aries",
-					"signText": "If the Aries in your life hasn't already taken charge and let you know precisely what she wants, we suggest you double-check her date of birth. However, it's possible she's been too busy taking over the world, so if the task of choosing does fall to you - just ask. Aries is nothing if not direct."
+					"signText": "Aries man is the swashbuckling firefighter of the zodiac and will appreciate any gift that speaks to his inner (and outer) knight in shining armour - be it a pair of driving gloves for the new sports car he's been eying, or a bottle of vintage champagne."
 				},
 				{
 					"id": "2",
@@ -54,7 +54,7 @@
 					"id": "1",
 					"name": "Taurus",
 					"constellation": "Taurus",
-					"signText": "Sensuous Taurus lives for the luxuries of life, but beware: glitz and glamour alone will leave her cold. Instead, seek out gifts that appeal to all her senses, enveloping her in a cocoon of comfort. Think unusual jewellery or lashings of lavish bathroom treats."
+					"signText": "The foodie of the zodiac, Taurus man will (literally) lap up anything intended to get his taste buds buzzing, while a particularly special single malt or rare Ruby port will never go unappreciated. An aesthete at heart, he's similarly passionate about music, art and antiques, including vintage treasures for his wardrobe or abode."
 				},
 				{
 					"id": "2",
@@ -99,7 +99,7 @@
 					"id": "1",
 					"name": "Gemini",
 					"constellation": "Gemini",
-					"signText": "Your multi-faceted Gemini will likely try anything once, making it simple to choose a gift for this curious, quick-witted sign. Just seek out labels and brands she's unlikely to have heard of, arm yourself with the quirky story of how you stumbled upon them, and whatever you've picked is sure to go down a storm."
+					"signText": "A thinker who also loves to tinker with technology, the Gemini guy will appreciate any gift that tests his mental agility - not to mention his sense of fun. Books and games to make his mind whir will keep him entertained for, oh, half an hour at least - by which point he'll have moved on to the next bright, shiny thing."
 				},
 				{
 					"id": "2",
@@ -144,7 +144,7 @@
 					"id": "1",
 					"name": "Cancer",
 					"constellation": "Cancer",
-					"signText": "The ultimate domestic goddess, Cancer can't survive without her creature comforts. Her home is her kingdom, her castle and her cocoon, and any gift to further feather her nest will be received with open arms. A not-so-secret hoarder, her sentimental side will also appreciate a present with a personal touch."
+					"signText": "Cancer man knows what he likes, so scope out his abode to tap what floats his boat and don't bother veering too far off course. A born historian, his devotional nature makes him a secret fanboy at heart, and he'll appreciate memorabilia and all things collectable."
 				},
 				{
 					"id": "2",
@@ -189,7 +189,7 @@
 					"id": "1",
 					"name": "Leo",
 					"constellation": "Leo",
-					"signText": "Leos love to show what HUGE hearts they've got by lavishing gifts on the ones they love - and they expect the same treatment in return; the more frivolous and fabulous the better. Practical presents are (almost) an insult to this fiery fashionista."
+					"signText": "The life and soul of any party, Leo man will be the one in charge of dishing out the gifts on Christmas Day, so he'd better not feel left out. A natural entertainer, any gift that shows your deep appreciation of his fun-loving personality should go down a treat."
 				},
 				{
 					"id": "2",
@@ -234,7 +234,7 @@
 					"id": "1",
 					"name": "Virgo",
 					"constellation": "Virgo",
-					"signText": "The deliciousness of life is in the detail for Virgo girl. She swoons over to-do lists and loves nothing more than curating endless “helfies” (home selfies) for her Instagram feed. A perfectionist by nature, get her seal of approval before splashing out on anything rash."
+					"signText": "With his methodical mind on keeping life ticking over as efficiently as possible, Virgo man will only truly appreciate a gift with a practical use. He's also worked out precisely what works for him - so never fear repeat gifting. If it worked last year, it will work again (and again), while his unassuming nature means his surprise at your generosity is always genuine."
 				},
 				{
 					"id": "2",
@@ -279,7 +279,7 @@
 					"id": "1",
 					"name": "Libra",
 					"constellation": "Libra",
-					"signText": "Aesthetic is everything for the Libra lady, who can get seriously out of sorts if life is anything but a beautiful experience. Top picks for gifts will be anything to enhance her home environment and elevate her day-to-day existence to World of Interiors perfection."
+					"signText": "Libra man is the diplomat of the zodiac, an expert negotiator and keeper of the peace - so no big drama if your gift is wide of the mark. But stay on point by veering towards all things artistic, as this cultural connoisseur will appreciate presents that speak to his love of music and the visual arts."
 				},
 				{
 					"id": "2",
@@ -324,7 +324,7 @@
 					"id": "1",
 					"name": "Scorpio",
 					"constellation": "Scorpio",
-					"signText": "Scorpio loves to be in control of her life, so when it comes to gifting, you might want to consult with her before making any major moves. In fact, since she basically knows what she wants, she's probably been dropping clues for months. Too subtle for you? Think presents to amp up her personal power."
+					"signText": "Your Scorpio man is deeply invested in living a meaningful life, so throwaway gifts that don't speak to his inner guru will likely leave him cold. This international man of mystery is also all about channelling the unseen forces, and treats his body like a temple."
 				},
 				{
 					"id": "2",
@@ -369,7 +369,7 @@
 					"id": "1",
 					"name": "Sagittarius",
 					"constellation": "Sagittarius",
-					"signText": "On a constant quest for personal development, the Sagittarius woman is all about activities that help her learn more about herself and the world around her. She also loves to travel and sample exotic cultures, which means she can never have too many kaftans, sunhats, yoga mats or beach-friendly self-help books."
+					"signText": "The travelling philosopher of the zodiac, Sagittarius man is also seriously sporty and relishes all sorts of outdoor pursuits. A natural raconteur, once you get him started he'll soon reveal his latest passion - giving you plenty of clues to exactly what sorts of gifts will push his buttons this Christmas."
 				},
 				{
 					"id": "2",
@@ -414,7 +414,7 @@
 					"id": "1",
 					"name": "Capricorn",
 					"constellation": "Capricorn",
-					"signText": "The Capricorn woman loves to take charge, and is no stranger to dressing the part - in fact, her love of flashy labels is less about showing off and more a way of life. When considering your gift for your Capricorn companion, think Queen of Sheba and you'll do just fine."
+					"signText": "Status is everything for the Capricorn alpha male, and his respect for tradition means only the most established labels and brand names will get the seal of approval. Extra bonus points if your present is also on the practical side."
 				},
 				{
 					"id": "2",
@@ -459,7 +459,7 @@
 					"id": "1",
 					"name": "Aquarius",
 					"constellation": "Aquarius",
-					"signText": "The humanitarian of the zodiac, tug at the heartstrings of Aquarius girl with a gift that also gives back - think items with an in-built charitable slant. This open-minded individual also loves the thrill of being awakened to new things, so look for designers on the brink of breaking through and quirky gifts from brands she won't have heard of."
+					"signText": "This sign rules technology, and Aquarius guy is happiest getting his head wrapped around the latest gizmos and gadgets. The scientist of the zodiac, he also loves all things experimental and will actively seek out radical new theories on life, the universe and everything - which he'll then want to get everybody discussing at length over the Christmas turkey."
 				},
 				{
 					"id": "2",
