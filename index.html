@@ -128,6 +128,7 @@ body {
 }
 #signsContainer {
 	width: 100%;
+	height: 100%;
 	position: absolute;
 	z-index: 60;
 }
@@ -154,7 +155,6 @@ body {
 	width: 100%;
 	height: 100%;
 	position: absolute;
-	top: 0;
 	opacity: 0;
 	background-size: cover !important;
 	background-attachment: fixed !important;
@@ -163,6 +163,20 @@ body {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	padding: 20px;
+	-webkit-transition: opacity 0.5s linear, top 0.5s linear;
+	transition: opacity 0.5s linear, top 0.5s linear;
+}
+.signSlide.past {
+	top: -100% !important;
+	opacity: 0;
+}
+.signSlide.active {
+	top: 0 !important;
+	opacity: 1;
+}
+.signSlide.future {
+	top: 100% !important;
+	opacity: 0;
 }
 .signSlide p {
 	font-family: 'Archer';
@@ -401,6 +415,7 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 	margin-left: -300px;
 	background: url(images/planets/Saturnrings.png)
 }
+
 @-webkit-keyframes fade {
 	from {
 		opacity: 1;
@@ -656,7 +671,7 @@ function signType(genderType, sign) {
 	$.getJSON(genderId+'.js', function(data) {
 
 		//slide1 main
-		var slide = '<section class="signSlide" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[0].id+'" id="'+data.starsigns[signId].name+'1" data-background=""><div class="topper"></div>'+
+		var slide = '<section class="signSlide active" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[0].id+'" id="'+data.starsigns[signId].name+'1" data-background=""><div class="topper"></div>'+
 			'<div class="signTitle" style="background: url(images/signs/title_'+data.starsigns[signId].name+'.png);"></div>'+
 			'<div class="signImage"><img src="images/constellations/'+data.starsigns[signId].name+'.png"></div>'+
 			'<p>'+data.starsigns[signId].slides[0].signText+'</p>'+
@@ -720,10 +735,7 @@ function signType(genderType, sign) {
 		$('#signsContainer').append(slide);
 		var cHeight = $(window).height(),
 			numSlides = $('.signSlide').length;
-		$('.signSlide').height(cHeight + 30).css('top', cHeight);
-		$('.signSlide').first().css('opacity', '1').animate({
-			'top': '0'
-		},500);
+		$('.signSlide').height(cHeight + 30);
 		imagesLoaded( document.querySelector('#content'), function( instance ) {
 			$('#coverIt').hide();
 		});
@@ -757,7 +769,8 @@ function signType(genderType, sign) {
 				colour = $('section#'+slideNo).attr('data-colour'),
 				text = $('#typed-strings').text(),
 				cmSign = $('section#'+slideNo).attr('data-sign'),
-				cmSlide = $('section#'+slideNo).attr('data-slideId');
+				cmSlide = $('section#'+slideNo).attr('data-slideId')
+				slideTop = $('#slides').height();
 			console.log('Starsigns_'+genderType+'_'+cmSign+'_Slide'+cmSlide);
 			if(exists(colour)){
 				$('#starfield').attr('style', 'background-color: #'+colour+' !important;');
@@ -774,16 +787,10 @@ function signType(genderType, sign) {
 			} else {
 
 			}
-			$('section#'+slideNo).css('opacity', '1').animate({
-				'top': '0'
-			},500);
-			$('section:not(#'+slideNo+')').animate({
-				'top': '-'+cHeight
-			},500, function(){
-				$('section:not(#'+slideNo+')').css('opacity', '0').animate({
-					'top': cHeight
-				},0)
-			});
+			$('section').removeClass('active').removeClass('past').removeClass('future');
+			$('section#'+slideNo).prev().addClass('past');
+			$('section#'+slideNo).addClass('active');
+			$('section#'+slideNo).next().addClass('future');
 			$('.slideNav').removeClass('active');
 			$('.slideNav#'+slideNo).addClass('active');
 		});
