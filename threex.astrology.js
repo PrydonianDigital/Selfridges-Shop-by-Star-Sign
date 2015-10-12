@@ -71,7 +71,7 @@ var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREE
 var mesh=new THREE.Mesh(geometry,material)
 return mesh}
 THREEx.Planets.createMars=function(){var geometry=new THREE.SphereGeometry(0.5,32,32)
-var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/marsmap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/marsbump.jpg'),bumpScale:0.05,specularMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/marsspec.jpg'),specular:new THREE.Color('grey'),})
+var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/marsmap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/marsbump.jpg'),bumpScale:0.05,})
 var mesh=new THREE.Mesh(geometry,material)
 return mesh}
 THREEx.Planets.createJupiter=function(){var geometry=new THREE.SphereGeometry(0.5,32,32)
