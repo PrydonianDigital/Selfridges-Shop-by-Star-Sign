@@ -47,7 +47,6 @@ body {
 #starfield {
 	width: 100%;
 	height: 100%;
-	min-height: 800px;
 	margin: 0 auto;
 	position: relative;
 	-webkit-transition: background 0.5s ease-in-out;
@@ -58,7 +57,13 @@ body {
 	background-size: cover !important;
 }
 #coverIt {
-	background: #222;
+	background: -moz-linear-gradient(top,  #592a71 0%, #07043a 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#592a71), color-stop(100%,#07043a));
+	background: -webkit-linear-gradient(top,  #592a71 0%,#07043a 100%);
+	background: -o-linear-gradient(top,  #592a71 0%,#07043a 100%);
+	background: -ms-linear-gradient(top,  #592a71 0%,#07043a 100%);
+	background: linear-gradient(to bottom,  #592a71 0%,#07043a 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#592a71', endColorstr='#07043a',GradientType=0 );
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -82,13 +87,19 @@ body {
 }
 .contain {
 	width: 100%;
+	height: 100%;
 	max-width: 600px;
 	margin: 0 auto !important;
+	display: table-cell;
+	vertical-align: middle;
 }
 .contain img {
 	width: 100%;
 	max-width: 500px;
 	height: auto;
+}
+.contain p {
+	padding: 0 40px;
 }
 #mainTitle, #mainLogo {
 	width: 100%;
@@ -122,16 +133,17 @@ body {
 	font-size: 18px;
 	font-weight: normal;
 	letter-spacing: 0.04em;
-	color: #E2E1B7;
+	color: #FFFFFF;
 	text-align: center;
-	line-height: 1.4em;
+	line-height: 1.2em;
 }
 #signsContainer {
 	width: 100%;
 	height: 100%;
 	position: absolute;
 	z-index: 60;
-	display: none;
+	display: table;
+	opacity: 0;
 }
 #content .introSlide {
 	width: 100%;
@@ -141,25 +153,32 @@ body {
 	left: 50%;
 	top: 100%;
 	margin-left: -480px;
-	z-index: 30;
+	z-index: 61;
 	-webkit-transition: top 1s linear;
 	transition: top 1s linear;
 	font-family: 'Archer';
 	font-size: 16px;
 	font-weight: normal;
 	letter-spacing: 0.04em;
-	color: #E2E1B7;
+	color: #FFFFFF;
 	text-align: center;
-	line-height: 1.4em;
+	line-height: 1.2em;
+	display: table;
 }
 .signSlide {
 	width: 100%;
 	height: 100%;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: column;
+	flex-direction: column;
+	-webkit-justify-content: center;
+	justify-content: center;
 	position: absolute;
 	opacity: 0;
 	background-size: cover !important;
 	background-attachment: fixed !important;
-	margin-top: -30px;
+	margin-top: 0px;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -182,27 +201,22 @@ body {
 }
 .signSlide p {
 	font-family: 'Archer';
-	font-size: 22px;
+	font-size: 24px;
 	font-weight: normal;
 	letter-spacing: 0.04em;
-	color: #E2E1B7;
+	color: #FFFFFF;
 	text-align: center;
-	line-height: 1.4em;
+	line-height: 1.2em;
 	max-width: 960px;
 	margin: 16px auto;
-	text-shadow: 2px 2px 1px rgba(0,0,0,1);
-}
-.topper {
-	width: 100%;
-	height: 40px;
 }
 .next {
-	width: 130px;
-	height: 130px;
+	width: 65px;
+	height: 65px;
 	position: absolute;
 	bottom: 20px;
 	left: 50%;
-	margin-left: -65px;
+	margin-left: -32.5px;
 	opacity: 0.3;
 	z-index: 30;
 	-webkit-transition: opacity 1s linear;
@@ -216,13 +230,16 @@ body {
 }
 a#female, a#male {
 	display: inline-block;
-	width: 211px;
-	height: 66px;
+	width: 150px;
+	height: 47px;
 	margin: 10px 40px;
 	background-position: center bottom !important;
 }
 a#female:hover, a#male:hover, a#female.active, a#male.active {
 	background-position: center top !important;
+}
+#signContainer {
+	min-height: 300px;
 }
 #signContainer img {
 	width: 100px;
@@ -236,8 +253,8 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 }
 .signImage {
 	width: 100%;
-	max-width: 400px;
-	max-height: 40%;
+	max-width: 460px;
+	max-height: 350px;
 	margin: 0 auto;
 }
 .signImage img {
@@ -247,9 +264,11 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 	margin: 0 auto;
 }
 .signTitle, .iconTitle {
-	width: 100%;
+	width: calc(100% - 40px);
 	height: 60px;
-	margin: 0 auto 30px auto;
+	margin: 0 auto;
+	position: absolute;
+	top: 20px;
 	background-position: center center !important;
 	background-size: contain !important;
 	background-repeat: no-repeat !important;
@@ -257,6 +276,7 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 .iconImage {
 	width: 320px;
 	max-width: 320px;
+	height: 320px;
 	margin: 0 auto;
 }
 .iconImage img {
@@ -274,10 +294,12 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 }
 .glow img.front {
 	z-index: 20;
-	-webkit-animation: fade 5s infinite;
+}
+.glow img.front.animated {
+	-webkit-animation: fade 3.5s infinite;
 	-webkit-animation-direction: alternate;
 	-webkit-animation-timing-function: ease-in-out;
-	animation: fade 5s infinite;
+	animation: fade 3.5s infinite;
 	animation-direction: alternate;
 	animation-timing-function: ease-in-out;
 }
@@ -305,12 +327,11 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 	vertical-align: middle;
 	font-size: 44px;
 	font-family: 'Archer';
-	font-weight: 100;
 	font-style: italic;
 	letter-spacing: 0.04em;
 	color: #ffffff;
 	text-align: center;
-	line-height: 1.4em;
+	line-height: 1.2em;
 }
 #typed-strings {
 	display: none;
@@ -324,21 +345,18 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 }
 .signImageBody {
 	width: 144px;
-	height: 500px;
+	height: 300px;
 	margin: 0 auto;
-	z-index: 10;
-	top: 0;
 	background-repeat: no-repeat !important;
 	background-position: center top !important;
 	background-size: contain !important;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	margin: -250px 0 0 -77px;
+	margin: 0 auto;
 }
 .signImageBody img {
-	width: 100%;
-	height: auto;
+	width: auto;
+	height: 100%;
+	display: block;
+	margin: 0 auto;
 	-webkit-animation: flash 1s infinite;
 	-webkit-animation-direction: alternate;
 	-webkit-animation-timing-function: ease-in-out;
@@ -366,7 +384,7 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 }
 #slideNav {
 	position: absolute;
-	right: 10px;
+	right: 30px;
 	top: 50%;
 	z-index: 60;
 	margin-top: -77px;
@@ -483,12 +501,13 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 		font-size: 18px;
 		font-weight: normal;
 		letter-spacing: 0.04em;
-		color: #E2E1B7;
+		color: #FFFFFF;
 		text-align: center;
-		line-height: 1.4em;
+		line-height: 1.2em;
 	}
 	.contain p {
 		margin-top: 0;
+		padding: 40px;
 	}
 	.contain {
 		max-width: 90%;
@@ -504,8 +523,12 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 		width: 23%;
 		margin: 0 1%;
 	}
+	.signSlide {
+		padding: 20px 40px;
+	}
 	.signSlide p {
 		font-size: 42px;
+		padding: 0 20px;
 	}
 	.signTitle, .iconTitle {
 		height: 100px;
@@ -568,6 +591,9 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 
 <script>
 jQuery(function($) {
+	var width = $(document).width(),
+		height = $(document).height();
+	$('#starfield').width(width).height(height);
 	slides()
 	if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 		$('body').append('<div class="stars"></div><div class="stars2"></div><div class="stars3"></div><div class="stars4"></div>');
@@ -602,9 +628,11 @@ function slides() {
 	$.getJSON(sbssJson, function(data) {
 		var slide = '';
 		$.each(data.slides, function (i, a) {
-			slide += '<section class="introSlide" data-state="'+a.name+'" data-background="images/sbss_bg.jpg" id="slide'+a.ids+'">';
+			slide += '<section class="introSlide" data-state="'+a.name+'" id="slide'+a.ids+'">';
 			slide += '<div class="contain">';
-			slide += '<img src="'+a.header+'" class="'+a.headerId+'">';
+			if(exists(a.header)) {
+				slide += '<img src="'+a.header+'" class="'+a.headerId+'">';
+			}
 			if(exists(a.image)) {
 				slide += '<img src="'+a.image+'" class="'+a.imageId+'">';
 			}
@@ -630,7 +658,7 @@ function slides() {
 					gender += '<a href="#" id="'+a.name+'" style="background: url(images/sbss_tab_'+a.name+'.png);"></a>';
 				});
 				gender += '</div><div id="signContainer"></div>';
-				$('#content section:nth-child(2)').append(gender);
+				$('#content section:nth-child(2) .contain').append(gender);
 				$('.selectors').on('click', 'a', function(e){
 					e.preventDefault();
 					$('.selectors a').removeClass('active');
@@ -678,48 +706,48 @@ function signType(genderType, sign) {
 	$.getJSON(genderId+'.js', function(data) {
 
 		//slide1 main
-		var slide = '<section class="signSlide active" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[0].id+'" id="'+data.starsigns[signId].name+'1" data-background=""><div class="topper"></div>'+
+		var slide = '<section class="signSlide active" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[0].id+'" id="'+data.starsigns[signId].name+'1" data-background="">'+
 			'<div class="signTitle" style="background: url(images/signs/title_'+data.starsigns[signId].name+'.png);"></div>'+
 			'<div class="signImage"><img src="images/constellations/'+data.starsigns[signId].name+'.png"></div>'+
 			'<p>'+data.starsigns[signId].slides[0].signText+'</p>'+
-			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[1].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="130" height="130" /></a></div>'+
+			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[1].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="65" height="65" /></a></div>'+
 			'</section>';
 
 		//slide2 horoscope
-			slide += '<section class="signSlide" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[1].id+'" id="'+data.starsigns[signId].name+'2" data-background=""><div class="topper"></div>'+
+			slide += '<section class="signSlide" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[1].id+'" id="'+data.starsigns[signId].name+'2" data-background="">'+
 			'<div class="signTitle" style="background: url(images/signs/title_'+data.starsigns[signId].name+'.png);"></div>'+
-			'<p><iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/'+data.starsigns[signId].slides[1].embed+'&amp;color=ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false"></iframe></p>'+
+			'<p><iframe class="iframe" width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/'+data.starsigns[signId].slides[1].embed+'&amp;auto_play=false&amp;buying=false&amp;liking=false&amp;download=false&amp;sharing=false&amp;show_artwork=false&amp;show_comments=false&amp;show_playcount=false&amp;show_user=false&amp;hide_related=true&amp;visual=false&amp;start_track=0&amp;callback=true"></iframe></p>'+
 			'<p>'+data.starsigns[signId].slides[1].horoscope+'</p>'+
-			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[2].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="130" height="130" /></a></div>'+
+			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[2].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="65" height="65" /></a></div>'+
 			'</section>';
 
 		//slide3 icon
-			slide += '<section class="signSlide" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[2].id+'" id="'+data.starsigns[signId].name+'3" data-background=""><div class="topper"></div>'+
+			slide += '<section class="signSlide" data-icon="icon" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[2].id+'" id="'+data.starsigns[signId].name+'3" data-background="">'+
 			'<div class="iconTitle" style="background: url(images/signs/style_title_'+data.starsigns[signId].slides[2].iconTitle+'_'+genderId+'.png);"></div>'+
 			'<div class="iconImage glow"><img src="images/signs/style_icon_'+data.starsigns[signId].slides[2].icon+'_quote_'+genderId+'.png" class="front"><img src="images/signs/style_icon_'+data.starsigns[signId].slides[2].icon+'_face_'+genderId+'.png" class="back"></div>'+
-			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[3].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="130" height="130" /></a></div>'+
+			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[3].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="65" height="65" /></a></div>'+
 			'</section>';
 
 		//slide4 planet
-			slide += '<section class="signSlide" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[3].id+'" id="'+data.starsigns[signId].name+'4" data-background=""><div class="topper"></div>'+
+			slide += '<section class="signSlide" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[3].id+'" id="'+data.starsigns[signId].name+'4" data-background="">'+
 			'<div class="signTitle" style="background: url(images/signs/planet_title_'+data.starsigns[signId].slides[3].planetTitle+'.png);"></div>'+
 			'<div id="planet"></div>'+
 			'<p class="horoscope">'+data.starsigns[signId].slides[3].planetText+'</p>'+
-			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[4].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="130" height="130" /></a></div>'+
+			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[4].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="65" height="65" /></a></div>'+
 			'</section>';
 
 		//slide5 colour
-			slide += '<section class="signSlide bg" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[4].id+'" data-type="type" id="'+data.starsigns[signId].name+'5" data-colour="'+data.starsigns[signId].slides[4].colour+'"><div class="topper"></div>'+
+			slide += '<section class="signSlide bg" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[4].id+'" data-type="type" id="'+data.starsigns[signId].name+'5" data-colour="'+data.starsigns[signId].slides[4].colour+'">'+
 			'<div class="signTitle" style="background: url(images/signs/colour_title_'+data.starsigns[signId].slides[4].colourTitle+'.png);"></div>'+
 			'<div class="signImageColour type" data-type="type"><div id="typed-strings">'+data.starsigns[signId].slides[4].colourText+'</div><span id="typed"></span></div>'+
-			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[5].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="130" height="130" /></a></div>'+
+			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[5].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="65" height="65" /></a></div>'+
 			'</section>';
 
 		//slide6 body
-			slide += '<section class="signSlide bg" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[5].id+'" id="'+data.starsigns[signId].name+'6" data-colour="'+data.starsigns[signId].slides[4].colour+'"><div class="topper"></div>'+
+			slide += '<section class="signSlide bg" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[5].id+'" id="'+data.starsigns[signId].name+'6" data-colour="'+data.starsigns[signId].slides[4].colour+'">'+
 			'<div class="signTitle" style="background: url(images/signs/body_title_'+data.starsigns[signId].slides[5].bodyTitle+'.png);"></div>'+
-			'<div class="signImageBody" style="background: url(images/signs/body_image_'+genderId+'.png);"><img src="images/signs/body_image_'+data.starsigns[signId].slides[5].bodyImage+'_'+genderId+'.png"></div>'+
 			'<p class="horoscope">'+data.starsigns[signId].slides[5].bodyText+'</p>'+
+			'<div class="signImageBody" style="background: url(images/signs/body_image_'+genderId+'.png);"><img src="images/signs/body_image_'+data.starsigns[signId].slides[5].bodyImage+'_'+genderId+'.png"></div>'+
 			'</section>';
 
 		var slideNav = '',
@@ -729,10 +757,10 @@ function signType(genderType, sign) {
 		});
 		$('.background').css('opacity', '0.5');
 		$('#slide1, #slide2').fadeOut();
-		$('#signsContainer').html(slide).show().show();
-		var cHeight = $(window).height(),
+		$('#signsContainer').html(slide).css('opacity', '1').show();
+		var cHeight = $(document).height(),
 			numSlides = $('.signSlide').length;
-		$('.signSlide').height(cHeight + 30);
+		//$('.signSlide').height(cHeight);
 		imagesLoaded( document.querySelector('#content'), function( instance ) {
 			$('#coverIt').hide();
 		});
@@ -754,8 +782,8 @@ function signType(genderType, sign) {
 				}
 			}
 		}
-		$('#info').show();
-		$('#slideNav').html(slideNavItem).show();
+		$('#info').show().css('opacity', '1');
+		$('#slideNav').html(slideNavItem).show().css('opacity', '1');
 		$('.slideNav:first').addClass('active');
 		var slidePos = $('#signsContainer').position();
 		$('.slideNav, .next a').on('click', function(e){
@@ -763,6 +791,7 @@ function signType(genderType, sign) {
 			var slideNo = $(this).attr('id'),
 				slidePos = $('section#'+slideNo).attr('data-top'),
 				type = $('section#'+slideNo).attr('data-type'),
+				icon = $('section#'+slideNo).attr('data-icon'),
 				colour = $('section#'+slideNo).attr('data-colour'),
 				text = $('#typed-strings').text(),
 				cmSign = $('section#'+slideNo).attr('data-sign'),
@@ -783,6 +812,9 @@ function signType(genderType, sign) {
 				});
 			} else {
 
+			}
+			if(exists(icon)){
+				$('.glow img.front').addClass('animated')
 			}
 			$('section').removeClass('active').removeClass('past').removeClass('future');
 			$('section#'+slideNo).prev().addClass('past');
@@ -811,8 +843,30 @@ function signType(genderType, sign) {
 				}
 			}
 		});
+		var mousewheelevt = (/Firefox/i.test(navigator.userAgent)) ? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
+		$('.signSlide').bind(mousewheelevt, function(e){
+			var evt = window.event || e //equalize event object
+			evt = evt.originalEvent ? evt.originalEvent : evt; //convert to originalEvent if possible
+			var delta = evt.detail ? evt.detail*(-75) : evt.wheelDelta //check for detail first, because it is used by Opera and FF
+			if(delta > 0) {
+				var slideNo = $(this).attr('id'),
+					slideId = $(this).attr('data-slideid'),
+					nextSlide = parseInt(slideId) + parseInt(1),
+					cmSign = $('section#'+slideNo).attr('data-sign'),
+					cmSlide = $('section#'+slideNo).attr('data-slideId');
+				$('.slideNav#'+cmSign+nextSlide).trigger('click');
+			}
+			else{
+				var slideNo = $(this).attr('id'),
+					slideId = $(this).attr('data-slideid'),
+					nextSlide = parseInt(slideId) - parseInt(1),
+					cmSign = $('section#'+slideNo).attr('data-sign'),
+					cmSlide = $('section#'+slideNo).attr('data-slideId');
+				$('.slideNav#'+cmSign+nextSlide).trigger('click');
+			}
+		});
 		$('#info').on('click', function(){
-			$('#signsContainer, #slideNav, #info').hide();
+			$('#signsContainer, #slideNav, #info').css('opacity', '0').hide();
 			$('#signsContainer, #slideNav').empty();
 			$('#content').css('top', '0').css('opacity', '1').show();
 			$('#slide2').css('top', '0').css('opacity', '1').show();
@@ -1006,9 +1060,9 @@ function planet(planetType) {
 	material.side = THREE.BackSide
 	material.uniforms.glowColor.value.set(0xf7f5bc)
 	material.uniforms.coeficient.value = 0.3
-	material.uniforms.power.value	 = 5.0
+	material.uniforms.power.value = 6
 	var mesh = new THREE.Mesh(geometry, material );
-	mesh.scale.multiplyScalar(1.15);
+	mesh.scale.multiplyScalar(1.25);
 	containerPlanet.add( mesh );
 	onRenderFcts.push(function(){
 		planetRender.render( planetScene, camera );
