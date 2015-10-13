@@ -3,13 +3,12 @@
 <head>
 <meta charset="utf-8">
 <title>Shop by Star Sign</title>
-
+</head>
+<body>
 <meta property="og:image" content="https://dl.dropboxusercontent.com/u/5409438/sbss/images/fb_share.jpg">
 <meta property="og:title" content="Shop by Star Sign">
 <meta property="og:description" content="Your search for the perfect gift is written in the stars this Christmas. take a cosmic journey with The Numinous - the blogosphere's leading voice on style and mysticism - and discover our handpicked edit of gifts by star sign, plus plenty of celestial guidance, festive forecasts and more along the way.">
 
-<script src="jquery.min.js"></script>
-<script async src="//platform.twitter.com/widgets.js"></script>
 <style type="text/css">
 /* Drupal article page overwrites */
 a, a:hover, a:active, a:visited, a:link {text-decoration:none !important;}
@@ -42,7 +41,9 @@ div.pane-node-created, .whats-on .breadcrumb, h1 {display: none;}
 	   url('images/FuturaBQ-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
 	   url('') format('svg'); /* Legacy iOS */
 }
-body {
+#backgroundGradient {
+	width: 100%;
+	height: 100%;
 	margin: 0;
 	padding: 0;
 	background: -moz-linear-gradient(top,  #592a71 0%, #07043a 100%);
@@ -648,8 +649,7 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 	}
 }
 </style>
-</head>
-<body>
+<div id="backgroundGradient">
 <div id="starfield">
 	<div id="coverIt">
 		<div id="loading">
@@ -667,10 +667,11 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 		</div>
 	</div>
 </div>
-
+</div>
 <script src="three.js"></script>
 <script src="threex.astrology.js"></script>
-
+<script src="jquery.min.js"></script>
+<script async src="//platform.twitter.com/widgets.js"></script>
 <script>
 window.fbAsyncInit = function() {
 	FB.init({
@@ -904,9 +905,9 @@ function signType(genderType, sign) {
 				slideTop = $('#slides').height();
 			console.log('Starsigns_'+genderType+'_'+cmSign+'_Slide'+cmSlide);
 			if(exists(colour)){
-				$('#starfield').attr('style', 'background-color: #'+colour+' !important;');
+				$('#backgroundGradient').attr('style', 'background-color: #'+colour+' !important;');
 			} else {
-				$('#starfield').removeAttr('style')
+				$('#backgroundGradient').removeAttr('style')
 			}
 			if(exists(type)){
 				var text = $('#typed-strings').html();
