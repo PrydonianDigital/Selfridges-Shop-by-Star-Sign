@@ -23,20 +23,20 @@ var THREEx=THREEx||{}
 THREEx.Planets={}
 THREEx.Planets.baseURL=''
 THREEx.Planets.createSun=function(){var geometry=new THREE.SphereGeometry(0.5,32,32)
-var texture=THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/sunmap.jpg')
+var texture=THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/sunmap.jpg')
 var material=new THREE.MeshPhongMaterial({map:texture,bumpMap:texture,bumpScale:0.005,})
 var mesh=new THREE.Mesh(geometry,material)
 return mesh}
 THREEx.Planets.createMercury=function(){var geometry=new THREE.SphereGeometry(0.5,32,32)
-var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/mercurymap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/mercurybump.jpg'),bumpScale:0.005,specularMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/mercuryspec.jpg'),specular:new THREE.Color('grey'),})
+var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/mercurymap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/mercurybump.jpg'),bumpScale:0.005,specularMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/mercuryspec.jpg'),specular:new THREE.Color('grey'),})
 var mesh=new THREE.Mesh(geometry,material)
 return mesh}
 THREEx.Planets.createVenus=function(){var geometry=new THREE.SphereGeometry(0.5,32,32)
-var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/venusmap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/venusbump.jpg'),bumpScale:0.0005,})
+var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/venusmap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/venusbump.jpg'),bumpScale:0.0005,})
 var mesh=new THREE.Mesh(geometry,material)
 return mesh}
 THREEx.Planets.createEarth=function(){var geometry=new THREE.SphereGeometry(0.5,32,32)
-var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/earthmap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/earthbump.jpg'),bumpScale:0.05,specularMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/earthspec.jpg'),specular:new THREE.Color('grey'),})
+var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/earthmap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/earthbump.jpg'),bumpScale:0.05,specularMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/earthspec.jpg'),specular:new THREE.Color('grey'),})
 var mesh=new THREE.Mesh(geometry,material)
 return mesh}
 THREEx.Planets.createEarthCloud=function(){var canvasResult=document.createElement('canvas')
@@ -62,24 +62,24 @@ dataResult.data[offset+2]=dataMap.data[offset+2]
 dataResult.data[offset+3]=255-dataTrans.data[offset+0]}}
 contextResult.putImageData(dataResult,0,0)
 material.map.needsUpdate=true;})
-imageTrans.src=THREEx.Planets.baseURL+'images/planets/earthcloudmaptrans.jpg';},false);imageMap.src=THREEx.Planets.baseURL+'images/planets/earthcloudmap.jpg';var geometry=new THREE.SphereGeometry(0.51,32,32)
+imageTrans.src=THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/earthcloudmaptrans.jpg';},false);imageMap.src=THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/earthcloudmap.jpg';var geometry=new THREE.SphereGeometry(0.51,32,32)
 var material=new THREE.MeshPhongMaterial({map:new THREE.Texture(canvasResult),side:THREE.DoubleSide,transparent:true,opacity:0.8,})
 var mesh=new THREE.Mesh(geometry,material)
 return mesh}
 THREEx.Planets.createMoon=function(){var geometry=new THREE.SphereGeometry(0.5,32,32)
-var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/moonmap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/moonbump.jpg'),bumpScale:0.005,})
+var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/moonmap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/moonbump.jpg'),bumpScale:0.005,})
 var mesh=new THREE.Mesh(geometry,material)
 return mesh}
 THREEx.Planets.createMars=function(){var geometry=new THREE.SphereGeometry(0.5,32,32)
-var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/marsmap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/marsbump.jpg'),bumpScale:0.05,})
+var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/marsmap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/marsbump.jpg'),bumpScale:0.05,})
 var mesh=new THREE.Mesh(geometry,material)
 return mesh}
 THREEx.Planets.createJupiter=function(){var geometry=new THREE.SphereGeometry(0.5,32,32)
-var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/jupitermap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/jupiterbump.jpg'),bumpScale:0.005,})
+var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/jupitermap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/jupiterbump.jpg'),bumpScale:0.005,})
 var mesh=new THREE.Mesh(geometry,material)
 return mesh}
 THREEx.Planets.createSaturn=function(){var geometry=new THREE.SphereGeometry(0.5,32,32)
-var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/saturnmap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/saturnbump.jpg'),bumpScale:0.02,})
+var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/saturnmap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/saturnbump.jpg'),bumpScale:0.02,})
 var mesh=new THREE.Mesh(geometry,material)
 return mesh}
 THREEx.Planets.createSaturnRing=function(){var canvasResult=document.createElement('canvas')
@@ -105,12 +105,12 @@ dataResult.data[offset+2]=dataMap.data[offset+2]
 dataResult.data[offset+3]=255-dataTrans.data[offset+0]/4}}
 contextResult.putImageData(dataResult,0,0)
 material.map.needsUpdate=true;})
-imageTrans.src=THREEx.Planets.baseURL+'images/planets/saturnringpattern.gif';},false);imageMap.src=THREEx.Planets.baseURL+'images/planets/saturnringcolor.jpg';var geometry=new THREEx.Planets._RingGeometry(0.55,0.75,64);var material=new THREE.MeshPhongMaterial({map:new THREE.Texture(canvasResult),side:THREE.DoubleSide,transparent:true,opacity:0.8,})
+imageTrans.src=THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/saturnringpattern.gif';},false);imageMap.src=THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/saturnringcolor.jpg';var geometry=new THREEx.Planets._RingGeometry(0.55,0.75,64);var material=new THREE.MeshPhongMaterial({map:new THREE.Texture(canvasResult),side:THREE.DoubleSide,transparent:true,opacity:0.8,})
 var mesh=new THREE.Mesh(geometry,material)
 mesh.lookAt(new THREE.Vector3(0.5,-4,1))
 return mesh}
 THREEx.Planets.createUranus=function(){var geometry=new THREE.SphereGeometry(0.5,32,32)
-var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/uranusmap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/uranusbump.jpg'),bumpScale:0.02,})
+var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/uranusmap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/uranusbump.jpg'),bumpScale:0.02,})
 var mesh=new THREE.Mesh(geometry,material)
 return mesh}
 THREEx.Planets.createUranusRing=function(){var canvasResult=document.createElement('canvas')
@@ -136,16 +136,16 @@ dataResult.data[offset+2]=dataMap.data[offset+2]
 dataResult.data[offset+3]=255-dataTrans.data[offset+0]/2}}
 contextResult.putImageData(dataResult,0,0)
 material.map.needsUpdate=true;})
-imageTrans.src=THREEx.Planets.baseURL+'images/planets/uranusringtrans.gif';},false);imageMap.src=THREEx.Planets.baseURL+'images/planets/uranusringcolour.jpg';var geometry=new THREEx.Planets._RingGeometry(0.55,0.75,64);var material=new THREE.MeshPhongMaterial({map:new THREE.Texture(canvasResult),side:THREE.DoubleSide,transparent:true,opacity:0.8,})
+imageTrans.src=THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/uranusringtrans.gif';},false);imageMap.src=THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/uranusringcolour.jpg';var geometry=new THREEx.Planets._RingGeometry(0.55,0.75,64);var material=new THREE.MeshPhongMaterial({map:new THREE.Texture(canvasResult),side:THREE.DoubleSide,transparent:true,opacity:0.8,})
 var mesh=new THREE.Mesh(geometry,material)
 mesh.lookAt(new THREE.Vector3(0.5,-4,1))
 return mesh}
 THREEx.Planets.createNeptune=function(){var geometry=new THREE.SphereGeometry(0.5,32,32)
-var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/neptunemap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/neptunebump.jpg'),bumpScale:0.02,})
+var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/neptunemap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/neptunebump.jpg'),bumpScale:0.02,})
 var mesh=new THREE.Mesh(geometry,material)
 return mesh}
 THREEx.Planets.createPluto=function(){var geometry=new THREE.SphereGeometry(0.5,32,32)
-var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/plutomap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/planets/plutobump.jpg'),bumpScale:0.005,})
+var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/plutomap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'https://dl.dropboxusercontent.com/u/5409438/sbss/images/planets/plutobump.jpg'),bumpScale:0.005,})
 var mesh=new THREE.Mesh(geometry,material)
 return mesh}
 THREEx.Planets.createStarfield=function(){var texture=THREE.ImageUtils.loadTexture('http://www.supinemusic.net/Files%20for%20Cloud%20projects/Cinema%204D/plugins/Planet%20X%20Generator%20R12/presets/stars/starfield.jpg')
