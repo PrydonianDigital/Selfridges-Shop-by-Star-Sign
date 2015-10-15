@@ -41,30 +41,26 @@ div.pane-node-created, .whats-on .breadcrumb, h1 {display: none;}
 	   url('images/FuturaBQ-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
 	   url('') format('svg'); /* Legacy iOS */
 }
+body {
+	margin: 0;
+	padding: 0;
+}
 #backgroundGradient {
 	width: 100%;
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	background: -moz-linear-gradient(top,  #592a71 0%, #07043a 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#592a71), color-stop(100%,#07043a));
-	background: -webkit-linear-gradient(top,  #592a71 0%,#07043a 100%);
-	background: -o-linear-gradient(top,  #592a71 0%,#07043a 100%);
-	background: -ms-linear-gradient(top,  #592a71 0%,#07043a 100%);
-	background: linear-gradient(to bottom,  #592a71 0%,#07043a 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#592a71', endColorstr='#07043a',GradientType=0 );
-}
-#starfield {
-	width: 100%;
-	height: 100%;
-	margin: 0 auto;
-	position: relative;
-	-webkit-transition: background 0.5s ease-in-out;
-	transition: background 0.5s ease-in-out;
-	background: url(images/fog.png) !important;
-	background-repeat: no-repeat !important;
-	background-position: center center !important;
-	background-size: cover !important;
+	overflow: hidden;
+	position: absolute;
+	background: -moz-linear-gradient(top,  #51284F 0%, #07043a 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#51284F), color-stop(100%,#07043a));
+	background: -webkit-linear-gradient(top,  #51284F 0%,#07043a 100%);
+	background: -o-linear-gradient(top,  #51284F 0%,#07043a 100%);
+	background: -ms-linear-gradient(top,  #51284F 0%,#07043a 100%);
+	background: linear-gradient(to bottom,  #51284F 0%,#07043a 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#51284F', endColorstr='#07043a',GradientType=0 );
+	-webkit-transition: background 1s ease-in-out;
+	transition: background 1s ease-in-out;
 }
 #coverIt {
 	background: -moz-linear-gradient(top,  #592a71 0%, #07043a 100%);
@@ -74,6 +70,32 @@ div.pane-node-created, .whats-on .breadcrumb, h1 {display: none;}
 	background: -ms-linear-gradient(top,  #592a71 0%,#07043a 100%);
 	background: linear-gradient(to bottom,  #592a71 0%,#07043a 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#592a71', endColorstr='#07043a',GradientType=0 );
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 70;
+	width: 100%;
+	height: 100%;
+}
+#starfield {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	position: absolute;
+	overflow: hidden;
+	background: url(images/fog.png) !important;
+	background-repeat: no-repeat !important;
+	background-position: center center !important;
+	background-size: cover !important;
+}
+#coverIt {
+	background: -moz-linear-gradient(top,  #51284F 0%, #07043a 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#51284F), color-stop(100%,#07043a));
+	background: -webkit-linear-gradient(top,  #51284F 0%,#07043a 100%);
+	background: -o-linear-gradient(top,  #51284F 0%,#07043a 100%);
+	background: -ms-linear-gradient(top,  #51284F 0%,#07043a 100%);
+	background: linear-gradient(to bottom,  #51284F 0%,#07043a 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#51284F', endColorstr='#07043a',GradientType=0 );
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -179,10 +201,19 @@ div.pane-node-created, .whats-on .breadcrumb, h1 {display: none;}
 	width: 100%;
 	height: 100%;
 	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: -o-flex;
 	display: flex;
-	-webkit-flex-flow: column;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	-ms-flex-direction: column;
+	-o-flex-direction: column;
 	flex-direction: column;
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
 	-webkit-justify-content: center;
+	-ms-flex-pack: center;
 	justify-content: center;
 	position: absolute;
 	opacity: 0;
@@ -217,8 +248,10 @@ div.pane-node-created, .whats-on .breadcrumb, h1 {display: none;}
 	color: #FFFFFF;
 	text-align: center;
 	line-height: 1.2em;
+	width: 960px;
 	max-width: 960px;
 	margin: 16px auto;
+	display: block;
 }
 .next {
 	width: 65px;
@@ -227,13 +260,16 @@ div.pane-node-created, .whats-on .breadcrumb, h1 {display: none;}
 	bottom: 20px;
 	left: 50%;
 	margin-left: -32.5px;
-	opacity: 0.3;
 	z-index: 30;
 	-webkit-transition: opacity 1s linear;
 	transition: opacity 1s linear;
 }
-.next:hover {
-	opacity: 1;
+.next img {
+	width: 100%;
+	height: auto;
+}
+a img {
+	border: none;
 }
 .selectors {
 	text-align: center;
@@ -349,7 +385,7 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 	display: none;
 }
 #typed span {
-	background: url(images/signs/thing.png);
+	background: url('+imageBasePath+'thing.png);
 	background-size: cover !important;
 }
 .typed-cursor {
@@ -379,6 +415,14 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 #planet {
 	width: 100%;
 	height: 360px;
+	margin: 0 auto;
+	z-index: 10;
+	position: relative;
+}
+
+.no-webgl #planet {
+	width: 240px;
+	height: 240px;
 	margin: 0 auto;
 	z-index: 10;
 	position: relative;
@@ -421,19 +465,21 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 	cursor: pointer;
 	z-index: 70;
 	display: none;
+	width: 62px;
+	height: 62px;
 }
 .largerTxt {
 	font-size: 32px;
 	font-style: italic;
 }
 #planettype {
-	width: 320px;
-	height: 320px;
+	width: 240px;
+	height: 240px;
 	z-index: 100;
 	margin: 10px auto 0 auto;
 	border-radius: 50%;
-	background-position-x: 0;
-	background-size: 640px 320px;
+	background-position: left center;
+	background-size: 480px 240px !important;
 	box-shadow: inset 16px 0 50px 6px rgb(0, 0, 0),
 		inset -3px 0 6px 4px rgba(255, 255, 255, 0.4),
 		0 0 100px rgba(247,245,188, 0.6);
@@ -441,13 +487,14 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 	animation: planet 24s linear infinite;
 }
 #rings {
-	width: 600px;
-	height: 300px;
+	width: 440px;
+	height: 220px;
 	position: absolute;
-	top: 10px;
+	top: 18px;
 	left: 50%;
-	margin-left: -300px;
-	background: url(images/planets/Saturnrings.png)
+	margin-left: -220px;
+	background: url('+imageBasePath+'Saturnrings.png) no-repeat;
+	background-size: 440px 220px;
 }
 .shop {
 	text-align: center;
@@ -470,15 +517,31 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 	text-align: center;
 	line-height: 1;
 }
-.shop a img {
+.shop a img, .skip a img {
 	vertical-align: middle;
+}
+.skip {
+	position: absolute;
+	right: 30px;
+	bottom: 20px;
+}
+.skip a {
+	font-family: 'Archer';
+	font-size: 24px;
+	text-transform: uppercase;
+	color: #ffffff;
+	text-decoration: none;
+	display: inline-block;
+	padding: 5px;
+	text-align: right;
+	line-height: 1;
 }
 #social {
 	position: absolute;
 	bottom: 40px;
 	left: 40px;
 	z-index: 80;
-	width: 44px;
+	width: 62px;
 	display: none;
 }
 #social img {
@@ -486,7 +549,85 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 	height: auto;
 	margin: 10px 0 0 0;
 }
+.stars {
+	background-image:
+		radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
+		radial-gradient(2px 2px at 40px 70px, #f2dcb4, rgba(0,0,0,0)),
+		radial-gradient(2px 2px at 50px 160px, #fff, rgba(0,0,0,0)),
+		radial-gradient(2px 2px at 90px 40px, #f2dcb4, rgba(0,0,0,0)),
+		radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+		radial-gradient(2px 2px at 160px 120px, #f2dcb4, rgba(0,0,0,0));
+	background-repeat: repeat;
+	background-size: 200px 200px;
+	-webkit-animation: zoom 5s infinite;
+	animation: zoom 5s infinite;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
+.stars:nth-child(1) {
+	background-position: 50% 50%;
+	-webkit-animation-delay: 0s;
+	animation-delay: 0s;
+}
+.stars:nth-child(2) {
+	background-position: 20% 60%;
+	-webkit-animation-delay: 1s;
+	animation-delay: 1s;
+}
+.stars:nth-child(3) {
+	background-position: -20% -30%;
+	-webkit-animation-delay: 2s;
+	animation-delay: 2s;
+}
+.stars:nth-child(4) {
+	background-position: 40% -80%;
+	-webkit-animation-delay: 3s;
+	animation-delay: 3s;
+}
+.stars:nth-child(5) {
+	background-position: -20% 30%;
+	-webkit-animation-delay: 4s;
+	animation-delay: 4s;
+}
 
+@-webkit-keyframes zoom {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(0.5);
+		animation-timing-function: ease-in;
+	}
+	85% {
+		opacity: 0.8;
+		-webkit-transform: scale(2.8);
+		animation-timing-function: linear;
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: scale(3.5);
+	}
+}
+@keyframes zoom {
+	0% {
+		opacity: 0;
+		transform: scale(0.5);
+		animation-timing-function: ease-in;
+	}
+	85% {
+		opacity: 1;
+		transform: scale(2.8);
+		animation-timing-function: linear;
+	}
+	100% {
+		opacity: 0;
+		transform: scale(3.5);
+	}
+}
 @-webkit-keyframes fade {
 	from {
 		opacity: 1;
@@ -524,7 +665,7 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 		background-position-x: 0;
 	}
 	to {
-		background-position-x: 640px;
+		background-position-x: 480px;
 	}
 }
 @keyframes planet {
@@ -532,7 +673,7 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 		background-position-x: 0;
 	}
 	to {
-		background-position-x: 640px;
+		background-position-x: 480px;
 	}
 }
 @media screen and (max-device-width: 760px) {
@@ -630,8 +771,17 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 		width: 100%;
 		display: block;
 	}
+	.next {
+		width: 120px;
+		height: 120px;
+	}
 	.shop {
 		width: calc(100% - 80px);
+	}
+	#social {
+		left: 15px;
+		bottom: 15px;
+		width: 100px;
 	}
 }
 @media screen and (max-device-width: 480px) {
@@ -649,30 +799,36 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 	}
 }
 </style>
+
 <div id="backgroundGradient">
-<div id="starfield">
-	<div id="coverIt">
-		<div id="loading">
-			<img src="images/loading.gif">
+	<div id="starfield">
+		<div id="coverIt">
+			<div id="loading">
+				<img src="images/loading.gif">
+			</div>
 		</div>
-	</div>
-	<div class="slides">
-		<section id="content"></section>
-		<div id="signsContainer"></div>
-		<div id="slideNav"></div>
-		<img src="images/info.png" id="info" />
-		<div id="social">
-			<a href="#" id="fbShare"><img src="images/sbss_icon_facebook.png" alt="Facebook" width="88" height="88" id="facebook" /></a>
-			<a href="https://twitter.com/intent/tweet?text=Selfridges%20Shop%20by%20Star%20Sign%20&url=https%3A%2F%2Fdl.dropboxusercontent.com%2Fu%2F5409438%2Fsbss%2Findex.html&via=Selfridges"><img src="images/sbss_icon_twitter.png" alt="sbss_icon_twitter" width="88" height="88" /></a>
+		<div class="slides">
+			<section id="content"></section>
+			<div id="signsContainer"></div>
+			<div id="slideNav"></div>
+			<img src="images/info.png" id="info" />
+			<div id="social">
+				<a href="#" id="fbShare"><img src="images/sbss_icon_facebook.png" alt="Facebook" width="88" height="88" id="facebook" /></a>
+				<a href="https://twitter.com/intent/tweet?text=Selfridges%20Shop%20by%20Star%20Sign%20&url=https%3A%2F%2Fdl.dropboxusercontent.com%2Fu%2F5409438%2Fsbss%2Findex.html&via=Selfridges"><img src="images/sbss_icon_twitter.png" alt="sbss_icon_twitter" width="88" height="88" /></a>
+			</div>
 		</div>
 	</div>
 </div>
-</div>
+
+<script src="modernizr.js"></script>
+<script src="jquery.min.js"></script>
 <script src="three.js"></script>
 <script src="threex.astrology.js"></script>
-<script src="jquery.min.js"></script>
 <script async src="//platform.twitter.com/widgets.js"></script>
 <script>
+//no conflict jQuery
+var $s = jQuery.noConflict();
+
 window.fbAsyncInit = function() {
 	FB.init({
 		appId: '895339160541870',
@@ -680,6 +836,7 @@ window.fbAsyncInit = function() {
 		version: 'v2.5'
 	});
 };
+
 (function(d, s, id){
 	var js, fjs = d.getElementsByTagName(s)[0];
 	if (d.getElementById(id)) {return;}
@@ -687,231 +844,252 @@ window.fbAsyncInit = function() {
 	js.src = "//connect.facebook.net/en_US/sdk.js";
 	fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
-jQuery(function($) {
-	var width = $(document).width(),
-		height = $(document).height();
-	$('#starfield').width(width).height(height);
-	slides()
+
+var scriptBasePath = 'https://dl.dropboxusercontent.com/u/5409438/sbss/',
+	imageBasePath = 'https://dl.dropboxusercontent.com/u/5409438/sbss/images/',
+	sbssJson = scriptBasePath+'sbss.js',
+	female = scriptBasePath+'female.js',
+	male = scriptBasePath+'male.js',
+	cmPath = 'http://cm.selfridges.com',
+	livePath = 'http://www.selfridges.com';
+
+$s(function() {
+
+	var width = $s(document).width(),
+		height = $s(document).height();
+
+	$s('#starfield').width(width).height(height);
+
+	slides();
+
 	if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-		$('body').append('<div class="stars"></div><div class="stars2"></div><div class="stars3"></div><div class="stars4"></div>');
+		$s('#starfield').append('<div class="stars"></div><div class="stars"></div><div class="stars"></div><div class="stars"></div><div class="stars"></div>');
 	} else {
-		if ( webglAvailable() ) {
-			starField()
+		if($s('html').hasClass('webgl')) {
+			starField();
 		} else {
-			$('body').append('<div class="stars"></div><div class="stars2"></div><div class="stars3"></div><div class="stars4"></div>');
+			$s('#starfield').append('<div class="stars"></div><div class="stars"></div><div class="stars"></div><div class="stars"></div><div class="stars"></div>');
 		}
 	}
-	slides();
-	if(localStorage.getItem('starsigngender') && localStorage.getItem('starsign')) {
 
-	}
-	$('#fbShare').on('click', function(e){
+	$s('#fbShare').on('click', function(e){
 		e.preventDefault();
 		FB.ui({
 			method: 'share',
 			href: 'https://dl.dropboxusercontent.com/u/5409438/sbss/index.html',
 		}, function(response){});
 	});
+
 });
 
-function webglAvailable() {
-	try {
-		var canvas = document.createElement( 'canvas' );
-		return !!( window.WebGLRenderingContext && (canvas.getContext( 'webgl' ) || canvas.getContext( 'experimental-webgl' ) ) );
-	} catch ( e ) {
-		return false;
-	}
-}
-
-var sbssJson = 'sbss.js',
-	female = 'female.js',
-	male = 'male.js';
-
 function slides() {
-	$('#coverIt').show();
-	$.getJSON(sbssJson, function(data) {
+	$s('#coverIt').show();
+	$s.getJSON(sbssJson, function(data) {
 		var slide = '';
-		$.each(data.slides, function (i, a) {
+		$s.each(data.slides, function (i, a) {
 			slide += '<section class="introSlide" data-state="'+a.name+'" id="slide'+a.ids+'">';
 			slide += '<div class="contain">';
 			if(exists(a.header)) {
-				slide += '<img src="'+a.header+'" class="'+a.headerId+'">';
+				slide += '<img src="'+imageBasePath+a.header+'" class="'+a.headerId+'">';
 			}
 			if(exists(a.image)) {
-				slide += '<img src="'+a.image+'" class="'+a.imageId+'">';
+				slide += '<img src="'+imageBasePath+a.image+'" class="'+a.imageId+'">';
 			}
-			if(exists(a.text)) {
-				slide += '<p>'+a.text+'</p>';
+			if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+				if(exists(a.mobiletext)) {
+					slide += '<p>'+a.mobiletext+'</p>';
+				}
+			} else {
+				if(exists(a.text)) {
+					slide += '<p>'+a.text+'</p>';
+				}
 			}
 			slide += '</div>';
 			slide += '</section>';
-			$('#content').html(slide);
+			$s('#content').html(slide);
 			imagesLoaded( document.querySelector('#content'), function( instance ) {
-				$('#coverIt').hide();
+				$s('#coverIt').hide();
 			});
-			$('#content section:first').css('top' ,'0');
-			$('#content section:first').delay(6000).animate({
+			$s('#content section:first').css('top' ,'0');
+			$s('#content section:first').delay(6000).animate({
 				top: '-'+sHeight+'px',
 				'opacity': 0
 			},500, 'linear', function(){
-				$('#content section:nth-child(2)').animate({
+				$s('#content section:nth-child(2)').animate({
 					top: '0'
 				},500);
 				var gender = '<div class="selectors">';
-				$.each(data.gender, function(i,a) {
-					gender += '<a href="#" id="'+a.name+'" style="background: url(images/sbss_tab_'+a.name+'.png);"></a>';
+				$s.each(data.gender, function(i,a) {
+					gender += '<a href="#" id="'+a.name+'" style="background: url('+imageBasePath+'sbss_tab_'+a.name+'.png);"></a>';
 				});
 				gender += '</div><div id="signContainer"></div>';
-				$('#content section:nth-child(2) .contain').append(gender);
-				$('.selectors').on('click', 'a', function(e){
+				$s('#content section:nth-child(2) .contain').append(gender);
+				$s('.selectors').on('click', 'a', function(e){
 					e.preventDefault();
-					$('.selectors a').removeClass('active');
-					$(this).addClass('active');
-					var genderId = $(this).attr('id');
+					$s('.selectors a').removeClass('active');
+					$s(this).addClass('active');
+					var genderId = $s(this).attr('id');
 					starsigns(genderId)
 				});
 				setTimeout(function () {
-					$('a#female').trigger('click');
+					$s('a#female').trigger('click');
 				},1500);
 			});
-			var sWidth = $('.slides').width(),
-				sHeight = $('.slides').height();
+			var sWidth = $s('.slides').width(),
+				sHeight = $s('.slides').height();
 		});
 	});
 }
 
 function starsigns(genderId) {
-	$.getJSON(genderId+'.js', function(data) {
+	$s.getJSON(genderId+'.js', function(data) {
 		var sign = '';
-		$.each(data.starsigns, function(i,a) {
-			sign += '<a href="#" id="'+a.name+'"data-gender="'+genderId+'" data-sign="'+a.id+'" data-starsign="'+a.name+'"><img src="images/signs/icon_'+a.name+'.png" /></a>';
+		$s.each(data.starsigns, function(i,a) {
+			sign += '<a href="#" id="'+a.name+'"data-gender="'+genderId+'" data-sign="'+a.id+'" data-starsign="'+a.name+'"><img src="'+imageBasePath+'icon_'+a.name+'.png" /></a>';
 		});
-		$('#signContainer').html(sign);
-		$('#signContainer img').each(function(i) {
-			$(this).delay((i++) * 250).fadeTo(500, 1);
+		$s('#signContainer').html(sign);
+		$s('#signContainer img').each(function(i) {
+			$s(this).delay((i++) * 250).fadeTo(500, 1);
 		})
 	});
-	$('#signContainer').on('click', 'a', function(e){
+	$s('#signContainer').on('click', 'a', function(e){
 		e.preventDefault();
-		var genderType = $(this).data('gender'),
-			starsign = $(this).data('starsign'),
-			sign = $(this).data('sign');
+		var genderType = $s(this).data('gender'),
+			starsign = $s(this).data('starsign'),
+			sign = $s(this).data('sign');
 		signType(genderType, sign)
 		console.log('Starsigns_'+genderType+'_'+starsign+'_Slide1');
 	});
 }
 
 function signType(genderType, sign) {
-	$('#coverIt').show();
+	$s('#coverIt').show();
 	var signId = sign,
 		genderId = genderType;
 	localStorage.setItem('starsigngender', genderId);
 	localStorage.setItem('starsign', signId);
-	$.getJSON(genderId+'.js', function(data) {
+	$s.getJSON(genderId+'.js', function(data) {
 
 		//slide1 main
 		var slide = '<section class="signSlide active" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[0].id+'" id="'+data.starsigns[signId].name+'1" data-background="">'+
-			'<div class="signTitle" style="background: url(images/signs/title_'+data.starsigns[signId].name+'.png);"></div>'+
-			'<div class="signImage"><img src="images/constellations/'+data.starsigns[signId].name+'.png"></div>'+
-			'<p>'+data.starsigns[signId].slides[0].signText+'</p>'+
-			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[1].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="65" height="65" /></a></div>'+
+			'<div class="signTitle" style="background: url('+imageBasePath+'title_'+data.starsigns[signId].name+'.png);"></div>'+
+			'<div class="signImage"><img src="'+imageBasePath+data.starsigns[signId].name+'.png"></div>';
+			if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+				slide += '<p>'+data.starsigns[signId].slides[0].signMobileText+'</p>';
+			} else {
+				slide += '<p>'+data.starsigns[signId].slides[0].signText+'</p>';
+			}
+			slide += '<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[1].id+'"><img src="'+imageBasePath+'/sbss_icon_next.png" alt="Next" /></a></div>'+
+			'<div class="skip"><a href="'+cmPath+data.starsigns[signId].url+'&cm_sp=StarsignsProductEdits-_-Slide'+data.starsigns[signId].slides[0].id+'skiptoproduct-_-'+genderId+data.starsigns[signId].name+'" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[0].id+'">Skip <img src="'+imageBasePath+'sbss_icon_skip.png" alt="skip" /></a></div>'+
 			'</section>';
 
 		//slide2 horoscope
 			slide += '<section class="signSlide" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[1].id+'" id="'+data.starsigns[signId].name+'2" data-background="">'+
-			'<div class="signTitle" style="background: url(images/signs/title_'+data.starsigns[signId].name+'.png);"></div>'+
-			'<p><iframe class="iframe" width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/'+data.starsigns[signId].slides[1].embed+'&amp;auto_play=false&amp;buying=false&amp;liking=false&amp;download=false&amp;sharing=false&amp;show_artwork=false&amp;show_comments=false&amp;show_playcount=false&amp;show_user=false&amp;hide_related=true&amp;visual=false&amp;start_track=0&amp;color=592a71&amp;callback=true"></iframe></p>'+
-			'<p>'+data.starsigns[signId].slides[1].horoscope+'</p>'+
-			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[2].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="65" height="65" /></a></div>'+
+			'<div class="signTitle" style="background: url('+imageBasePath+'title_'+data.starsigns[signId].name+'.png);"></div>'+
+			'<p><iframe class="iframe" width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/'+data.starsigns[signId].slides[1].embed+'&amp;auto_play=false&amp;buying=false&amp;liking=false&amp;download=false&amp;sharing=false&amp;show_artwork=false&amp;show_comments=false&amp;show_playcount=false&amp;show_user=false&amp;hide_related=true&amp;visual=false&amp;start_track=0&amp;color=592a71&amp;callback=true"></iframe></p>';
+			if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+				slide += '<p>'+data.starsigns[signId].slides[1].horoscopeMobile+'</p>';
+			} else {
+				slide += '<p>'+data.starsigns[signId].slides[1].horoscope+'</p>';
+			}
+			slide += '<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[2].id+'"><img src="'+imageBasePath+'sbss_icon_next.png" alt="Next" /></a></div>'+
+			'<div class="skip"><a href="'+cmPath+data.starsigns[signId].url+'&cm_sp=StarsignsProductEdits-_-Slide'+data.starsigns[signId].slides[1].id+'skiptoproduct-_-'+genderId+data.starsigns[signId].name+'" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[1].id+'">Skip <img src="'+imageBasePath+'sbss_icon_skip.png" alt="skip" /></a></div>'+
 			'</section>';
 
 		//slide3 icon
 			slide += '<section class="signSlide" data-icon="icon" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[2].id+'" id="'+data.starsigns[signId].name+'3" data-background="">'+
-			'<div class="iconTitle" style="background: url(images/signs/style_title_'+data.starsigns[signId].slides[2].iconTitle+'_'+genderId+'.png);"></div>'+
-			'<div class="iconImage glow"><img src="images/signs/style_icon_'+data.starsigns[signId].slides[2].icon+'_quote_'+genderId+'.png" class="front"><img src="images/signs/style_icon_'+data.starsigns[signId].slides[2].icon+'_face_'+genderId+'.png" class="back"></div>'+
-			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[3].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="65" height="65" /></a></div>'+
+			'<div class="iconTitle" style="background: url('+imageBasePath+'style_title_'+data.starsigns[signId].slides[2].iconTitle+'_'+genderId+'.png);"></div>'+
+			'<div class="iconImage glow"><img src="'+imageBasePath+'style_icon_'+data.starsigns[signId].slides[2].icon+'_quote_'+genderId+'.png" class="front"><img src="'+imageBasePath+'style_icon_'+data.starsigns[signId].slides[2].icon+'_face_'+genderId+'.png" class="back"></div>'+
+			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[3].id+'"><img src="'+imageBasePath+'sbss_icon_next.png" alt="Next" /></a></div>'+
+			'<div class="skip"><a href="'+cmPath+data.starsigns[signId].url+'&cm_sp=StarsignsProductEdits-_-Slide'+data.starsigns[signId].slides[2].id+'skiptoproduct-_-'+genderId+data.starsigns[signId].name+'" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[2].id+'">Skip <img src="'+imageBasePath+'sbss_icon_skip.png" alt="skip" /></a></div>'+
 			'</section>';
 
 		//slide4 planet
 			slide += '<section class="signSlide" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[3].id+'" id="'+data.starsigns[signId].name+'4" data-background="">'+
-			'<div class="signTitle" style="background: url(images/signs/planet_title_'+data.starsigns[signId].slides[3].planetTitle+'.png);"></div>'+
-			'<div id="planet"></div>'+
-			'<p class="horoscope">'+data.starsigns[signId].slides[3].planetText+'</p>'+
-			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[4].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="65" height="65" /></a></div>'+
+			'<div class="signTitle" style="background: url('+imageBasePath+'planet_title_'+data.starsigns[signId].slides[3].planetTitle+'.png);"></div>'+
+			'<div id="planet"></div>';
+			if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+				slide += '<p class="horoscope">'+data.starsigns[signId].slides[3].planetMobileText+'</p>';
+			} else {
+				slide += '<p class="horoscope">'+data.starsigns[signId].slides[3].planetText+'</p>';
+			}
+			slide += '<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[4].id+'"><img src="'+imageBasePath+'sbss_icon_next.png" alt="Next" /></a></div>'+
+			'<div class="skip"><a href="'+cmPath+data.starsigns[signId].url+'&cm_sp=StarsignsProductEdits-_-Slide'+data.starsigns[signId].slides[3].id+'skiptoproduct-_-'+genderId+data.starsigns[signId].name+'" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[3].id+'">Skip <img src="'+imageBasePath+'sbss_icon_skip.png" alt="skip" /></a></div>'+
 			'</section>';
 
 		//slide5 colour
 			slide += '<section class="signSlide bg" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[4].id+'" data-type="type" id="'+data.starsigns[signId].name+'5" data-colour="'+data.starsigns[signId].slides[4].colour+'">'+
-			'<div class="signTitle" style="background: url(images/signs/colour_title_'+data.starsigns[signId].slides[4].colourTitle+'.png);"></div>'+
+			'<div class="signTitle" style="background: url('+imageBasePath+'colour_title_'+data.starsigns[signId].slides[4].colourTitle+'.png);"></div>'+
 			'<div class="signImageColour type" data-type="type"><div id="typed-strings">'+data.starsigns[signId].slides[4].colourText+'</div><span id="typed"></span></div>'+
-			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[5].id+'"><img src="images/sbss_icon_next.png" alt="sbss_icon_next" width="65" height="65" /></a></div>'+
+			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[5].id+'"><img src="'+imageBasePath+'sbss_icon_next.png" alt="Next" /></a></div>'+
+			'<div class="skip"><a href="'+cmPath+data.starsigns[signId].url+'&cm_sp=StarsignsProductEdits-_-Slide'+data.starsigns[signId].slides[4].id+'skiptoproduct-_-'+genderId+data.starsigns[signId].name+'" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[4].id+'">Skip <img src="'+imageBasePath+'sbss_icon_skip.png" alt="skip" /></a></div>'+
 			'</section>';
 
 		//slide6 body
 			slide += '<section class="signSlide bg" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[5].id+'" id="'+data.starsigns[signId].name+'6" data-colour="'+data.starsigns[signId].slides[4].colour+'">'+
-			'<div class="signTitle" style="background: url(images/signs/body_title_'+data.starsigns[signId].slides[5].bodyTitle+'.png);"></div>'+
+			'<div class="signTitle" style="background: url('+imageBasePath+'body_title_'+data.starsigns[signId].slides[5].bodyTitle+'.png);"></div>'+
 			'<p class="horoscope">'+data.starsigns[signId].slides[5].bodyText+'</p>'+
-			'<div class="signImageBody" style="background: url(images/signs/body_image_'+genderId+'.png);"><img src="images/signs/body_image_'+data.starsigns[signId].slides[5].bodyImage+'_'+genderId+'.png"></div>'+
-			'<div class="shop"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[5].id+'">Shop the '+data.starsigns[signId].name+' Edit <img src="images/sbss_icon_skip.png" alt="skip" /></a></div>'+
+			'<div class="signImageBody" style="background: url('+imageBasePath+'body_image_'+genderId+'.png);"><img src="'+imageBasePath+'body_image_'+data.starsigns[signId].slides[5].bodyImage+'_'+genderId+'.png"></div>'+
+			'<div class="shop"><a href="'+cmPath+data.starsigns[signId].url+'&cm_sp=StarsignsProductEdits-_-Slide'+data.starsigns[signId].slides[5].id+'ViewtheEdit-_-'+genderId+data.starsigns[signId].name+'" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[5].id+'">Shop the '+data.starsigns[signId].name+' Edit <img src="'+imageBasePath+'sbss_icon_skip.png" alt="skip" /></a></div>'+
 			'</section>';
 
 		var slideNav = '',
 			slideNavItem = '';
-		$.each(data.starsigns[signId].slides, function(i,a) {
+		$s.each(data.starsigns[signId].slides, function(i,a) {
 			slideNavItem += '<span id="'+a.name+''+a.id+'" class="slideNav"></span>';
 		});
-		$('.background').css('opacity', '0.5');
-		$('#slide1, #slide2').fadeOut();
-		$('#signsContainer').html(slide).css('opacity', '1').show();
-		$('#social').css('opacity', '1').show();
-		var cHeight = $(document).height(),
-			numSlides = $('.signSlide').length;
-		//$('.signSlide').height(cHeight);
+		$s('.background').css('opacity', '0.5');
+		$s('#slide1, #slide2').fadeOut();
+		$s('#signsContainer').html(slide).css('opacity', '1').show();
+		$s('#social').css('opacity', '1').show();
+		var cHeight = $s(document).height(),
+			numSlides = $s('.signSlide').length;
+		//$s('.signSlide').height(cHeight);
 		imagesLoaded( document.querySelector('#content'), function( instance ) {
-			$('#coverIt').hide();
+			$s('#coverIt').hide();
 		});
 		var planetType = data.starsigns[signId].slides[3].planet;
 		if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 			if(planetType == 'Saturn') {
-				$('#planet').html('<div id="planettype" style="background: url(images/planets/'+planetType+'mobile.jpg) !important;"></div><div id="rings"></div>');
+				$s('#planet').html('<div id="planettype" style="background: url('+imageBasePath+''+planetType+'mobile.jpg) !important;"></div><div id="rings"></div>');
 			} else {
-				$('#planet').html('<div id="planettype" style="background: url(images/planets/'+planetType+'mobile.jpg) !important;"></div>');
+				$s('#planet').html('<div id="planettype" style="background: url('+imageBasePath+''+planetType+'mobile.jpg) !important;"></div>');
 			}
 		} else {
-			if ( webglAvailable() ) {
+			if($s('html').hasClass('webgl')) {
 				planet(planetType);
 			} else {
 				if(planetType == 'Saturn') {
-					$('#planet').html('<div id="planettype" style="background: url(images/planets/'+planetType+'mobile.jpg) !important;"></div><div id="rings"></div>');
+					$s('#planet').html('<div id="planettype" style="background: url('+imageBasePath+''+planetType+'mobile.jpg) !important;"></div><div id="rings"></div>');
 				} else {
-					$('#planet').html('<div id="planettype" style="background: url(images/planets/'+planetType+'mobile.jpg) !important;"></div>');
+					$s('#planet').html('<div id="planettype" style="background: url('+imageBasePath+''+planetType+'mobile.jpg) !important;"></div>');
 				}
 			}
 		}
-		$('#info').show().css('opacity', '1');
-		$('#slideNav').html(slideNavItem).show().css('opacity', '1');
-		$('.slideNav:first').addClass('active');
-		var slidePos = $('#signsContainer').position();
-		$('.slideNav, .next a').on('click', function(e){
+		$s('#info').show().css('opacity', '1');
+		$s('#slideNav').html(slideNavItem).show().css('opacity', '1');
+		$s('.slideNav:first').addClass('active');
+		var slidePos = $s('#signsContainer').position();
+		$s('.slideNav, .next a').on('click', function(e){
 			e.preventDefault();
-			var slideNo = $(this).attr('id'),
-				slidePos = $('section#'+slideNo).attr('data-top'),
-				type = $('section#'+slideNo).attr('data-type'),
-				icon = $('section#'+slideNo).attr('data-icon'),
-				colour = $('section#'+slideNo).attr('data-colour'),
-				text = $('#typed-strings').text(),
-				cmSign = $('section#'+slideNo).attr('data-sign'),
-				cmSlide = $('section#'+slideNo).attr('data-slideId')
-				slideTop = $('#slides').height();
+			var slideNo = $s(this).attr('id'),
+				slidePos = $s('section#'+slideNo).attr('data-top'),
+				type = $s('section#'+slideNo).attr('data-type'),
+				icon = $s('section#'+slideNo).attr('data-icon'),
+				colour = $s('section#'+slideNo).attr('data-colour'),
+				text = $s('#typed-strings').text(),
+				cmSign = $s('section#'+slideNo).attr('data-sign'),
+				cmSlide = $s('section#'+slideNo).attr('data-slideId')
+				slideTop = $s('#slides').height();
 			console.log('Starsigns_'+genderType+'_'+cmSign+'_Slide'+cmSlide);
 			if(exists(colour)){
-				$('#backgroundGradient').attr('style', 'background-color: #'+colour+' !important;');
+				$s('#backgroundGradient').attr('style', 'background: #'+colour+' !important;');
 			} else {
-				$('#backgroundGradient').removeAttr('style')
+				$s('#backgroundGradient').removeAttr('style')
 			}
 			if(exists(type)){
-				var text = $('#typed-strings').html();
-				$("#typed").typed({
+				var text = $s('#typed-strings').html();
+				$s("#typed").typed({
 					strings: [text],
 					typeSpeed: 20,
 					contentType: 'html'
@@ -920,64 +1098,64 @@ function signType(genderType, sign) {
 
 			}
 			if(exists(icon)){
-				$('.glow img.front').addClass('animated')
+				$s('.glow img.front').addClass('animated')
 			}
-			$('section').removeClass('active').removeClass('past').removeClass('future');
-			$('section#'+slideNo).prev().addClass('past');
-			$('section#'+slideNo).addClass('active');
-			$('section#'+slideNo).next().addClass('future');
-			$('.slideNav').removeClass('active');
-			$('.slideNav#'+slideNo).addClass('active');
+			$s('section').removeClass('active').removeClass('past').removeClass('future');
+			$s('section#'+slideNo).prev().addClass('past');
+			$s('section#'+slideNo).addClass('active');
+			$s('section#'+slideNo).next().addClass('future');
+			$s('.slideNav').removeClass('active');
+			$s('.slideNav#'+slideNo).addClass('active');
 		});
-		$('.signSlide').swipe( {
+		$s('.signSlide').swipe( {
 			swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
 				if(direction == 'up') {
-					var slideNo = $(this).attr('id'),
-						slideId = $(this).attr('data-slideid'),
+					var slideNo = $s(this).attr('id'),
+						slideId = $s(this).attr('data-slideid'),
 						nextSlide = parseInt(slideId) + parseInt(1),
-						cmSign = $('section#'+slideNo).attr('data-sign'),
-						cmSlide = $('section#'+slideNo).attr('data-slideId');
-					$('.slideNav#'+cmSign+nextSlide).trigger('click');
+						cmSign = $s('section#'+slideNo).attr('data-sign'),
+						cmSlide = $s('section#'+slideNo).attr('data-slideId');
+					$s('.slideNav#'+cmSign+nextSlide).trigger('click');
 				}
 				if(direction == 'down') {
-					var slideNo = $(this).attr('id'),
-						slideId = $(this).attr('data-slideid'),
+					var slideNo = $s(this).attr('id'),
+						slideId = $s(this).attr('data-slideid'),
 						nextSlide = parseInt(slideId) - parseInt(1),
-						cmSign = $('section#'+slideNo).attr('data-sign'),
-						cmSlide = $('section#'+slideNo).attr('data-slideId');
-					$('.slideNav#'+cmSign+nextSlide).trigger('click');
+						cmSign = $s('section#'+slideNo).attr('data-sign'),
+						cmSlide = $s('section#'+slideNo).attr('data-slideId');
+					$s('.slideNav#'+cmSign+nextSlide).trigger('click');
 				}
 			}
 		});
 		var mousewheelevt = (/Firefox/i.test(navigator.userAgent)) ? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
-		$('.signSlide').bind(mousewheelevt, function(e){
+		$s('.signSlide').bind(mousewheelevt, function(e){
 			var evt = window.event || e //equalize event object
 			evt = evt.originalEvent ? evt.originalEvent : evt; //convert to originalEvent if possible
-			var delta = evt.detail ? evt.detail*(-75) : evt.wheelDelta //check for detail first, because it is used by Opera and FF
+			var delta = evt.detail ? evt.detail*(-175) : evt.wheelDelta //check for detail first, because it is used by Opera and FF
 			if(delta > 0) {
-				var slideNo = $(this).attr('id'),
-					slideId = $(this).attr('data-slideid'),
+				var slideNo = $s(this).attr('id'),
+					slideId = $s(this).attr('data-slideid'),
 					nextSlide = parseInt(slideId) + parseInt(1),
-					cmSign = $('section#'+slideNo).attr('data-sign'),
-					cmSlide = $('section#'+slideNo).attr('data-slideId');
-				$('.slideNav#'+cmSign+nextSlide).trigger('click');
+					cmSign = $s('section#'+slideNo).attr('data-sign'),
+					cmSlide = $s('section#'+slideNo).attr('data-slideId');
+				$s('.slideNav#'+cmSign+nextSlide).trigger('click');
 			}
 			else{
-				var slideNo = $(this).attr('id'),
-					slideId = $(this).attr('data-slideid'),
+				var slideNo = $s(this).attr('id'),
+					slideId = $s(this).attr('data-slideid'),
 					nextSlide = parseInt(slideId) - parseInt(1),
-					cmSign = $('section#'+slideNo).attr('data-sign'),
-					cmSlide = $('section#'+slideNo).attr('data-slideId');
-				$('.slideNav#'+cmSign+nextSlide).trigger('click');
+					cmSign = $s('section#'+slideNo).attr('data-sign'),
+					cmSlide = $s('section#'+slideNo).attr('data-slideId');
+				$s('.slideNav#'+cmSign+nextSlide).trigger('click');
 			}
 		});
-		$('#info').on('click', function(){
-			$('#signsContainer, #slideNav, #info, #social').css('opacity', '0').hide();
-			$('#signsContainer, #slideNav').empty();
-			$('#content').css('top', '0').css('opacity', '1').show();
-			$('#slide2').css('top', '0').css('opacity', '1').show();
-			$('.bg1').fadeIn();
-			$('#starfield').removeAttr('style');
+		$s('#info').on('click', function(){
+			$s('#signsContainer, #slideNav, #info, #social').css('opacity', '0').hide();
+			$s('#signsContainer, #slideNav').empty();
+			$s('#content').css('top', '0').css('opacity', '1').show();
+			$s('#slide2').css('top', '0').css('opacity', '1').show();
+			$s('.bg1').fadeIn();
+			$s('#backgroundGradient').removeAttr('style');
 		});
 	});
 }
@@ -997,12 +1175,12 @@ function starField() {
 	var starsCamera, starsScene, renderer, stars=[];
 
 	function init(){
-		starsCamera = new THREE.PerspectiveCamera(100, $('#starfield').width() / $('#starfield').height(), 1, 5000);
+		starsCamera = new THREE.PerspectiveCamera(100, $s('#starfield').width() / $s('#starfield').height(), 1, 5000);
 		starsCamera.position.z = 1000;
 		starsScene = new THREE.Scene();
 		renderer = new THREE.WebGLRenderer({antialiased: true,alpha: true});
-		renderer.setSize( $('#starfield').width(), $('#starfield').height() );
-		$('#starfield').append( renderer.domElement );
+		renderer.setSize( $s('#starfield').width(), $s('#starfield').height() );
+		$s('#starfield').append( renderer.domElement );
 	}
 
 	function addSphere(){
@@ -1043,13 +1221,13 @@ function planet(planetType) {
 		antialias: true,
 		alpha: true
 	});
-	planetRender.setSize( $('#planet').width(), $('#planet').height() );
-	$('#planet').append( planetRender.domElement )
+	planetRender.setSize( $s('#planet').width(), $s('#planet').height() );
+	$s('#planet').append( planetRender.domElement )
 	planetRender.shadowMap.enabled = true
 
 	var onRenderFcts= [];
 	var planetScene = new THREE.Scene();
-	var camera = new THREE.PerspectiveCamera(75, $('#planet').width() / $('#planet').height() );
+	var camera = new THREE.PerspectiveCamera(75, $s('#planet').width() / $s('#planet').height() );
 	camera.position.z = 1;
 
 	var light = new THREE.AmbientLight( 0x222222 )
@@ -1185,15 +1363,12 @@ function planet(planetType) {
 	})
 }
 
-function exists(data) {
-	if(!data || data==null || data=='undefined' || typeof(data)=='undefined') return false;
-	else return true;
-}
+function exists(data) {if(!data || data==null || data=='undefined' || typeof(data)=='undefined') return false;else return true;}
 
 (function(){function e(){}function t(e,t){for(var n=e.length;n--;)if(e[n].listener===t)return n;return-1}function n(e){return function(){return this[e].apply(this,arguments)}}var i=e.prototype,r=this,o=r.EventEmitter;i.getListeners=function(e){var t,n,i=this._getEvents();if("object"==typeof e){t={};for(n in i)i.hasOwnProperty(n)&&e.test(n)&&(t[n]=i[n])}else t=i[e]||(i[e]=[]);return t},i.flattenListeners=function(e){var t,n=[];for(t=0;e.length>t;t+=1)n.push(e[t].listener);return n},i.getListenersAsObject=function(e){var t,n=this.getListeners(e);return n instanceof Array&&(t={},t[e]=n),t||n},i.addListener=function(e,n){var i,r=this.getListenersAsObject(e),o="object"==typeof n;for(i in r)r.hasOwnProperty(i)&&-1===t(r[i],n)&&r[i].push(o?n:{listener:n,once:!1});return this},i.on=n("addListener"),i.addOnceListener=function(e,t){return this.addListener(e,{listener:t,once:!0})},i.once=n("addOnceListener"),i.defineEvent=function(e){return this.getListeners(e),this},i.defineEvents=function(e){for(var t=0;e.length>t;t+=1)this.defineEvent(e[t]);return this},i.removeListener=function(e,n){var i,r,o=this.getListenersAsObject(e);for(r in o)o.hasOwnProperty(r)&&(i=t(o[r],n),-1!==i&&o[r].splice(i,1));return this},i.off=n("removeListener"),i.addListeners=function(e,t){return this.manipulateListeners(!1,e,t)},i.removeListeners=function(e,t){return this.manipulateListeners(!0,e,t)},i.manipulateListeners=function(e,t,n){var i,r,o=e?this.removeListener:this.addListener,s=e?this.removeListeners:this.addListeners;if("object"!=typeof t||t instanceof RegExp)for(i=n.length;i--;)o.call(this,t,n[i]);else for(i in t)t.hasOwnProperty(i)&&(r=t[i])&&("function"==typeof r?o.call(this,i,r):s.call(this,i,r));return this},i.removeEvent=function(e){var t,n=typeof e,i=this._getEvents();if("string"===n)delete i[e];else if("object"===n)for(t in i)i.hasOwnProperty(t)&&e.test(t)&&delete i[t];else delete this._events;return this},i.removeAllListeners=n("removeEvent"),i.emitEvent=function(e,t){var n,i,r,o,s=this.getListenersAsObject(e);for(r in s)if(s.hasOwnProperty(r))for(i=s[r].length;i--;)n=s[r][i],n.once===!0&&this.removeListener(e,n.listener),o=n.listener.apply(this,t||[]),o===this._getOnceReturnValue()&&this.removeListener(e,n.listener);return this},i.trigger=n("emitEvent"),i.emit=function(e){var t=Array.prototype.slice.call(arguments,1);return this.emitEvent(e,t)},i.setOnceReturnValue=function(e){return this._onceReturnValue=e,this},i._getOnceReturnValue=function(){return this.hasOwnProperty("_onceReturnValue")?this._onceReturnValue:!0},i._getEvents=function(){return this._events||(this._events={})},e.noConflict=function(){return r.EventEmitter=o,e},"function"==typeof define&&define.amd?define("eventEmitter/EventEmitter",[],function(){return e}):"object"==typeof module&&module.exports?module.exports=e:this.EventEmitter=e}).call(this),function(e){function t(t){var n=e.event;return n.target=n.target||n.srcElement||t,n}var n=document.documentElement,i=function(){};n.addEventListener?i=function(e,t,n){e.addEventListener(t,n,!1)}:n.attachEvent&&(i=function(e,n,i){e[n+i]=i.handleEvent?function(){var n=t(e);i.handleEvent.call(i,n)}:function(){var n=t(e);i.call(e,n)},e.attachEvent("on"+n,e[n+i])});var r=function(){};n.removeEventListener?r=function(e,t,n){e.removeEventListener(t,n,!1)}:n.detachEvent&&(r=function(e,t,n){e.detachEvent("on"+t,e[t+n]);try{delete e[t+n]}catch(i){e[t+n]=void 0}});var o={bind:i,unbind:r};"function"==typeof define&&define.amd?define("eventie/eventie",o):e.eventie=o}(this),function(e,t){"function"==typeof define&&define.amd?define(["eventEmitter/EventEmitter","eventie/eventie"],function(n,i){return t(e,n,i)}):"object"==typeof exports?module.exports=t(e,require("wolfy87-eventemitter"),require("eventie")):e.imagesLoaded=t(e,e.EventEmitter,e.eventie)}(window,function(e,t,n){function i(e,t){for(var n in t)e[n]=t[n];return e}function r(e){return"[object Array]"===d.call(e)}function o(e){var t=[];if(r(e))t=e;else if("number"==typeof e.length)for(var n=0,i=e.length;i>n;n++)t.push(e[n]);else t.push(e);return t}function s(e,t,n){if(!(this instanceof s))return new s(e,t);"string"==typeof e&&(e=document.querySelectorAll(e)),this.elements=o(e),this.options=i({},this.options),"function"==typeof t?n=t:i(this.options,t),n&&this.on("always",n),this.getImages(),a&&(this.jqDeferred=new a.Deferred);var r=this;setTimeout(function(){r.check()})}function f(e){this.img=e}function c(e){this.src=e,v[e]=this}var a=e.jQuery,u=e.console,h=u!==void 0,d=Object.prototype.toString;s.prototype=new t,s.prototype.options={},s.prototype.getImages=function(){this.images=[];for(var e=0,t=this.elements.length;t>e;e++){var n=this.elements[e];"IMG"===n.nodeName&&this.addImage(n);var i=n.nodeType;if(i&&(1===i||9===i||11===i))for(var r=n.querySelectorAll("img"),o=0,s=r.length;s>o;o++){var f=r[o];this.addImage(f)}}},s.prototype.addImage=function(e){var t=new f(e);this.images.push(t)},s.prototype.check=function(){function e(e,r){return t.options.debug&&h&&u.log("confirm",e,r),t.progress(e),n++,n===i&&t.complete(),!0}var t=this,n=0,i=this.images.length;if(this.hasAnyBroken=!1,!i)return this.complete(),void 0;for(var r=0;i>r;r++){var o=this.images[r];o.on("confirm",e),o.check()}},s.prototype.progress=function(e){this.hasAnyBroken=this.hasAnyBroken||!e.isLoaded;var t=this;setTimeout(function(){t.emit("progress",t,e),t.jqDeferred&&t.jqDeferred.notify&&t.jqDeferred.notify(t,e)})},s.prototype.complete=function(){var e=this.hasAnyBroken?"fail":"done";this.isComplete=!0;var t=this;setTimeout(function(){if(t.emit(e,t),t.emit("always",t),t.jqDeferred){var n=t.hasAnyBroken?"reject":"resolve";t.jqDeferred[n](t)}})},a&&(a.fn.imagesLoaded=function(e,t){var n=new s(this,e,t);return n.jqDeferred.promise(a(this))}),f.prototype=new t,f.prototype.check=function(){var e=v[this.img.src]||new c(this.img.src);if(e.isConfirmed)return this.confirm(e.isLoaded,"cached was confirmed"),void 0;if(this.img.complete&&void 0!==this.img.naturalWidth)return this.confirm(0!==this.img.naturalWidth,"naturalWidth"),void 0;var t=this;e.on("confirm",function(e,n){return t.confirm(e.isLoaded,n),!0}),e.check()},f.prototype.confirm=function(e,t){this.isLoaded=e,this.emit("confirm",this,t)};var v={};return c.prototype=new t,c.prototype.check=function(){if(!this.isChecked){var e=new Image;n.bind(e,"load",this),n.bind(e,"error",this),e.src=this.src,this.isChecked=!0}},c.prototype.handleEvent=function(e){var t="on"+e.type;this[t]&&this[t](e)},c.prototype.onload=function(e){this.confirm(!0,"onload"),this.unbindProxyEvents(e)},c.prototype.onerror=function(e){this.confirm(!1,"onerror"),this.unbindProxyEvents(e)},c.prototype.confirm=function(e,t){this.isConfirmed=!0,this.isLoaded=e,this.emit("confirm",this,t)},c.prototype.unbindProxyEvents=function(e){n.unbind(e.target,"load",this),n.unbind(e.target,"error",this)},s});
-!function($){"use strict";var Typed=function(el,options){this.el=$(el);this.options=$.extend({},$.fn.typed.defaults,options);this.isInput=this.el.is('input');this.attr=this.options.attr;this.showCursor=this.isInput?false:this.options.showCursor;this.elContent=this.attr?this.el.attr(this.attr):this.el.text()
-this.contentType=this.options.contentType;this.typeSpeed=this.options.typeSpeed;this.startDelay=this.options.startDelay;this.backSpeed=this.options.backSpeed;this.backDelay=this.options.backDelay;this.stringsElement=this.options.stringsElement;this.strings=this.options.strings;this.strPos=0;this.arrayPos=0;this.stopNum=0;this.loop=this.options.loop;this.loopCount=this.options.loopCount;this.curLoop=0;this.stop=false;this.cursorChar=this.options.cursorChar;this.shuffle=this.options.shuffle;this.sequence=[];this.build();};Typed.prototype={constructor:Typed,init:function(){var self=this;self.timeout=setTimeout(function(){for(var i=0;i<self.strings.length;++i)self.sequence[i]=i;if(self.shuffle)self.sequence=self.shuffleArray(self.sequence);self.typewrite(self.strings[self.sequence[self.arrayPos]],self.strPos);},self.startDelay);},build:function(){var self=this;if(this.showCursor===true){this.cursor=$("<span class=\"typed-cursor\">"+this.cursorChar+"</span>");this.el.after(this.cursor);}
-if(this.stringsElement){self.strings=[];this.stringsElement.hide();var strings=this.stringsElement.find('p');$.each(strings,function(key,value){self.strings.push($(value).html());});}
+!function($){"use strict";var Typed=function(el,options){this.el=$s(el);this.options=$.extend({},$.fn.typed.defaults,options);this.isInput=this.el.is('input');this.attr=this.options.attr;this.showCursor=this.isInput?false:this.options.showCursor;this.elContent=this.attr?this.el.attr(this.attr):this.el.text()
+this.contentType=this.options.contentType;this.typeSpeed=this.options.typeSpeed;this.startDelay=this.options.startDelay;this.backSpeed=this.options.backSpeed;this.backDelay=this.options.backDelay;this.stringsElement=this.options.stringsElement;this.strings=this.options.strings;this.strPos=0;this.arrayPos=0;this.stopNum=0;this.loop=this.options.loop;this.loopCount=this.options.loopCount;this.curLoop=0;this.stop=false;this.cursorChar=this.options.cursorChar;this.shuffle=this.options.shuffle;this.sequence=[];this.build();};Typed.prototype={constructor:Typed,init:function(){var self=this;self.timeout=setTimeout(function(){for(var i=0;i<self.strings.length;++i)self.sequence[i]=i;if(self.shuffle)self.sequence=self.shuffleArray(self.sequence);self.typewrite(self.strings[self.sequence[self.arrayPos]],self.strPos);},self.startDelay);},build:function(){var self=this;if(this.showCursor===true){this.cursor=$s("<span class=\"typed-cursor\">"+this.cursorChar+"</span>");this.el.after(this.cursor);}
+if(this.stringsElement){self.strings=[];this.stringsElement.hide();var strings=this.stringsElement.find('p');$s.each(strings,function(key,value){self.strings.push($s(value).html());});}
 this.init();},typewrite:function(curString,curStrPos){if(this.stop===true){return;}
 var humanize=Math.round(Math.random()*(100-30))+this.typeSpeed;var self=this;self.timeout=setTimeout(function(){var charPause=0;var substr=curString.substr(curStrPos);if(substr.charAt(0)==='^'){var skip=1;if(/^\^\d+/.test(substr)){substr=/\d+/.exec(substr)[0];skip+=substr.length;charPause=parseInt(substr);}
 curString=curString.substring(0,curStrPos)+curString.substring(curStrPos+skip);}
@@ -1214,7 +1389,7 @@ else if(curStrPos<=self.stopNum){self.arrayPos++;if(self.arrayPos===self.strings
 self.typewrite(self.strings[self.sequence[self.arrayPos]],curStrPos);}},humanize);},shuffleArray:function(array){var tmp,current,top=array.length;if(top)while(--top){current=Math.floor(Math.random()*(top+1));tmp=array[current];array[current]=array[top];array[top]=tmp;}
 return array;},reset:function(){var self=this;clearInterval(self.timeout);var id=this.el.attr('id');this.el.after('<span id="'+id+'"/>')
 this.el.remove();if(typeof this.cursor!=='undefined'){this.cursor.remove();}
-self.options.resetCallback();}};$.fn.typed=function(option){return this.each(function(){var $this=$(this),data=$this.data('typed'),options=typeof option=='object'&&option;if(!data)$this.data('typed',(data=new Typed(this,options)));if(typeof option=='string')data[option]();});};$.fn.typed.defaults={strings:["These are the default values...","You know what you should do?","Use your own!","Have a great day!"],stringsElement:null,typeSpeed:0,startDelay:0,backSpeed:0,shuffle:false,backDelay:500,loop:false,loopCount:false,showCursor:true,cursorChar:"|",attr:null,contentType:'html',callback:function(){},preStringTyped:function(){},onStringTyped:function(){},resetCallback:function(){}};}(window.jQuery);
+self.options.resetCallback();}};$.fn.typed=function(option){return this.each(function(){var $this=$s(this),data=$this.data('typed'),options=typeof option=='object'&&option;if(!data)$this.data('typed',(data=new Typed(this,options)));if(typeof option=='string')data[option]();});};$.fn.typed.defaults={strings:["These are the default values...","You know what you should do?","Use your own!","Have a great day!"],stringsElement:null,typeSpeed:0,startDelay:0,backSpeed:0,shuffle:false,backDelay:500,loop:false,loopCount:false,showCursor:true,cursorChar:"|",attr:null,contentType:'html',callback:function(){},preStringTyped:function(){},onStringTyped:function(){},resetCallback:function(){}};}(window.jQuery);
 (function(a){if(typeof define==="function"&&define.amd&&define.amd.jQuery){define(["jquery"],a)}else{a(jQuery)}}(function(f){var y="1.6.12",p="left",o="right",e="up",x="down",c="in",A="out",m="none",s="auto",l="swipe",t="pinch",B="tap",j="doubletap",b="longtap",z="hold",E="horizontal",u="vertical",i="all",r=10,g="start",k="move",h="end",q="cancel",a="ontouchstart" in window,v=window.navigator.msPointerEnabled&&!window.navigator.pointerEnabled,d=window.navigator.pointerEnabled||window.navigator.msPointerEnabled,C="TouchSwipe";var n={fingers:1,threshold:75,cancelThreshold:null,pinchThreshold:20,maxTimeThreshold:null,fingerReleaseThreshold:250,longTapThreshold:500,doubleTapThreshold:200,swipe:null,swipeLeft:null,swipeRight:null,swipeUp:null,swipeDown:null,swipeStatus:null,pinchIn:null,pinchOut:null,pinchStatus:null,click:null,tap:null,doubleTap:null,longTap:null,hold:null,triggerOnTouchEnd:true,triggerOnTouchLeave:false,allowPageScroll:"auto",fallbackToMouseEvents:true,excludedElements:"label, button, input, select, textarea, a, .noSwipe",preventDefaultEvents:true};f.fn.swipe=function(H){var G=f(this),F=G.data(C);if(F&&typeof H==="string"){if(F[H]){return F[H].apply(this,Array.prototype.slice.call(arguments,1))}else{f.error("Method "+H+" does not exist on jQuery.swipe")}}else{if(F&&typeof H==="object"){F.option.apply(this,arguments)}else{if(!F&&(typeof H==="object"||!H)){return w.apply(this,arguments)}}}return G};f.fn.swipe.version=y;f.fn.swipe.defaults=n;f.fn.swipe.phases={PHASE_START:g,PHASE_MOVE:k,PHASE_END:h,PHASE_CANCEL:q};f.fn.swipe.directions={LEFT:p,RIGHT:o,UP:e,DOWN:x,IN:c,OUT:A};f.fn.swipe.pageScroll={NONE:m,HORIZONTAL:E,VERTICAL:u,AUTO:s};f.fn.swipe.fingers={ONE:1,TWO:2,THREE:3,FOUR:4,FIVE:5,ALL:i};function w(F){if(F&&(F.allowPageScroll===undefined&&(F.swipe!==undefined||F.swipeStatus!==undefined))){F.allowPageScroll=m}if(F.click!==undefined&&F.tap===undefined){F.tap=F.click}if(!F){F={}}F=f.extend({},f.fn.swipe.defaults,F);return this.each(function(){var H=f(this);var G=H.data(C);if(!G){G=new D(this,F);H.data(C,G)}})}function D(a4,au){var au=f.extend({},au);var az=(a||d||!au.fallbackToMouseEvents),K=az?(d?(v?"MSPointerDown":"pointerdown"):"touchstart"):"mousedown",ax=az?(d?(v?"MSPointerMove":"pointermove"):"touchmove"):"mousemove",V=az?(d?(v?"MSPointerUp":"pointerup"):"touchend"):"mouseup",T=az?null:"mouseleave",aD=(d?(v?"MSPointerCancel":"pointercancel"):"touchcancel");var ag=0,aP=null,ac=0,a1=0,aZ=0,H=1,ap=0,aJ=0,N=null;var aR=f(a4);var aa="start";var X=0;var aQ={};var U=0,a2=0,a5=0,ay=0,O=0;var aW=null,af=null;try{aR.bind(K,aN);aR.bind(aD,a9)}catch(aj){f.error("events not supported "+K+","+aD+" on jQuery.swipe")}this.enable=function(){aR.bind(K,aN);aR.bind(aD,a9);return aR};this.disable=function(){aK();return aR};this.destroy=function(){aK();aR.data(C,null);aR=null};this.option=function(bc,bb){if(typeof bc==="object"){au=f.extend(au,bc)}else{if(au[bc]!==undefined){if(bb===undefined){return au[bc]}else{au[bc]=bb}}else{if(!bc){return au}else{f.error("Option "+bc+" does not exist on jQuery.swipe.options")}}}return null};function aN(bd){if(aB()){return}if(f(bd.target).closest(au.excludedElements,aR).length>0){return}var be=bd.originalEvent?bd.originalEvent:bd;var bc,bf=be.touches,bb=bf?bf[0]:be;aa=g;if(bf){X=bf.length}else{if(au.preventDefaultEvents!==false){bd.preventDefault()}}ag=0;aP=null;aJ=null;ac=0;a1=0;aZ=0;H=1;ap=0;N=ab();S();ai(0,bb);if(!bf||(X===au.fingers||au.fingers===i)||aX()){U=ar();if(X==2){ai(1,bf[1]);a1=aZ=at(aQ[0].start,aQ[1].start)}if(au.swipeStatus||au.pinchStatus){bc=P(be,aa)}}else{bc=false}if(bc===false){aa=q;P(be,aa);return bc}else{if(au.hold){af=setTimeout(f.proxy(function(){aR.trigger("hold",[be.target]);if(au.hold){bc=au.hold.call(aR,be,be.target)}},this),au.longTapThreshold)}an(true)}return null}function a3(be){var bh=be.originalEvent?be.originalEvent:be;if(aa===h||aa===q||al()){return}var bd,bi=bh.touches,bc=bi?bi[0]:bh;var bf=aH(bc);a2=ar();if(bi){X=bi.length}if(au.hold){clearTimeout(af)}aa=k;if(X==2){if(a1==0){ai(1,bi[1]);a1=aZ=at(aQ[0].start,aQ[1].start)}else{aH(bi[1]);aZ=at(aQ[0].end,aQ[1].end);aJ=aq(aQ[0].end,aQ[1].end)}H=a7(a1,aZ);ap=Math.abs(a1-aZ)}if((X===au.fingers||au.fingers===i)||!bi||aX()){aP=aL(bf.start,bf.end);ak(be,aP);ag=aS(bf.start,bf.end);ac=aM();aI(aP,ag);if(au.swipeStatus||au.pinchStatus){bd=P(bh,aa)}if(!au.triggerOnTouchEnd||au.triggerOnTouchLeave){var bb=true;if(au.triggerOnTouchLeave){var bg=aY(this);bb=F(bf.end,bg)}if(!au.triggerOnTouchEnd&&bb){aa=aC(k)}else{if(au.triggerOnTouchLeave&&!bb){aa=aC(h)}}if(aa==q||aa==h){P(bh,aa)}}}else{aa=q;P(bh,aa)}if(bd===false){aa=q;P(bh,aa)}}function M(bb){var bc=bb.originalEvent?bb.originalEvent:bb,bd=bc.touches;if(bd){if(bd.length&&!al()){G();return true}else{if(bd.length&&al()){return true}}}if(al()){X=ay}a2=ar();ac=aM();if(ba()||!am()){aa=q;P(bc,aa)}else{if(au.triggerOnTouchEnd||(au.triggerOnTouchEnd==false&&aa===k)){if(au.preventDefaultEvents!==false){bb.preventDefault()}aa=h;P(bc,aa)}else{if(!au.triggerOnTouchEnd&&a6()){aa=h;aF(bc,aa,B)}else{if(aa===k){aa=q;P(bc,aa)}}}}an(false);return null}function a9(){X=0;a2=0;U=0;a1=0;aZ=0;H=1;S();an(false)}function L(bb){var bc=bb.originalEvent?bb.originalEvent:bb;if(au.triggerOnTouchLeave){aa=aC(h);P(bc,aa)}}function aK(){aR.unbind(K,aN);aR.unbind(aD,a9);aR.unbind(ax,a3);aR.unbind(V,M);if(T){aR.unbind(T,L)}an(false)}function aC(bf){var be=bf;var bd=aA();var bc=am();var bb=ba();if(!bd||bb){be=q}else{if(bc&&bf==k&&(!au.triggerOnTouchEnd||au.triggerOnTouchLeave)){be=h}else{if(!bc&&bf==h&&au.triggerOnTouchLeave){be=q}}}return be}function P(bd,bb){var bc,be=bd.touches;if((J()&&W())||(Q()&&aX())){if(J()&&W()){bc=aF(bd,bb,l)}if((Q()&&aX())&&bc!==false){bc=aF(bd,bb,t)}}else{if(aG()&&bc!==false){bc=aF(bd,bb,j)}else{if(ao()&&bc!==false){bc=aF(bd,bb,b)}else{if(ah()&&bc!==false){bc=aF(bd,bb,B)}}}}if(bb===q){if(W()){bc=aF(bd,bb,l)}if(aX()){bc=aF(bd,bb,t)}a9(bd)}if(bb===h){if(be){if(!be.length){a9(bd)}}else{a9(bd)}}return bc}function aF(be,bb,bd){var bc;if(bd==l){aR.trigger("swipeStatus",[bb,aP||null,ag||0,ac||0,X,aQ]);if(au.swipeStatus){bc=au.swipeStatus.call(aR,be,bb,aP||null,ag||0,ac||0,X,aQ);if(bc===false){return false}}if(bb==h&&aV()){aR.trigger("swipe",[aP,ag,ac,X,aQ]);if(au.swipe){bc=au.swipe.call(aR,be,aP,ag,ac,X,aQ);if(bc===false){return false}}switch(aP){case p:aR.trigger("swipeLeft",[aP,ag,ac,X,aQ]);if(au.swipeLeft){bc=au.swipeLeft.call(aR,be,aP,ag,ac,X,aQ)}break;case o:aR.trigger("swipeRight",[aP,ag,ac,X,aQ]);if(au.swipeRight){bc=au.swipeRight.call(aR,be,aP,ag,ac,X,aQ)}break;case e:aR.trigger("swipeUp",[aP,ag,ac,X,aQ]);if(au.swipeUp){bc=au.swipeUp.call(aR,be,aP,ag,ac,X,aQ)}break;case x:aR.trigger("swipeDown",[aP,ag,ac,X,aQ]);if(au.swipeDown){bc=au.swipeDown.call(aR,be,aP,ag,ac,X,aQ)}break}}}if(bd==t){aR.trigger("pinchStatus",[bb,aJ||null,ap||0,ac||0,X,H,aQ]);if(au.pinchStatus){bc=au.pinchStatus.call(aR,be,bb,aJ||null,ap||0,ac||0,X,H,aQ);if(bc===false){return false}}if(bb==h&&a8()){switch(aJ){case c:aR.trigger("pinchIn",[aJ||null,ap||0,ac||0,X,H,aQ]);if(au.pinchIn){bc=au.pinchIn.call(aR,be,aJ||null,ap||0,ac||0,X,H,aQ)}break;case A:aR.trigger("pinchOut",[aJ||null,ap||0,ac||0,X,H,aQ]);if(au.pinchOut){bc=au.pinchOut.call(aR,be,aJ||null,ap||0,ac||0,X,H,aQ)}break}}}if(bd==B){if(bb===q||bb===h){clearTimeout(aW);clearTimeout(af);if(Z()&&!I()){O=ar();aW=setTimeout(f.proxy(function(){O=null;aR.trigger("tap",[be.target]);if(au.tap){bc=au.tap.call(aR,be,be.target)}},this),au.doubleTapThreshold)}else{O=null;aR.trigger("tap",[be.target]);if(au.tap){bc=au.tap.call(aR,be,be.target)}}}}else{if(bd==j){if(bb===q||bb===h){clearTimeout(aW);O=null;aR.trigger("doubletap",[be.target]);if(au.doubleTap){bc=au.doubleTap.call(aR,be,be.target)}}}else{if(bd==b){if(bb===q||bb===h){clearTimeout(aW);O=null;aR.trigger("longtap",[be.target]);if(au.longTap){bc=au.longTap.call(aR,be,be.target)}}}}}return bc}function am(){var bb=true;if(au.threshold!==null){bb=ag>=au.threshold}return bb}function ba(){var bb=false;if(au.cancelThreshold!==null&&aP!==null){bb=(aT(aP)-ag)>=au.cancelThreshold}return bb}function ae(){if(au.pinchThreshold!==null){return ap>=au.pinchThreshold}return true}function aA(){var bb;if(au.maxTimeThreshold){if(ac>=au.maxTimeThreshold){bb=false}else{bb=true}}else{bb=true}return bb}function ak(bb,bc){if(au.preventDefaultEvents===false){return}if(au.allowPageScroll===m){bb.preventDefault()}else{var bd=au.allowPageScroll===s;switch(bc){case p:if((au.swipeLeft&&bd)||(!bd&&au.allowPageScroll!=E)){bb.preventDefault()}break;case o:if((au.swipeRight&&bd)||(!bd&&au.allowPageScroll!=E)){bb.preventDefault()}break;case e:if((au.swipeUp&&bd)||(!bd&&au.allowPageScroll!=u)){bb.preventDefault()}break;case x:if((au.swipeDown&&bd)||(!bd&&au.allowPageScroll!=u)){bb.preventDefault()}break}}}function a8(){var bc=aO();var bb=Y();var bd=ae();return bc&&bb&&bd}function aX(){return !!(au.pinchStatus||au.pinchIn||au.pinchOut)}function Q(){return !!(a8()&&aX())}function aV(){var be=aA();var bg=am();var bd=aO();var bb=Y();var bc=ba();var bf=!bc&&bb&&bd&&bg&&be;return bf}function W(){return !!(au.swipe||au.swipeStatus||au.swipeLeft||au.swipeRight||au.swipeUp||au.swipeDown)}function J(){return !!(aV()&&W())}function aO(){return((X===au.fingers||au.fingers===i)||!a)}function Y(){return aQ[0].end.x!==0}function a6(){return !!(au.tap)}function Z(){return !!(au.doubleTap)}function aU(){return !!(au.longTap)}function R(){if(O==null){return false}var bb=ar();return(Z()&&((bb-O)<=au.doubleTapThreshold))}function I(){return R()}function aw(){return((X===1||!a)&&(isNaN(ag)||ag<au.threshold))}function a0(){return((ac>au.longTapThreshold)&&(ag<r))}function ah(){return !!(aw()&&a6())}function aG(){return !!(R()&&Z())}function ao(){return !!(a0()&&aU())}function G(){a5=ar();ay=event.touches.length+1}function S(){a5=0;ay=0}function al(){var bb=false;if(a5){var bc=ar()-a5;if(bc<=au.fingerReleaseThreshold){bb=true}}return bb}function aB(){return !!(aR.data(C+"_intouch")===true)}function an(bb){if(bb===true){aR.bind(ax,a3);aR.bind(V,M);if(T){aR.bind(T,L)}}else{aR.unbind(ax,a3,false);aR.unbind(V,M,false);if(T){aR.unbind(T,L,false)}}aR.data(C+"_intouch",bb===true)}function ai(bd,bb){var bc={start:{x:0,y:0},end:{x:0,y:0}};bc.start.x=bc.end.x=bb.pageX||bb.clientX;bc.start.y=bc.end.y=bb.pageY||bb.clientY;aQ[bd]=bc;return bc}function aH(bb){var bd=bb.identifier!==undefined?bb.identifier:0;var bc=ad(bd);if(bc===null){bc=ai(bd,bb)}bc.end.x=bb.pageX||bb.clientX;bc.end.y=bb.pageY||bb.clientY;return bc}function ad(bb){return aQ[bb]||null}function aI(bb,bc){bc=Math.max(bc,aT(bb));N[bb].distance=bc}function aT(bb){if(N[bb]){return N[bb].distance}return undefined}function ab(){var bb={};bb[p]=av(p);bb[o]=av(o);bb[e]=av(e);bb[x]=av(x);return bb}function av(bb){return{direction:bb,distance:0}}function aM(){return a2-U}function at(be,bd){var bc=Math.abs(be.x-bd.x);var bb=Math.abs(be.y-bd.y);return Math.round(Math.sqrt(bc*bc+bb*bb))}function a7(bb,bc){var bd=(bc/bb)*1;return bd.toFixed(2)}function aq(){if(H<1){return A}else{return c}}function aS(bc,bb){return Math.round(Math.sqrt(Math.pow(bb.x-bc.x,2)+Math.pow(bb.y-bc.y,2)))}function aE(be,bc){var bb=be.x-bc.x;var bg=bc.y-be.y;var bd=Math.atan2(bg,bb);var bf=Math.round(bd*180/Math.PI);if(bf<0){bf=360-Math.abs(bf)}return bf}function aL(bc,bb){var bd=aE(bc,bb);if((bd<=45)&&(bd>=0)){return p}else{if((bd<=360)&&(bd>=315)){return p}else{if((bd>=135)&&(bd<=225)){return o}else{if((bd>45)&&(bd<135)){return x}else{return e}}}}}function ar(){var bb=new Date();return bb.getTime()}function aY(bb){bb=f(bb);var bd=bb.offset();var bc={left:bd.left,right:bd.left+bb.outerWidth(),top:bd.top,bottom:bd.top+bb.outerHeight()};return bc}function F(bb,bc){return(bb.x>bc.left&&bb.x<bc.right&&bb.y>bc.top&&bb.y<bc.bottom)}}}));
 
 </script>
