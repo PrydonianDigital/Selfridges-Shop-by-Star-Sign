@@ -687,7 +687,8 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 </div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r72/three.min.js"></script>
 <script src="https://dl.dropboxusercontent.com/u/5409438/sbss/threex.astrology.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.1.8/imagesloaded.pkgd.min.js"></script><script async src="//platform.twitter.com/widgets.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.1.8/imagesloaded.pkgd.min.js"></script>
+<script async src="//platform.twitter.com/widgets.js"></script>
 <script>
 var $s = jQuery.noConflict();
 
@@ -728,25 +729,24 @@ $s(function() {
 	});
 });
 
-var sbssJson = '/wcsstore/Selfridges/upload/javascript/sbss.js',
-	female = '/wcsstore/Selfridges/upload/javascript/female.js',
-	male = '/wcsstore/Selfridges/upload/javascript/male.js';
+var scriptBasePath = '/wcsstore/Selfridges/upload/javascript/',
+	imageBasePath = 'https://dl.dropboxusercontent.com/u/5409438/sbss/images/',
+	sbssJson = scriptBasePath+'sbss.js',
+	female = scriptBasePath+'female.js',
+	male = scriptBasePath+'male.js';
 
 function slides() {
-	var sbssJson = '/wcsstore/Selfridges/upload/javascript/sbss.js',
-	female = '/wcsstore/Selfridges/upload/javascript/female.js',
-	male = '/wcsstore/Selfridges/upload/javascript/male.js';
 	$s('#coverIt').show();
-	$s.getJSON('http://cm.selfridges.com/wcsstore/Selfridges/upload/javascript/sbss.js', function(data) {
+	$s.getJSON(sbssJson, function(data) {
 		var slide = '';
 		$s.each(data.slides, function (i, a) {
 			slide += '<section class="introSlide" data-state="'+a.name+'" id="slide'+a.ids+'">';
 			slide += '<div class="contain">';
 			if(exists(a.header)) {
-				slide += '<img src="https://dl.dropboxusercontent.com/u/5409438/sbss/'+a.header+'" class="'+a.headerId+'">';
+				slide += '<img src="'+imageBasePath+a.header+'" class="'+a.headerId+'">';
 			}
 			if(exists(a.image)) {
-				slide += '<img src="https://dl.dropboxusercontent.com/u/5409438/sbss/'+a.image+'" class="'+a.imageId+'">';
+				slide += '<img src="'+imageBasePath+a.image+'" class="'+a.imageId+'">';
 			}
 			if(exists(a.text)) {
 				slide += '<p>'+a.text+'</p>';
