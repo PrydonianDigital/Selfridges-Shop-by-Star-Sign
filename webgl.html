@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="" />
+</head>
+<body>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script>
+$(function() {
+	$('body').append('<canvas id="my-canvas"></canvas>');
+	var asa;
+	var canvas;
+	var dcanvas;
+	var gl; var expmt;
+	canvas = $('#my-canvas');
+	console.log(canvas);
+    dcanvas = canvas[0];
+    expmt = false;
+    if ("WebGLRenderingContext" in window) {
+        console.log("browser knows what webgl is.");
+    }
+    try { gl = dcanvas.getContext("webgl"); }
+    catch (x) { gl = null; }
+    if (gl == null) {
+        try { gl = dcanvas.getContext("experimental-webgl"); }
+        catch (x) { gl = null; }
+        if (gl == null) { console.log('but can\'t speak it'); }
+        else { expmt = true; console.log('and speaks it experimentally.'); }
+    } else {
+        console.log('and speaks it natively.');
+    }
+
+    if (gl || expmt) {
+        console.log("loading webgl content.");
+    } else {
+        console.log("image-only fallback. no webgl.");
+        canvas.remove();
+    }
+});
+</script>
+</body>
+</html>
