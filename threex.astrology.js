@@ -23,7 +23,7 @@ var THREEx=THREEx||{}
 THREEx.Planets={}
 THREEx.Planets.baseURL='https://dl.dropboxusercontent.com/u/5409438/sbss/images/'
 THREEx.Planets.createSun=function(){var geometry=new THREE.SphereGeometry(0.5,32,32)
-var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'sunmap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'sunbump.jpg'),bumpScale:0.005,})
+var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'sunmap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'sunbump.jpg'),bumpScale:0.005,specularMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'sunspec.jpg'),specular:new THREE.Color('grey'),})
 var mesh=new THREE.Mesh(geometry,material)
 return mesh}
 THREEx.Planets.createMercury=function(){var geometry=new THREE.SphereGeometry(0.5,32,32)
