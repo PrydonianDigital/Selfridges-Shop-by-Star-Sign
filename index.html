@@ -132,6 +132,7 @@ body {
 }
 .contain p {
 	padding: 0 40px;
+	margin-bottom: 0;
 }
 #mainTitle, #mainLogo {
 	width: 100%;
@@ -422,8 +423,7 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 	z-index: 10;
 	position: relative;
 }
-
-.no-webgl #planet {
+#planet.noWebGL {
 	width: 240px;
 	height: 240px;
 	margin: 0 auto;
@@ -496,7 +496,7 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 	top: 18px;
 	left: 50%;
 	margin-left: -220px;
-	background: url('+imageBasePath+'Saturnrings.png) no-repeat;
+	background: url(images/Saturnrings.png) no-repeat;
 	background-size: 440px 220px;
 }
 .shop {
@@ -716,7 +716,7 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 		min-height: 660px;
 	}
 	.signContainer img {
-		width: 23%;
+		width: 16%;
 		margin: 0 1%;
 	}
 	#info {
@@ -807,7 +807,7 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 	<div id="starfield">
 		<div id="coverIt">
 			<div id="loading">
-				<img src="images/loading.gif">
+				<img src="images/loading.gif" width="128px" height="128">
 			</div>
 		</div>
 		<div class="slides">
@@ -816,7 +816,7 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 			<div id="slideNav"></div>
 			<img src="images/info.png" id="info" />
 			<div id="social">
-				<a href="#" id="fbShare"><img src="images/sbss_icon_facebook.png" alt="Facebook" width="88" height="88" id="facebook" /></a>
+				<a href="#Facebook" id="fbShare"><img src="images/sbss_icon_facebook.png" alt="Facebook" width="88" height="88" id="facebook" /></a>
 				<a href="https://twitter.com/intent/tweet?text=Selfridges%20Shop%20by%20Star%20Sign%20&url=https%3A%2F%2Fdl.dropboxusercontent.com%2Fu%2F5409438%2Fsbss%2Findex.html&via=Selfridges"><img src="images/sbss_icon_twitter.png" alt="sbss_icon_twitter" width="88" height="88" /></a>
 			</div>
 		</div>
@@ -903,7 +903,7 @@ function slides() {
 				slide += '<img src="'+imageBasePath+a.header+'" class="'+a.headerId+'">';
 			}
 			if(exists(a.image)) {
-				slide += '<a href="#" id="showSigns"><img src="'+imageBasePath+a.image+'" class="'+a.imageId+'"></a>';
+				slide += '<a href="#showSigns" id="showSigns"><img src="'+imageBasePath+a.image+'" class="'+a.imageId+'"></a>';
 			}
 			if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 				if(exists(a.mobiletext)) {
@@ -915,8 +915,8 @@ function slides() {
 				}
 			}
 			slide += '<div class="selectors">';
-			slide += '<a href="#" id="female" style="background: url('+imageBasePath+'sbss_tab_female.png);"></a>';
-			slide += '<a href="#" id="male" style="background: url('+imageBasePath+'sbss_tab_male.png);"></a>';
+			slide += '<a href="#female" id="female" style="background: url('+imageBasePath+'sbss_tab_female.png);"></a>';
+			slide += '<a href="#male" id="male" style="background: url('+imageBasePath+'sbss_tab_male.png);"></a>';
 			slide += '</div>';
 			slide += '<div class="signContainer"></div>';
 			slide += '</div>';
@@ -968,7 +968,7 @@ function starsigns(genderId) {
 	$s.getJSON(genderId+'.js', function(data) {
 		var sign = '';
 		$s.each(data.starsigns, function(i,a) {
-			sign += '<a href="#" id="'+a.name+'"data-gender="'+genderId+'" data-sign="'+a.id+'" data-starsign="'+a.name+'"><img src="'+imageBasePath+'icon_'+a.name+'.png" /></a>';
+			sign += '<a href="#'+a.name+'" id="'+a.name+'"data-gender="'+genderId+'" data-sign="'+a.id+'" data-starsign="'+a.name+'"><img src="'+imageBasePath+'icon_'+a.name+'.png" /></a>';
 		});
 		$s('#slide2 .signContainer').html(sign);
 		$s('#slide2 .signContainer img').each(function(i) {
@@ -996,13 +996,13 @@ function signType(genderType, sign) {
 		//slide1 main
 		var slide = '<section class="signSlide active" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[0].id+'" id="'+data.starsigns[signId].name+'1" data-background="">'+
 			'<div class="signTitle" style="background: url('+imageBasePath+'title_'+data.starsigns[signId].name+'.png);"></div>'+
-			'<div class="signImage"><img src="'+imageBasePath+data.starsigns[signId].name+'.png"></div>';
+			'<div class="signImage"><img src="'+imageBasePath+data.starsigns[signId].name+'.png" width="329" height="250"></div>';
 			if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 				slide += '<p>'+data.starsigns[signId].slides[0].signMobileText+'</p>';
 			} else {
 				slide += '<p>'+data.starsigns[signId].slides[0].signText+'</p>';
 			}
-			slide += '<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[1].id+'"><img src="'+imageBasePath+'/sbss_icon_next.png" alt="Next" /></a></div>'+
+			slide += '<div class="next"><a href="#slide'+data.starsigns[signId].name+data.starsigns[signId].slides[1].id+'" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[1].id+'"><img src="'+imageBasePath+'/sbss_icon_next.png" alt="Next" /></a></div>'+
 			'<div class="skip"><a href="'+cmPath+data.starsigns[signId].url+'&cm_sp=StarsignsProductEdits-_-Slide'+data.starsigns[signId].slides[0].id+'skiptoproduct-_-'+genderId+data.starsigns[signId].name+'" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[0].id+'">Skip <img src="'+imageBasePath+'sbss_icon_skip.png" alt="skip" /></a></div>'+
 			'</section>';
 
@@ -1015,7 +1015,7 @@ function signType(genderType, sign) {
 			} else {
 				slide += '<p>'+data.starsigns[signId].slides[1].horoscope+'</p>';
 			}
-			slide += '<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[2].id+'"><img src="'+imageBasePath+'sbss_icon_next.png" alt="Next" /></a></div>'+
+			slide += '<div class="next"><a href="#slide'+data.starsigns[signId].name+data.starsigns[signId].slides[1].id+'" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[2].id+'"><img src="'+imageBasePath+'sbss_icon_next.png" alt="Next" /></a></div>'+
 			'<div class="skip"><a href="'+cmPath+data.starsigns[signId].url+'&cm_sp=StarsignsProductEdits-_-Slide'+data.starsigns[signId].slides[1].id+'skiptoproduct-_-'+genderId+data.starsigns[signId].name+'" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[1].id+'">Skip <img src="'+imageBasePath+'sbss_icon_skip.png" alt="skip" /></a></div>'+
 			'</section>';
 
@@ -1023,20 +1023,24 @@ function signType(genderType, sign) {
 			slide += '<section class="signSlide" data-icon="icon" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[2].id+'" id="'+data.starsigns[signId].name+'3" data-background="">'+
 			'<div class="iconTitle" style="background: url('+imageBasePath+'style_title_'+data.starsigns[signId].slides[2].iconTitle+'_'+genderId+'.png);"></div>'+
 			'<div class="iconImage glow"><img src="'+imageBasePath+'style_icon_'+data.starsigns[signId].slides[2].icon+'_quote_'+genderId+'.png" class="front"><img src="'+imageBasePath+'style_icon_'+data.starsigns[signId].slides[2].icon+'_face_'+genderId+'.png" class="back"></div>'+
-			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[3].id+'"><img src="'+imageBasePath+'sbss_icon_next.png" alt="Next" /></a></div>'+
+			'<div class="next"><a href="#slide'+data.starsigns[signId].name+data.starsigns[signId].slides[1].id+'" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[3].id+'"><img src="'+imageBasePath+'sbss_icon_next.png" alt="Next" /></a></div>'+
 			'<div class="skip"><a href="'+cmPath+data.starsigns[signId].url+'&cm_sp=StarsignsProductEdits-_-Slide'+data.starsigns[signId].slides[2].id+'skiptoproduct-_-'+genderId+data.starsigns[signId].name+'" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[2].id+'">Skip <img src="'+imageBasePath+'sbss_icon_skip.png" alt="skip" /></a></div>'+
 			'</section>';
 
 		//slide4 planet
 			slide += '<section class="signSlide" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[3].id+'" id="'+data.starsigns[signId].name+'4" data-background="">'+
-			'<div class="signTitle" style="background: url('+imageBasePath+'planet_title_'+data.starsigns[signId].slides[3].planetTitle+'.png);"></div>'+
-			'<div id="planet"></div>';
+			'<div class="signTitle" style="background: url('+imageBasePath+'planet_title_'+data.starsigns[signId].slides[3].planetTitle+'.png);"></div>';
+			if(webglAvailable()) {
+				slide += '<div id="planet"></div>';
+			} else {
+				slide += '<div id="planet" class="noWebGL"></div>';
+			}
 			if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 				slide += '<p class="horoscope">'+data.starsigns[signId].slides[3].planetMobileText+'</p>';
 			} else {
 				slide += '<p class="horoscope">'+data.starsigns[signId].slides[3].planetText+'</p>';
 			}
-			slide += '<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[4].id+'"><img src="'+imageBasePath+'sbss_icon_next.png" alt="Next" /></a></div>'+
+			slide += '<div class="next"><a href="#slide'+data.starsigns[signId].name+data.starsigns[signId].slides[1].id+'" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[4].id+'"><img src="'+imageBasePath+'sbss_icon_next.png" alt="Next" /></a></div>'+
 			'<div class="skip"><a href="'+cmPath+data.starsigns[signId].url+'&cm_sp=StarsignsProductEdits-_-Slide'+data.starsigns[signId].slides[3].id+'skiptoproduct-_-'+genderId+data.starsigns[signId].name+'" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[3].id+'">Skip <img src="'+imageBasePath+'sbss_icon_skip.png" alt="skip" /></a></div>'+
 			'</section>';
 
@@ -1044,7 +1048,7 @@ function signType(genderType, sign) {
 			slide += '<section class="signSlide bg" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[4].id+'" data-type="type" id="'+data.starsigns[signId].name+'5" data-colour="'+data.starsigns[signId].slides[4].colour+'">'+
 			'<div class="signTitle" style="background: url('+imageBasePath+'colour_title_'+data.starsigns[signId].slides[4].colourTitle+'.png);"></div>'+
 			'<div class="signImageColour type" data-type="type"><div id="typed-strings">'+data.starsigns[signId].slides[4].colourText+'</div><span id="typed"></span></div>'+
-			'<div class="next"><a href="#" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[5].id+'"><img src="'+imageBasePath+'sbss_icon_next.png" alt="Next" /></a></div>'+
+			'<div class="next"><a href="#slide'+data.starsigns[signId].name+data.starsigns[signId].slides[1].id+'" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[5].id+'"><img src="'+imageBasePath+'sbss_icon_next.png" alt="Next" /></a></div>'+
 			'<div class="skip"><a href="'+cmPath+data.starsigns[signId].url+'&cm_sp=StarsignsProductEdits-_-Slide'+data.starsigns[signId].slides[4].id+'skiptoproduct-_-'+genderId+data.starsigns[signId].name+'" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[4].id+'">Skip <img src="'+imageBasePath+'sbss_icon_skip.png" alt="skip" /></a></div>'+
 			'</section>';
 
@@ -1070,18 +1074,18 @@ function signType(genderType, sign) {
 		var planetType = data.starsigns[signId].slides[3].planet;
 		if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 			if(planetType == 'Saturn') {
-				$s('#planet').html('<div id="planettype" style="background: url('+imageBasePath+''+planetType+'mobile.jpg) !important;"></div><div id="rings"></div>');
+				$s('#planet').html('<div id="planettype" style="background: url('+imageBasePath+''+planetType+'mobile.jpg) !important; background-size: 480px 240px !important;"></div><div id="rings"></div>');
 			} else {
-				$s('#planet').html('<div id="planettype" style="background: url('+imageBasePath+''+planetType+'mobile.jpg) !important;"></div>');
+				$s('#planet').html('<div id="planettype" style="background: url('+imageBasePath+''+planetType+'mobile.jpg) !important; background-size: 480px 240px !important;"></div>');
 			}
 		} else {
 			if ( webglAvailable() ) {
 				planet(planetType);
 			} else {
 				if(planetType == 'Saturn') {
-					$s('#planet').html('<div id="planettype" style="background: url('+imageBasePath+''+planetType+'mobile.jpg) !important;"></div><div id="rings"></div>');
+					$s('#planet').html('<div id="planettype" style="background: url('+imageBasePath+''+planetType+'mobile.jpg) !important; background-size: 480px 240px !important;"></div><div id="rings"></div>');
 				} else {
-					$s('#planet').html('<div id="planettype" style="background: url('+imageBasePath+''+planetType+'mobile.jpg) !important;"></div>');
+					$s('#planet').html('<div id="planettype" style="background: url('+imageBasePath+''+planetType+'mobile.jpg) !important; background-size: 480px 240px !important;"></div>');
 				}
 			}
 		}
@@ -1150,7 +1154,7 @@ function signType(genderType, sign) {
 		$s('.signSlide').bind(mousewheelevt, function(e){
 			var evt = window.event || e //equalize event object
 			evt = evt.originalEvent ? evt.originalEvent : evt; //convert to originalEvent if possible
-			var delta = evt.detail ? evt.detail*(200) : evt.wheelDelta //check for detail first, because it is used by Opera and FF
+			var delta = evt.detail ? evt.detail*(20) : evt.wheelDelta //check for detail first, because it is used by Opera and FF
 			if(delta > 0) {
 				var slideNo = $s(this).attr('id'),
 					slideId = $s(this).attr('data-slideid'),
@@ -1169,7 +1173,7 @@ function signType(genderType, sign) {
 			}
 		});
 		$s('#info').on('click', function(){
-			$s('#signsContainer, #slideNav, #info, #social').css('opacity', '0').hide();
+			$s('#signsContainer, #slideNav, #info').css('opacity', '0').hide();
 			$s('#signsContainer, #slideNav').empty();
 			$s('#content').css('top', '0').css('opacity', '1').show();
 			$s('#slide2').css('top', '0').css('opacity', '1').show();
@@ -1274,13 +1278,13 @@ function planet(planetType) {
 		var planetMesh = THREEx.Planets.createSun()
 		containerPlanet.add(planetMesh)
 		onRenderFcts.push(function(delta, now){
-			planetMesh.rotation.y += 0.00609 * delta;
+			planetMesh.rotation.y += 0.01609 * delta;
 		})
 	} else if( planetType === 'Mercury' ){
 		var planetMesh = THREEx.Planets.createMercury()
 		containerPlanet.add(planetMesh)
 		onRenderFcts.push(function(delta, now){
-			planetMesh.rotation.y += 0.003407 * delta;
+			planetMesh.rotation.y += 0.013407 * delta;
 		})
 	} else if( planetType === 'Venus' ){
 		var planetMesh = THREEx.Planets.createVenus()
