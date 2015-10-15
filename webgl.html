@@ -9,36 +9,20 @@
 <script src="http://code.jquery.com/jquery.min.js"></script>
 <script>
 $(function() {
-	$('body').append('<canvas id="my-canvas"></canvas>');
-	var asa;
-	var canvas;
-	var dcanvas;
-	var gl; var expmt;
-	canvas = $('#my-canvas');
-	console.log(canvas);
-    dcanvas = canvas[0];
-    expmt = false;
-    if ("WebGLRenderingContext" in window) {
-        console.log("browser knows what webgl is.");
-    }
-    try { gl = dcanvas.getContext("webgl"); }
-    catch (x) { gl = null; }
-    if (gl == null) {
-        try { gl = dcanvas.getContext("experimental-webgl"); }
-        catch (x) { gl = null; }
-        if (gl == null) { console.log('but can\'t speak it'); }
-        else { expmt = true; console.log('and speaks it experimentally.'); }
-    } else {
-        console.log('and speaks it natively.');
-    }
-
-    if (gl || expmt) {
-        console.log("loading webgl content.");
-    } else {
-        console.log("image-only fallback. no webgl.");
-        canvas.remove();
-    }
+	if ( webglAvailable() ) {
+		console.log('yay');
+	} else {
+		console.log('nay');
+	}
 });
+function webglAvailable() {
+	try {
+		var canvas = document.createElement( 'canvas' );
+		return !!( window.WebGLRenderingContext && (canvas.getContext( 'webgl' ) || canvas.getContext( 'experimental-webgl' ) ) );
+	} catch ( e ) {
+		return false;
+	}
+}
 </script>
 </body>
 </html>
