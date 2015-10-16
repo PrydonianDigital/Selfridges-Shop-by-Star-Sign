@@ -479,7 +479,7 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 	width: 240px;
 	height: 240px;
 	z-index: 100;
-	margin: 10px auto 0 auto;
+	margin: 10px auto 30px auto;
 	border-radius: 50%;
 	background-position: left center;
 	background-size: 480px 240px !important;
@@ -541,8 +541,8 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 }
 #social {
 	position: absolute;
-	bottom: 40px;
-	left: 40px;
+	bottom: 20px;
+	left: 20px;
 	z-index: 80;
 	width: 62px;
 	display: none;
@@ -679,6 +679,68 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 		background-position-x: 480px;
 	}
 }
+@media screen and (max-device-width: 1024px) {
+	.signSlide {
+		padding: 20px 40px;
+	}
+	.signTitle, .iconTitle {
+		width: calc(100% - 80px);
+		height: 80px;
+	}
+	.signSlide p {
+		font-size: 24px;
+		width: calc(100% - 80px);
+	}
+	#typed {
+		font-size: 60px;
+	}
+	.signImageBody {
+		width: 100%;
+		height: 50%;
+		margin: 0;
+		left: 0;
+		top: 400px;
+	}
+	.signImageBody img {
+		display: block;
+		height: 100%;
+		width: auto;
+		margin: 0 auto;
+	}
+	.iconImage {
+		width: 320px;
+		height: 320px;
+		max-width: 320px;
+		margin: 20px auto;
+	}
+	#planet {
+		width: 240px;
+		height: 240px;
+		margin: 0 auto;
+		z-index: 10;
+		position: relative;
+	}
+	.iconImage img {
+		width: 100%;
+		height: auto;
+	}
+	.signImageColour {
+		height: 175px;
+	}
+	.type {
+		position: relative;
+		width: 90%;
+		display: block;
+		margin: 0 auto;
+	}
+	#typed {
+		height: 175px;
+		width: 100%;
+		display: block;
+		font-size: 40px;
+	}
+
+}
 @media screen and (max-device-width: 760px) {
 	#content {
 		width: 100%;
@@ -734,9 +796,6 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 		font-size: 42px;
 		width: calc(100% - 80px);
 	}
-	#typed {
-		font-size: 60px;
-	}
 	.signImageBody {
 		width: 100%;
 		height: 50%;
@@ -773,6 +832,7 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 		height: 320px;
 		width: 100%;
 		display: block;
+		font-size: 60px;
 	}
 	.next {
 		width: 120px;
@@ -872,7 +932,7 @@ $s(function() {
 
 $s(window).load(function(){
 	slides();
-	if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+	if( /Android|webOS|iPhone|iPod|iPad|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 		$s('#starfield').append('<div class="stars"></div><div class="stars"></div><div class="stars"></div><div class="stars"></div><div class="stars"></div>');
 	} else {
 		if ( webglAvailable() ) {
@@ -905,7 +965,7 @@ function slides() {
 			if(exists(a.image)) {
 				slide += '<a href="#showSigns" id="showSigns"><img src="'+imageBasePath+a.image+'" class="'+a.imageId+'"></a>';
 			}
-			if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+			if( /Android|webOS|iPhone|iPod|iPad|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 				if(exists(a.mobiletext)) {
 					slide += '<p>'+a.mobiletext+'</p>';
 				}
@@ -997,7 +1057,7 @@ function signType(genderType, sign) {
 		var slide = '<section class="signSlide active" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[0].id+'" id="'+data.starsigns[signId].name+'1" data-background="">'+
 			'<div class="signTitle" style="background: url('+imageBasePath+'title_'+data.starsigns[signId].name+'.png);"></div>'+
 			'<div class="signImage"><img src="'+imageBasePath+data.starsigns[signId].name+'.png" width="329" height="250"></div>';
-			if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+			if( /Android|webOS|iPhone|iPod|iPad|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 				slide += '<p>'+data.starsigns[signId].slides[0].signMobileText+'</p>';
 			} else {
 				slide += '<p>'+data.starsigns[signId].slides[0].signText+'</p>';
@@ -1009,11 +1069,11 @@ function signType(genderType, sign) {
 		//slide2 horoscope
 			slide += '<section class="signSlide" data-sign="'+data.starsigns[signId].name+'" data-slideId="'+data.starsigns[signId].slides[1].id+'" id="'+data.starsigns[signId].name+'2" data-background="">'+
 			'<div class="signTitle" style="background: url('+imageBasePath+'title_'+data.starsigns[signId].name+'.png);"></div>'+
-			'<p><iframe class="iframe" width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/'+data.starsigns[signId].slides[1].embed+'&amp;auto_play=false&amp;buying=false&amp;liking=false&amp;download=false&amp;sharing=false&amp;show_artwork=false&amp;show_comments=false&amp;show_playcount=false&amp;show_user=false&amp;hide_related=true&amp;visual=false&amp;start_track=0&amp;color=592a71&amp;callback=true"></iframe></p>';
-			if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-				slide += '<p>'+data.starsigns[signId].slides[1].horoscopeMobile+'</p>';
+			'<p><iframe class="iframe" width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/'+data.starsigns[signId].slides[1].embed+'&amp;auto_play=false&amp;buying=false&amp;liking=false&amp;download=false&amp;sharing=false&amp;show_artwork=false&amp;show_comments=false&amp;show_playcount=false&amp;show_user=false&amp;hide_related=true&amp;visual=false&amp;start_track=0&amp;color=592a71&amp;theme_color=592a71&amp;callback=true"></iframe></p>';
+			if( /Android|webOS|iPhone|iPod|iPad|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+				slide += '<p>&ldquo;'+data.starsigns[signId].slides[1].horoscopeMobile+'&rdquo;</p>';
 			} else {
-				slide += '<p>'+data.starsigns[signId].slides[1].horoscope+'</p>';
+				slide += '<p>&ldquo;'+data.starsigns[signId].slides[1].horoscope+'&rdquo;</p>';
 			}
 			slide += '<div class="next"><a href="#slide'+data.starsigns[signId].name+data.starsigns[signId].slides[1].id+'" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[2].id+'"><img src="'+imageBasePath+'sbss_icon_next.png" alt="Next" /></a></div>'+
 			'<div class="skip"><a href="'+cmPath+data.starsigns[signId].url+'&cm_sp=StarsignsProductEdits-_-Slide'+data.starsigns[signId].slides[1].id+'skiptoproduct-_-'+genderId+data.starsigns[signId].name+'" id="'+data.starsigns[signId].name+data.starsigns[signId].slides[1].id+'">Skip <img src="'+imageBasePath+'sbss_icon_skip.png" alt="skip" /></a></div>'+
@@ -1035,7 +1095,7 @@ function signType(genderType, sign) {
 			} else {
 				slide += '<div id="planet" class="noWebGL"></div>';
 			}
-			if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+			if( /Android|webOS|iPhone|iPod|iPad|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 				slide += '<p class="horoscope">'+data.starsigns[signId].slides[3].planetMobileText+'</p>';
 			} else {
 				slide += '<p class="horoscope">'+data.starsigns[signId].slides[3].planetText+'</p>';
@@ -1072,7 +1132,7 @@ function signType(genderType, sign) {
 			numSlides = $s('.signSlide').length;
 		$s('#coverIt').hide();
 		var planetType = data.starsigns[signId].slides[3].planet;
-		if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		if( /Android|webOS|iPhone|iPod|iPad|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 			if(planetType == 'Saturn') {
 				$s('#planet').html('<div id="planettype" style="background: url('+imageBasePath+''+planetType+'mobile.jpg) !important; background-size: 480px 240px !important;"></div><div id="rings"></div>');
 			} else {
