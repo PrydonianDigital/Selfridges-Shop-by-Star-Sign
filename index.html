@@ -849,15 +849,8 @@ a#female:hover, a#male:hover, a#female.active, a#male.active {
 }
 @media screen and (max-device-width: 480px) {
 	.iconImage {
-		width: 480px;
-		height: 480px;
-		margin: 20px auto;
-	}
-}
-@media screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
-	.iconImage {
-		width: 660px;
-		height: 660px;
+		width: 220px;
+		height: 220px;
 		margin: 20px auto;
 	}
 }
@@ -974,12 +967,6 @@ function slides() {
 					slide += '<p>'+a.text+'</p>';
 				}
 			}
-			slide += '<div class="selectors">';
-			slide += '<a href="#female" id="female" style="background: url('+imageBasePath+'sbss_tab_female.png);"></a>';
-			slide += '<a href="#male" id="male" style="background: url('+imageBasePath+'sbss_tab_male.png);"></a>';
-			slide += '</div>';
-			slide += '<div class="signContainer"></div>';
-			slide += '</div>';
 			slide += '</section>';
 			$s('#content').html(slide);
 			$s('#coverIt').hide();
@@ -1010,16 +997,15 @@ function showSigns() {
 			top: '0'
 		},500, function(){
 			$s('#social').css('opacity', '1').show();
-			setTimeout(function () {
-				$s('a#female').trigger('click');
-			},1500);
-		});
-		$s('.selectors').on('click', 'a', function(e){
-			e.preventDefault();
-			$s('.selectors a').removeClass('active');
-			$s(this).addClass('active');
-			var genderId = $s(this).attr('id');
-			starsigns(genderId)
+			$s('#slide2 .contain').append('<div class="selectors"><a href="#female" id="female" style="background: url('+imageBasePath+'sbss_tab_female.png);" class="active"></a><a href="#male" id="male" style="background: url('+imageBasePath+'sbss_tab_male.png);"></a></div><div class="signContainer" />')
+			$s('.selectors').on('click', 'a', function(e){
+				e.preventDefault();
+				var genderId = $s(this).attr('id');
+				$s('.selectors a').removeClass('active');
+				$s(this).addClass('active');
+				starsigns(genderId)
+			});
+			$s('a#female').trigger('click');
 		});
 	});
 }
@@ -1042,6 +1028,7 @@ function starsigns(genderId) {
 			sign = $s(this).data('sign');
 		signType(genderType, sign)
 		console.log('Starsigns_'+genderType+'_'+starsign+'_Slide1');
+		//cmCreatePageviewTag('Starsigns_'+genderType+'_'+starsign+'_Slide1', 'SELF_STYLE');
 	});
 }
 
@@ -1165,6 +1152,7 @@ function signType(genderType, sign) {
 				cmSlide = $s('section#'+slideNo).attr('data-slideId')
 				slideTop = $s('#slides').height();
 			console.log('Starsigns_'+genderType+'_'+cmSign+'_Slide'+cmSlide);
+			//cmCreatePageviewTag('Starsigns_'+genderType+'_'+cmSign+'_Slide'+cmSlide, 'SELF_STYLE');
 			if(exists(colour)){
 				$s('#backgroundGradient').attr('style', 'background: #'+colour+' !important;');
 			} else {
@@ -1267,7 +1255,7 @@ function starField() {
 	}
 
 	function addSphere(){
-		for ( var z= -1000; z < 1000; z+=20 ) {
+		for ( var z= -1000; z < 1000; z+=40 ) {
 			var geometry   = new THREE.SphereGeometry(1, 50, 50)
 			var material = new THREE.MeshBasicMaterial( {color: 0xc8eafc} );
 			var sphere = new THREE.Mesh(geometry, material)
