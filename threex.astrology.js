@@ -21,7 +21,8 @@ var fragmentShader=['uniform vec3 glowColor;','uniform float coeficient;','unifo
 var material=new THREE.ShaderMaterial({uniforms:{coeficient:{type:"f",value:1.0},power:{type:"f",value:2},glowColor:{type:"c",value:new THREE.Color('pink')},},vertexShader:vertexShader,fragmentShader:fragmentShader,transparent:true,depthWrite:false,});return material}
 var THREEx=THREEx||{}
 THREEx.Planets={}
-THREEx.Planets.baseURL='https://dl.dropboxusercontent.com/u/5409438/sbss/images/'
+THREEx.Planets.baseURL='/wcsstore/Selfridges/upload/images/'
+THREE.ImageUtils.crossOrigin = ''
 THREEx.Planets.createSun=function(){var geometry=new THREE.SphereGeometry(0.5,32,32)
 var material=new THREE.MeshPhongMaterial({map:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'sunmap.jpg'),bumpMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'sunbump.jpg'),bumpScale:0.005,specularMap:THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'sunspec.jpg'),specular:new THREE.Color('grey'),})
 var mesh=new THREE.Mesh(geometry,material)
