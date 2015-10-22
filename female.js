@@ -17,7 +17,7 @@
 					"id": "2",
 					"name": "Aries",
 					"horoscope": "With Mercury in their house of authority, Aries will want to take charge this Christmas - as usual. But with generous Jupiter lighting up their sixth house of selfless service, they'll offer to do every little job - from doing the washing up to dishing out the gifts.",
-					"horoscopeMobile": "With Mercury in their house of authority, Aries will want to take charge this Christmas – as usual. But with generous Jupiter lighting up their sixth house of selfless service, they’ll offer to do every little job – from doing the washing up to dishing out the gifts.",
+					"horoscopeMobile": "With Mercury in their house of authority, Aries will want to take charge this Christmas – as usual. But with generous Jupiter lighting up their sixth house of selfless service, they'll offer to do every little job – from doing the washing up to dishing out the gifts.",
 					"embed": "228058683"
 				},
 				{
@@ -32,7 +32,7 @@
 					"planetTitle": "Mars",
 					"planet": "Mars",
 					"planetText": "Aries' passion and drive is directed by the planet Mars, the ruler of all things fearsome and feisty. Mars governs competition in all its forms - from sports to all-out war - and when it comes to gifting, be sure to reciprocate Aries' show of generosity if you want to avoid any showdowns over the Christmas pud.",
-					"planetMobileText": "Mars governs competition in all its forms, so when it comes to gifting be sure to reciprocate Aries’ show of generosity if you want to avoid any showdowns over the Christmas pud."
+					"planetMobileText": "Mars governs competition, so when it comes to gifting be sure to reciprocate Aries' show of generosity to avoid any showdowns over the Christmas pud."
 				},
 				{
 					"id": "5",
@@ -128,7 +128,7 @@
 					"planetTitle": "Mercury",
 					"planet": "Mercury",
 					"planetText": "Communication planet Mercury rules with a silver tongue, granting Geminians the gift of the gab. Presiding over knowledge and information, they can't help but spread the news - your secrets are most definitely NOT safe here. And don't be too disappointed if your gift fails to capture your Gemini's mercurial attention span for long.",
-					"planetMobileText": "Granted the gift of the gab by communication planet Mercury, your secrets are NOT safe with your Gemini. And don’t be too disappointed if your present fails to capture their mercurial attention span for long."
+					"planetMobileText": "Granted the gift of the gab by communication planet Mercury, your secrets are NOT safe with your Gemini."
 				},
 				{
 					"id": "5",
@@ -231,7 +231,7 @@
 					"name": "Leo",
 					"colourTitle": "Orange",
 					"colour": "eda906",
-					"colourText": "Leo rules the c<span>o</span>lours of the sun, reflecting the vibrant personality and positive outlook of this sign"
+					"colourText": "Leo rules the c<span>o</span>lours of the Sun, reflecting the vibrant personality and positive outlook of this sign"
 				},
 				{
 					"id": "6",
@@ -250,7 +250,7 @@
 					"id": "1",
 					"name": "Virgo",
 					"constellation": "Virgo",
-					"signText": "The deliciousness of life is in the detail for Virgo girl. She swoons over to-do lists and loves nothing more than curating endless “helfies” (home selfies) for her Instagram feed. A perfectionist by nature, get her seal of approval before splashing out on anything rash.",
+					"signText": "The deliciousness of life is in the detail for Virgo girl. She swoons over to-do lists and loves nothing more than curating endless \\\"helfies\\\" (home selfies) for her Instagram feed. A perfectionist by nature, get her seal of approval before splashing out on anything rash.",
 					"signMobileText": "The deliciousness of life is in the detail for Virgo girl. A perfectionist by nature, get her seal of approval before splashing out on anything rash."
 				},
 				{
@@ -272,7 +272,7 @@
 					"planetTitle": "Mercury",
 					"planet": "Mercury",
 					"planetText": "Like chatty Gemini, Virgo is ruled by communication planet Mercury. But in this more orderly sign, Mercury's quick wit and quest for constant data are expressed in a scientific approach to life, as opposed to a taste for gossip. As such, problem-solving presents are worth the investment.",
-					"planetMobileText": "When it comes to Virgo, Mercury's quick wit and quest for constant data are expressed in a scientific approach to life. As such, problem-solving presents are worth the investment."
+					"planetMobileText": "When it comes to Virgo, Mercury's quick wit and quest for constant data are expressed in a scientific approach to life. Problem-solving presents are worth the investment."
 				},
 				{
 					"id": "5",
@@ -327,7 +327,7 @@
 					"name": "Libra",
 					"colourTitle": "pGreen",
 					"colour": "96d1a1",
-					"colourText": "Never one to offend, this harmonious shade is easy on the eyes and calming for the mind"
+					"colourText": "Never one to offend, this harmonious shade is easy on the eyes and c<span>a</span>lming for the mind"
 				},
 				{
 					"id": "6",
@@ -368,7 +368,7 @@
 					"planetTitle": "Pluto",
 					"planet": "Pluto",
 					"planetText": "Pluto is the planet of personal transformation, and Scorpio moves through life with a constant phoenix-from-the-ashes intensity. Personal development is their favourite pastime. Word of warning: obsessed with what's going on behind the scenes (aka seriously psychic), Pluto doesn't like surprises - and nor do the people ruled by this planet.",
-					"planetMobileText": "Pluto is the planet of personal transformation, and Scorpios live life with a phoenix-from-the-ashes intensity. Note: Pluto doesn't like surprises - and nor do the people ruled by this planet."
+					"planetMobileText": "Pluto is the planet of personal transformation, and Scorpios live life with a phoenix-from-the-ashes intensity. Note: Pluto doesn't like surprises – and nor its Scorpio subjects."
 				},
 				{
 					"id": "5",
@@ -416,7 +416,7 @@
 					"planetTitle": "Jupiter",
 					"planet": "Jupiter",
 					"planetText": "The planet of luck, abundance and opportunity, it's no wonder Jupiter's subjects tend to look on the bright side. In general, everything really is going their way (no matter how life looks on the surface), which can make this jovial sign rather prone to taking risks - and a gift from Sagittarius can often feel like a practical joke.",
-					"planetMobileText": "The planet of luck and opportunity, Jupiter's subjects tend to look on the bright side. Rather prone to taking risks - and a gift from Sagittarius can often feel like a practical joke."
+					"planetMobileText": "The planet of luck and opportunity, Jupiter's subjects tend to look on the bright side. Prone to taking risks, a gift from Sagittarius can often feel like a practical joke."
 				},
 				{
 					"id": "5",
@@ -464,14 +464,14 @@
 					"planetTitle": "Saturn",
 					"planet": "Saturn",
 					"planetText": "Planet of ambition, discipline and tenacity, achieving one's goals is a serious business when Saturn's in town, and its Capricorn subjects will do whatever it takes to make it to the top - even if that means partying with their boss every night of the holiday season. They might be practical, but they're far from boring.",
-					"planetMobileText": "Achieving one's goals is a serious business when Saturn's in town, and its Capricorn subjects will do whatever it takes to make it to the top. They might be practical, but they're far from boring."
+					"planetMobileText": "Achieving one's goals is a serious business when Saturn's in town, and its Capricorn subjects will do whatever it takes to make it to the top."
 				},
 				{
 					"id": "5",
 					"name": "Capricorn",
 					"colourTitle": "Purple",
 					"colour": "b60492",
-					"colourText": "How fitting that this heavy-hitting sign rules the most regal of colours"
+					"colourText": "How fitting that this heavy-hitting sign rules the most regal of c<span>o</span>lours"
 				},
 				{
 					"id": "6",
@@ -484,7 +484,7 @@
 		}, {
 			"id": "10",
 			"name": "Aquarius",
-			"url": "/webapp/wcs/stores/servlet/FhBrowse?freeText=EDIT+SELFSTAR+AQUAWW+&srch=Y ",
+			"url": "/webapp/wcs/stores/servlet/FhBrowse?freeText=EDIT+SELFSTAR+AQUAWW+&srch=Y",
 			"slides": [
 				{
 					"id": "1",
@@ -560,14 +560,14 @@
 					"planetTitle": "Neptune",
 					"planet": "Neptune",
 					"planetText": "Pisces' ruling planet governs all the deep stuff - the imagination, intuition and emotions. And no wonder this creative sign loves to sleep so much, Neptune also rules dream states and fantasy, and it's where Pisces get their inspiration.",
-					"planetMobileText": "Pisces' ruling planet governs all the deep stuff - the imagination, intuition and emotions. Neptune also rules dream states and fantasy, and it's where Pisces get their creative inspiration."
+					"planetMobileText": "Pisces' ruling planet governs the imagination, intuition and emotions. Neptune also rules dream states and fantasy, and it's where Pisces get their inspiration."
 				},
 				{
 					"id": "5",
 					"name": "Pisces",
 					"colourTitle": "sGreen",
 					"colour": "3e8482",
-					"colourText": "Surprise, surprise - their ruling colour reflects the fact these watery creatures are most at home by the sea"
+					"colourText": "Surprise, surprise - their ruling c<span>o</span>lour reflects the fact these watery creatures are most at home by the sea"
 				},
 				{
 					"id": "6",
